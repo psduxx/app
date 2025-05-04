@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tomatoe 识别</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ff0000">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #uploadedImage {
+      max-width: 300px;
+      margin-top: 20px;
+    }
+    #label-container div {
+      margin-top: 5px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>番茄识别器</h1>
+  <input type="file" id="imageUpload" accept="image/*" />
+  <br />
+  <img id="uploadedImage" style="display:none;" />
+  <div id="label-container"></div>
+
+  <script type="text/javascript">
+    const MODEL_URL = "https://teachablemachine.withgoogle.com/models/rBQmk5A8M/";
+    let model, maxPredictions;
+
+    async function loadModel() {
+      const modelURL = MODEL_URL + "model.json";
+      const metadataURL = MODEL_URL + "metadata.json";
+
+      model = await tmImage.load(modelURL, metadataURL);
+      maxPredictions = model.getTotalClasses();
+
+      const labelContainer = document.getElementById("label-container");
+      labelContainer.innerHTML = "";
+      for (let i = 0; i < maxPredictions; i++) {
+        labelContainer.appendChild(document.createElement("div"));
+      }
+    }
+
+    document.getElementById("imageUpload").addEventListener("change", async (event) => {
+      const file = event.target.files[0];
+      if (!file || !model) return;
+
+      const imgElement = document.getElementById("uploadedImage");
+      imgElement.src = URL.createObjectURL(file); // ✅ 这里的 URL 是原生对象，现在没问题了
+      imgElement.style.display = "block";
+
+      imgElement.onload = async () => {
+        const prediction = await model.predict(imgElement);
+        const labelContainer = document.getElementById("label-container");
+        for (let i = 0; i < maxPredictions; i++) {
+          const classPrediction = prediction[i].className + ": " + (prediction[i].probability * 100).toFixed(2) + "%";
+          labelContainer.childNodes[i].innerHTML = classPrediction;
+        }
+      };
+    });
+
+    window.onload = loadModel;
+ 
+</script> 
+  
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function () { console.log("Service Worker Registered"); });
+  }
+</script>
+
+
+
+  </script>
+</body>
+</html>
