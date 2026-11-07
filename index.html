@@ -1,93 +1,606 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
-  <title>Tomatoe 识别</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DUMC — AI Software & Technical Support | Australia</title>
+  <meta name="description" content="DUMC builds and supports practical AI software for Australian businesses: AI technical support, custom software, and ready-made AI products you can license or buy outright." />
+  <meta property="og:title" content="DUMC — AI Software & Technical Support" />
+  <meta property="og:description" content="Custom AI software, ready-made AI products and ongoing technical support for Australian businesses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_AU" />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
- <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-  <!-- 可选：添加主题色和背景色 -->
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-  
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ff0000">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DUMC",
+    "description": "AI software development, AI products and technical support for Australian businesses.",
+    "email": "hello@dumc.com.au",
+    "areaServed": { "@type": "Country", "name": "Australia" },
+    "currenciesAccepted": "AUD",
+    "knowsAbout": ["Artificial intelligence", "Machine learning", "Computer vision", "Forecasting", "Custom software", "Technical support"]
+  }
+  </script>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
+    :root {
+      --bg: #f7f8f7;
+      --surface: #ffffff;
+      --surface-2: #eef3f2;
+      --text: #0f1a19;
+      --muted: #52615f;
+      --line: #dbe3e1;
+      --accent: #0f766e;
+      --accent-strong: #0b5c56;
+      --accent-soft: #ccfbf1;
+      --accent-ink: #ffffff;
+      --warm: #b45309;
+      --radius: 14px;
+      --shadow: 0 1px 2px rgba(15, 26, 25, .06), 0 8px 24px rgba(15, 26, 25, .06);
+      --max: 1120px;
     }
-    #uploadedImage {
-      max-width: 300px;
-      margin-top: 20px;
-    }
-    #label-container div {
-      margin-top: 5px;
-      font-size: 18px;
-    }
-  </style>
-</head>
-<body>
-  <h1>番茄识别器</h1>
-  <input type="file" id="imageUpload" accept="image/*" />
-  <br />
-  <img id="uploadedImage" style="display:none;" />
-  <div id="label-container"></div>
-
-  <script type="text/javascript">
-    const MODEL_URL = "https://teachablemachine.withgoogle.com/models/rBQmk5A8M/";
-    let model, maxPredictions;
-
-    async function loadModel() {
-      const modelURL = MODEL_URL + "model.json";
-      const metadataURL = MODEL_URL + "metadata.json";
-
-      model = await tmImage.load(modelURL, metadataURL);
-      maxPredictions = model.getTotalClasses();
-
-      const labelContainer = document.getElementById("label-container");
-      labelContainer.innerHTML = "";
-      for (let i = 0; i < maxPredictions; i++) {
-        labelContainer.appendChild(document.createElement("div"));
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1211;
+        --surface: #121c1b;
+        --surface-2: #172423;
+        --text: #e7efed;
+        --muted: #9db0ad;
+        --line: #243533;
+        --accent: #2dd4bf;
+        --accent-strong: #5eead4;
+        --accent-soft: #123b37;
+        --accent-ink: #062320;
+        --warm: #f59e0b;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
       }
     }
 
-    document.getElementById("imageUpload").addEventListener("change", async (event) => {
-      const file = event.target.files[0];
-      if (!file || !model) return;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); }
+    img, svg { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 72px 0; }
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 750; }
+    h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; }
+    h3 { font-size: 1.15rem; font-weight: 650; }
+    p { margin: 0 0 12px; }
+    .eyebrow {
+      display: inline-block; font-size: .78rem; font-weight: 650; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .lead { font-size: 1.12rem; color: var(--muted); max-width: 62ch; }
+    .section-head { max-width: 720px; margin-bottom: 36px; }
+    .section-head p { color: var(--muted); }
 
-      const imgElement = document.getElementById("uploadedImage");
-      imgElement.src = URL.createObjectURL(file); // ✅ 这里的 URL 是原生对象，现在没问题了
-      imgElement.style.display = "block";
+    /* Nav */
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(1.4) blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-weight: 800; letter-spacing: .04em; }
+    .brand img { width: 30px; height: 30px; }
+    .nav nav { display: flex; gap: 22px; align-items: center; }
+    .nav nav a { color: var(--muted); text-decoration: none; font-size: .95rem; }
+    .nav nav a:hover { color: var(--text); }
+    @media (max-width: 760px) { .nav nav a:not(.btn) { display: none; } }
 
-      imgElement.onload = async () => {
-        const prediction = await model.predict(imgElement);
-        const labelContainer = document.getElementById("label-container");
-        for (let i = 0; i < maxPredictions; i++) {
-          const classPrediction = prediction[i].className + ": " + (prediction[i].probability * 100).toFixed(2) + "%";
-          labelContainer.childNodes[i].innerHTML = classPrediction;
-        }
-      };
-    });
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 11px 18px; border-radius: 10px; font-weight: 600; font-size: .95rem;
+      text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: var(--accent-ink) !important; }
+    .btn-primary:hover { background: var(--accent-strong); }
+    .btn-ghost { border-color: var(--line); color: var(--text) !important; background: var(--surface); }
+    .btn-ghost:hover { border-color: var(--accent); }
+    .btn-sm { padding: 8px 14px; font-size: .9rem; }
 
-    window.onload = loadModel;
- 
-</script> 
-  
+    /* Hero */
+    .hero { padding: 88px 0 64px; }
+    .hero .grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+    .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0 24px; }
+    .trust { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .9rem; padding: 0; margin: 0; list-style: none; }
+    .trust li::before { content: "✓"; color: var(--accent); font-weight: 700; margin-right: 6px; }
+    .hero-card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .hero-card .row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: .95rem; }
+    .hero-card .row:last-child { border-bottom: 0; }
+    .hero-card .k { color: var(--muted); }
+    .pill { font-size: .78rem; font-weight: 650; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-strong); }
+    @media (max-width: 860px) { .hero .grid { grid-template-columns: 1fr; } }
+
+    /* Cards */
+    .cards { display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px) { .cards { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 24px; box-shadow: var(--shadow); display: flex; flex-direction: column;
+    }
+    .card p { color: var(--muted); }
+    .card ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); }
+    .card ul li { margin: 4px 0; }
+    .icon {
+      width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center;
+      background: var(--accent-soft); color: var(--accent-strong); margin-bottom: 16px;
+    }
+    .card.featured { border-color: var(--accent); }
+
+    /* Work */
+    .alt { background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .work .card { padding: 0; overflow: hidden; }
+    .work .viz { height: 150px; background: var(--surface-2); border-bottom: 1px solid var(--line); }
+    .work .viz svg { width: 100%; height: 100%; }
+    .work .body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+    .work .sector { font-size: .8rem; color: var(--warm); font-weight: 650; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 14px; }
+    .tag { font-size: .78rem; padding: 3px 9px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted); }
+    .note { color: var(--muted); font-size: .9rem; margin-top: 22px; }
+
+    /* Pricing / engagement */
+    .price { font-size: .95rem; color: var(--text); font-weight: 650; margin: 4px 0 10px; }
+    .card .btn { margin-top: auto; align-self: flex-start; }
+    .card ul + .btn { margin-top: 20px; }
+
+    /* Process */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: step; }
+    @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+    .step { border-top: 3px solid var(--accent); padding-top: 16px; }
+    .step::before { counter-increment: step; content: "0" counter(step); font-weight: 750; color: var(--accent); display: block; margin-bottom: 6px; }
+    .step p { color: var(--muted); font-size: .95rem; }
+
+    /* Industries */
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: .95rem; }
+
+    /* FAQ */
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; }
+    summary { cursor: pointer; font-weight: 600; }
+    details p { color: var(--muted); margin: 10px 0 0; }
+
+    /* Contact */
+    .contact .grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; }
+    @media (max-width: 860px) { .contact .grid { grid-template-columns: 1fr; } }
+    form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); display: grid; gap: 14px; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
+    label { display: grid; gap: 6px; font-size: .9rem; font-weight: 600; }
+    input, select, textarea {
+      font: inherit; font-weight: 400; color: var(--text); background: var(--bg);
+      border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%;
+    }
+    input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+    textarea { min-height: 120px; resize: vertical; }
+    .contact-list { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 12px; }
+    .contact-list li { display: flex; gap: 10px; align-items: baseline; }
+    .contact-list .k { color: var(--muted); min-width: 90px; font-size: .9rem; }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0; color: var(--muted); font-size: .9rem; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="DUMC home"><img src="favicon.svg" alt="" /> DUMC</a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#work">Recent work</a>
+      <a href="#products">Buy &amp; pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary btn-sm" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">AI software &amp; technical support · Australia</span>
+        <h1>Practical AI that works in the real world, built and supported in Australia.</h1>
+        <p class="lead">DUMC helps Australian businesses put AI to work: we support and integrate the tools you already have, build custom software when off-the-shelf won't do, and sell ready-made AI products you can deploy straight away.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#contact">Book a free 30-min consult</a>
+          <a class="btn btn-ghost" href="#work">See recent work</a>
+        </div>
+        <ul class="trust">
+          <li>Australian-based team</li>
+          <li>Quotes in AUD, GST included</li>
+          <li>Data hosted in Australia on request</li>
+          <li>You own the code you pay for</li>
+        </ul>
+      </div>
+      <aside class="hero-card" aria-label="Ways to work with DUMC">
+        <div class="row"><span class="k">AI technical support</span><span class="pill">Monthly</span></div>
+        <div class="row"><span class="k">Custom AI software</span><span class="pill">Fixed scope</span></div>
+        <div class="row"><span class="k">Ready-made AI products</span><span class="pill">Licence or buy</span></div>
+        <div class="row"><span class="k">Response time</span><strong>1 business day</strong></div>
+        <div class="row"><span class="k">Hours</span><strong>Mon–Fri, AEST</strong></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Three ways we help</h2>
+        <p>Start small with support, commission something bespoke, or buy a proven product. Most clients use a mix.</p>
+      </div>
+      <div class="cards">
+        <article class="card featured">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 18 0v5a2 2 0 0 1-2 2h-2v-6h4"/><path d="M3 13h4v6H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <h3>AI technical support</h3>
+          <p>An on-call AI and software team without the hiring cost.</p>
+          <ul>
+            <li>Set up and integrate AI tools (ChatGPT, Claude, Copilot, custom models) into your workflow</li>
+            <li>Keep existing models, scripts and data pipelines running</li>
+            <li>Troubleshooting, monitoring and upgrades</li>
+            <li>Staff training and practical AI usage policies</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Custom AI software</h3>
+          <p>Software shaped around your data and the way your business actually runs.</p>
+          <ul>
+            <li>Prediction and forecasting models</li>
+            <li>Computer vision and sensor-data analytics</li>
+            <li>Internal tools, dashboards, web and mobile apps</li>
+            <li>AI assistants and document automation over your own data</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Ready-made AI products</h3>
+          <p>Proven solutions from our recent projects, packaged so you can buy and deploy them quickly.</p>
+          <ul>
+            <li>Subscription, perpetual licence or full source-code purchase</li>
+            <li>Configured for your data and environment</li>
+            <li>Optional support plan</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT WORK -->
+  <section id="work" class="work">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Recent work</span>
+        <h2>Selected projects</h2>
+        <p>A short look at what we've delivered recently. Client names are withheld under confidentiality.</p>
+      </div>
+      <div class="cards">
+
+        <!-- Dozer -->
+        <article class="card">
+          <div class="viz" aria-hidden="true">
+            <svg viewBox="0 0 360 150" preserveAspectRatio="xMidYMid slice">
+              <rect width="360" height="150" fill="none"/>
+              <g stroke="currentColor" style="color:var(--line)" stroke-width="1">
+                <line x1="0" y1="118" x2="360" y2="118"/>
+              </g>
+              <g style="color:var(--accent)">
+                <rect x="118" y="62" width="88" height="34" rx="4" fill="currentColor" opacity=".9"/>
+                <rect x="160" y="40" width="34" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="3"/>
+                <rect x="112" y="96" width="102" height="20" rx="10" fill="none" stroke="currentColor" stroke-width="3"/>
+                <circle cx="124" cy="106" r="5" fill="currentColor"/><circle cx="202" cy="106" r="5" fill="currentColor"/>
+                <path d="M92 58 L104 58 L118 74 L118 92 L84 116 Z" fill="currentColor" opacity=".55"/>
+              </g>
+              <g fill="none" stroke-width="1.5" style="stroke:var(--warm)" stroke-dasharray="4 4">
+                <rect x="74" y="30" width="152" height="94" rx="4"/>
+              </g>
+              <text x="78" y="25" font-size="11" font-family="ui-monospace,monospace" style="fill:var(--warm)">dozer · 0.97</text>
+              <g style="fill:var(--muted)" font-size="10" font-family="ui-monospace,monospace">
+                <text x="246" y="56">load  ▮▮▮▮▯</text>
+                <text x="246" y="74">idle  ▮▯▯▯▯</text>
+                <text x="246" y="92">push  ▮▮▮▯▯</text>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <div class="sector">Construction &amp; mining</div>
+            <h3>Dozer — heavy-equipment AI</h3>
+            <p>AI tooling for earthmoving equipment that turns machine data and site footage into clear operational insight: what the machine is doing, how efficiently, and where time is lost.</p>
+            <div class="tags"><span class="tag">Computer vision</span><span class="tag">Machine telemetry</span><span class="tag">Analytics</span></div>
+          </div>
+        </article>
+
+        <!-- SSID -->
+        <article class="card">
+          <div class="viz" aria-hidden="true">
+            <svg viewBox="0 0 360 150" preserveAspectRatio="xMidYMid slice">
+              <g fill="none" style="stroke:var(--accent)" stroke-width="3" stroke-linecap="round">
+                <path d="M70 92 a40 40 0 0 1 56 0" />
+                <path d="M54 76 a62 62 0 0 1 88 0" opacity=".7"/>
+                <path d="M38 60 a84 84 0 0 1 120 0" opacity=".45"/>
+              </g>
+              <circle cx="98" cy="108" r="7" style="fill:var(--accent)"/>
+              <g font-family="ui-monospace,monospace" font-size="11">
+                <rect x="186" y="28" width="150" height="22" rx="5" style="fill:var(--surface)" />
+                <text x="196" y="43" style="fill:var(--text)">Office-5G</text><text x="296" y="43" style="fill:var(--accent)">−48</text>
+                <rect x="186" y="56" width="150" height="22" rx="5" style="fill:var(--surface)" />
+                <text x="196" y="71" style="fill:var(--text)">Warehouse</text><text x="296" y="71" style="fill:var(--accent)">−61</text>
+                <rect x="186" y="84" width="150" height="22" rx="5" style="fill:var(--surface)" />
+                <text x="196" y="99" style="fill:var(--text)">Guest</text><text x="296" y="99" style="fill:var(--warm)">−79</text>
+                <rect x="186" y="112" width="150" height="22" rx="5" style="fill:var(--surface)" />
+                <text x="196" y="127" style="fill:var(--muted)">hidden</text><text x="296" y="127" style="fill:var(--warm)">−86</text>
+              </g>
+            </svg>
+          </div>
+          <div class="body">
+            <div class="sector">IT &amp; operations</div>
+            <h3>SSID — wireless network intelligence</h3>
+            <p>A tool that discovers and analyses Wi-Fi networks (SSIDs) across a site, highlighting weak coverage, interference and unknown access points so IT teams can fix problems before users notice.</p>
+            <div class="tags"><span class="tag">Networking</span><span class="tag">Data pipeline</span><span class="tag">Dashboard</span></div>
+          </div>
+        </article>
+
+        <!-- Rain model -->
+        <article class="card">
+          <div class="viz" aria-hidden="true">
+            <svg viewBox="0 0 360 150" preserveAspectRatio="xMidYMid slice">
+              <g style="fill:var(--line)">
+                <rect x="30"  y="96"  width="18" height="24"/>
+                <rect x="58"  y="70"  width="18" height="50"/>
+                <rect x="86"  y="104" width="18" height="16"/>
+                <rect x="114" y="54"  width="18" height="66"/>
+                <rect x="142" y="84"  width="18" height="36"/>
+                <rect x="170" y="62"  width="18" height="58"/>
+              </g>
+              <g style="fill:var(--accent)" opacity=".85">
+                <rect x="198" y="74" width="18" height="46"/>
+                <rect x="226" y="48" width="18" height="72"/>
+                <rect x="254" y="88" width="18" height="32"/>
+                <rect x="282" y="66" width="18" height="54"/>
+                <rect x="310" y="96" width="18" height="24"/>
+              </g>
+              <path d="M39 92 L67 66 L95 98 L123 50 L151 80 L179 58 L207 70 L235 44 L263 84 L291 62 L319 92" fill="none" style="stroke:var(--warm)" stroke-width="2"/>
+              <line x1="192" y1="22" x2="192" y2="124" style="stroke:var(--muted)" stroke-dasharray="3 4"/>
+              <g font-family="ui-monospace,monospace" font-size="10" style="fill:var(--muted)">
+                <text x="128" y="20">observed</text><text x="200" y="20">forecast</text>
+              </g>
+              <line x1="20" y1="120" x2="340" y2="120" style="stroke:var(--line)"/>
+            </svg>
+          </div>
+          <div class="body">
+            <div class="sector">Agriculture &amp; planning</div>
+            <h3>Rain model — rainfall forecasting</h3>
+            <p>A machine-learning model that forecasts rainfall from weather-station and historical climate data, built to support weather-sensitive decisions such as scheduling, irrigation and site works.</p>
+            <div class="tags"><span class="tag">Time series</span><span class="tag">Machine learning</span><span class="tag">Forecasting</span></div>
+          </div>
+        </article>
+
+      </div>
+      <p class="note">Want more detail on any of these? We're happy to walk through a demo on a call, within confidentiality limits. From our lab: a small <a href="tomato/">in-browser image classifier</a> demo.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTS & PRICING -->
+  <section id="products" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Buy &amp; pricing</span>
+        <h2>Engage us, or buy the software outright</h2>
+        <p>Every quote is a fixed price in Australian dollars, GST included, with a tax invoice. No lock-in contracts.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>Support plan</h3>
+          <div class="price">Monthly retainer</div>
+          <p>A set block of support hours each month for AI tools, integrations and existing systems.</p>
+          <ul>
+            <li>Email and video-call support</li>
+            <li>Monitoring and maintenance</li>
+            <li>Cancel with 30 days' notice</li>
+          </ul>
+          <a class="btn btn-ghost" href="#contact" data-interest="AI technical support">Ask about support</a>
+        </article>
+        <article class="card featured">
+          <h3>Custom project</h3>
+          <div class="price">Fixed scope, fixed price</div>
+          <p>A free discovery call, then a written proposal with scope, timeline and price before any work starts.</p>
+          <ul>
+            <li>Working prototype early on</li>
+            <li>Milestone-based payments</li>
+            <li>Code and IP transferred to you</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact" data-interest="Custom AI software">Start a project</a>
+        </article>
+        <article class="card">
+          <h3>Ready-made products</h3>
+          <div class="price">Subscription, licence or buy-out</div>
+          <p>Packaged versions of our equipment analytics, Wi-Fi network analysis and rainfall forecasting software.</p>
+          <ul>
+            <li>Hosted for you, or installed on your own systems</li>
+            <li>Setup and configuration included</li>
+            <li>Source-code purchase available</li>
+          </ul>
+          <a class="btn btn-ghost" href="#contact" data-interest="Buy a ready-made product">Enquire to buy</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How we work</span>
+        <h2>From idea to working software</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Discover</h3><p>A free call to understand the problem, your data and what success looks like.</p></div>
+        <div class="step"><h3>Prototype</h3><p>A quick proof of concept on your real data, so you see value before committing to a full build.</p></div>
+        <div class="step"><h3>Build &amp; deploy</h3><p>Production-ready software, deployed to your cloud, our hosting, or on-premises.</p></div>
+        <div class="step"><h3>Support</h3><p>Monitoring, improvements and help when you need it, on a plan that suits you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section id="industries" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who we work with</span>
+        <h2>Built for Australian industry</h2>
+        <p>Small and medium businesses across Australia, working remotely Australia-wide.</p>
+      </div>
+      <div class="chips">
+        <span class="chip">Construction &amp; civil</span>
+        <span class="chip">Mining &amp; resources</span>
+        <span class="chip">Agriculture</span>
+        <span class="chip">Trades &amp; field services</span>
+        <span class="chip">Logistics &amp; warehousing</span>
+        <span class="chip">Retail &amp; hospitality</span>
+        <span class="chip">Professional services</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common questions</h2>
+      </div>
+      <details>
+        <summary>Where is our data stored?</summary>
+        <p>Wherever suits you. We can deploy to Australian cloud regions (such as AWS Sydney or Azure Australia East), to your own cloud account, or on-premises. We handle personal information in line with the Australian Privacy Principles.</p>
+      </details>
+      <details>
+        <summary>Who owns the software?</summary>
+        <p>For custom projects, you own the code and IP once paid. For ready-made products you can subscribe, license, or purchase the source code outright.</p>
+      </details>
+      <details>
+        <summary>We're not sure AI is right for us. Can you help?</summary>
+        <p>Yes. The first consult is free, and we'll tell you honestly if a simpler, non-AI solution would serve you better.</p>
+      </details>
+      <details>
+        <summary>Do you only work remotely?</summary>
+        <p>We work remotely Australia-wide by default, with on-site visits available by arrangement.</p>
+      </details>
+      <details>
+        <summary>How do payments work?</summary>
+        <p>All prices are in AUD and include GST. Projects are invoiced by milestone; support plans and subscriptions are billed monthly.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact alt">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2>Tell us what you're working on</h2>
+        <p class="lead">Send a few lines about your problem or the product you're interested in. We reply within one business day.</p>
+        <ul class="contact-list">
+          <li><span class="k">Email</span><a href="mailto:hello@dumc.com.au">hello@dumc.com.au</a></li>
+          <li><span class="k">Support</span><a href="mailto:support@dumc.com.au">support@dumc.com.au</a></li>
+          <li><span class="k">Hours</span><span>Mon–Fri, 9am–5pm AEST</span></li>
+          <li><span class="k">Service area</span><span>Australia-wide</span></li>
+        </ul>
+      </div>
+      <form id="contact-form" novalidate>
+        <div class="two">
+          <label>Name<input name="name" autocomplete="name" required /></label>
+          <label>Company<input name="company" autocomplete="organization" /></label>
+        </div>
+        <div class="two">
+          <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" /></label>
+        </div>
+        <label>I'm interested in
+          <select name="interest" id="interest">
+            <option>AI technical support</option>
+            <option>Custom AI software</option>
+            <option>Buy a ready-made product</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label>Message<textarea name="message" required placeholder="What would you like to solve?"></textarea></label>
+        <button class="btn btn-primary" type="submit">Send enquiry</button>
+        <p style="color:var(--muted);font-size:.85rem;margin:0">This opens your email app with the details filled in.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> DUMC · AI software &amp; technical support · Australia</span>
+    <!-- Add once registered: <span>ABN xx xxx xxx xxx</span> -->
+    <a href="mailto:hello@dumc.com.au">hello@dumc.com.au</a>
+  </div>
+</footer>
+
 <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js')
-      .then(function () { console.log("Service Worker Registered"); });
+  // Remove the old root-scope service worker left over from the previous app.
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then((regs) => {
+      regs.forEach((r) => { if (new URL(r.scope).pathname === new URL(".", location).pathname) r.unregister(); });
+    });
   }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Pre-select the enquiry type from pricing buttons.
+  document.querySelectorAll("[data-interest]").forEach((a) =>
+    a.addEventListener("click", () => { document.getElementById("interest").value = a.dataset.interest; })
+  );
+
+  // No backend: compose the enquiry as an email.
+  document.getElementById("contact-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const f = e.target;
+    if (!f.reportValidity()) return;
+    const d = Object.fromEntries(new FormData(f));
+    const subject = `Enquiry: ${d.interest}${d.company ? " — " + d.company : ""}`;
+    const body = [
+      `Name: ${d.name}`,
+      d.company ? `Company: ${d.company}` : null,
+      `Email: ${d.email}`,
+      d.phone ? `Phone: ${d.phone}` : null,
+      `Interested in: ${d.interest}`,
+      "",
+      d.message,
+    ].filter((x) => x !== null).join("\n");
+    location.href = `mailto:hello@dumc.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
 </script>
-
-
-
-  </script>
 </body>
 </html>
