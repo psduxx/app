@@ -2,1054 +2,493 @@
 <html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DUMC — AI Software & Technical Support | Australia</title>
-  <meta name="description" content="DUMC builds and supports practical AI software for Australian businesses: AI technical support, custom software, and ready-made AI products you can license or buy outright." />
-  <meta property="og:title" content="DUMC — AI Software & Technical Support" />
-  <meta property="og:description" content="Custom AI software, ready-made AI products and ongoing technical support for Australian businesses." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>DUMC | AI Support &amp; Custom Software, Australia</title>
+  <meta name="description" content="Queensland-based AI technical support and fixed-price custom software for Australian businesses. Engineering, 3D, forecasting, automation. Free consult." />
+  <link rel="canonical" href="https://dumc.com.au/" />
+  <meta property="og:title" content="DUMC: Engineering-grade software and AI support" />
+  <meta property="og:description" content="AI technical support, fixed-price custom software and ready-made products. Australian company, quotes in AUD incl. GST, you own the code." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dumc.com.au/" />
+  <meta property="og:site_name" content="DUMC" />
   <meta property="og:locale" content="en_AU" />
-  <meta name="theme-color" content="#05080d" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="theme-color" content="#181d23" />
+  <meta name="color-scheme" content="dark light" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
+  <link rel="stylesheet" href="assets/site.css" />
+  <script>try{var t=localStorage.getItem("dumc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "DUMC",
-    "description": "AI software development, AI products and technical support for Australian businesses.",
+    "legalName": "DUMC Pty Ltd",
+    "url": "https://dumc.com.au/",
+    "description": "DUMC builds and supports engineering-grade software and AI tools for Australian businesses, at a fixed price, and you own the code.",
     "email": "info@dumc.com.au",
+    "address": { "@type": "PostalAddress", "addressRegion": "QLD", "addressCountry": "AU" },
     "areaServed": { "@type": "Country", "name": "Australia" },
     "currenciesAccepted": "AUD",
-    "knowsAbout": ["Artificial intelligence", "Machine learning", "Computer vision", "Forecasting", "Custom software", "Technical support"]
+    "knowsAbout": ["AI technical support", "Custom software", "3D engineering and geospatial software", "Forecasting and simulation", "Computer vision", "Wireless and network intelligence", "AI assistants and document automation"]
   }
   </script>
-
-  <style>
-    :root {
-      --bg: #05080d;
-      --bg-2: #080d15;
-      --surface: rgba(15, 23, 36, .72);
-      --surface-solid: #0c1420;
-      --text: #e6edf3;
-      --muted: #8b98a9;
-      --dim: #5b6778;
-      --line: rgba(148, 163, 184, .14);
-      --line-strong: rgba(148, 163, 184, .28);
-      --cyan: #22d3ee;
-      --violet: #a78bfa;
-      --green: #34d399;
-      --amber: #f59e0b;
-      --red: #f87171;
-      --grad: linear-gradient(100deg, #22d3ee 0%, #818cf8 55%, #c084fc 100%);
-      --radius: 16px;
-      --max: 1180px;
-      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-      --display: "Space Grotesk", "Inter", system-ui, sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 16px/1.65 "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    ::selection { background: rgba(34, 211, 238, .3); }
-    a { color: var(--cyan); }
-    svg { display: block; max-width: 100%; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; position: relative; }
-    section { padding: 96px 0; position: relative; }
-    h1, h2, h3 { font-family: var(--display); line-height: 1.12; margin: 0 0 14px; letter-spacing: -0.02em; }
-    h1 { font-size: clamp(2.2rem, 5.4vw, 3.9rem); font-weight: 700; }
-    h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 700; }
-    h3 { font-size: 1.18rem; font-weight: 600; }
-    p { margin: 0 0 12px; }
-    .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .mono { font-family: var(--mono); }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font: 600 .76rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase;
-      color: var(--cyan); margin-bottom: 16px;
-    }
-    .eyebrow::before { content: ""; width: 18px; height: 1px; background: var(--cyan); }
-    .lead { font-size: 1.12rem; color: var(--muted); max-width: 60ch; }
-    .section-head { max-width: 740px; margin-bottom: 44px; }
-    .section-head p { color: var(--muted); }
-
-    /* Background: particle canvas + grid + glow */
-    #net { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -2; opacity: .55; }
-    .bg-grid {
-      position: fixed; inset: 0; z-index: -3; pointer-events: none;
-      background:
-        radial-gradient(900px 500px at 75% -10%, rgba(129, 140, 248, .18), transparent 60%),
-        radial-gradient(700px 500px at 0% 20%, rgba(34, 211, 238, .12), transparent 60%),
-        linear-gradient(var(--bg), var(--bg));
-    }
-    .bg-grid::after {
-      content: ""; position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(148,163,184,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148,163,184,.05) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%);
-      -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%);
-    }
-
-    /* Nav */
-    header.nav {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(5, 8, 13, .65);
-      backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font: 700 1.05rem var(--display); letter-spacing: .08em; }
-    .brand img { width: 30px; height: 30px; }
-    .brand .status { font: 500 .68rem var(--mono); color: var(--green); letter-spacing: .04em; display: flex; align-items: center; gap: 6px; margin-left: 6px; }
-    .brand .status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); animation: blink 2s infinite; }
-    .nav nav { display: flex; gap: 26px; align-items: center; }
-    .nav nav a { color: var(--muted); text-decoration: none; font-size: .92rem; transition: color .2s; }
-    .nav nav a:hover { color: var(--text); }
-    @media (max-width: 820px) { .nav nav a:not(.btn), .brand .status { display: none; } }
-
-    .btn {
-      position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 12px 20px; border-radius: 10px; font-weight: 600; font-size: .95rem; font-family: inherit;
-      text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--grad); color: #04121a !important; box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset, 0 8px 30px rgba(56, 189, 248, .25); }
-    .btn-primary:hover { box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset, 0 10px 40px rgba(129, 140, 248, .4); }
-    .btn-ghost { border-color: var(--line-strong); color: var(--text) !important; background: rgba(255,255,255,.02); }
-    .btn-ghost:hover { border-color: var(--cyan); box-shadow: 0 0 24px rgba(34, 211, 238, .15); }
-    .btn-sm { padding: 8px 14px; font-size: .88rem; }
-
-    /* Hero */
-    .hero { padding: 80px 0 72px; }
-    .hero .grid { display: grid; grid-template-columns: 1fr 1.08fr; gap: 56px; align-items: center; }
-    @media (max-width: 960px) { .hero .grid { grid-template-columns: 1fr; gap: 44px; } }
-    .typer { display: block; min-height: 1.15em; }
-    .typer .cursor { display: inline-block; width: .08em; height: .9em; background: var(--cyan); margin-left: 4px; vertical-align: -0.06em; animation: blink 1s steps(1) infinite; }
-    .hero .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin: 30px 0 28px; }
-    .trust { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; color: var(--muted); font-size: .88rem; padding: 0; margin: 0; list-style: none; max-width: 520px; }
-    .trust li { font-family: var(--mono); font-size: .8rem; }
-    .trust li::before { content: "▹ "; color: var(--cyan); }
-    @media (max-width: 480px) { .trust { grid-template-columns: 1fr; } }
-
-    /* Demo window */
-    .demo {
-      position: relative; border-radius: 18px; padding: 1px;
-      background: linear-gradient(140deg, rgba(34,211,238,.55), rgba(129,140,248,.25) 40%, rgba(148,163,184,.12) 70%, rgba(192,132,252,.45));
-      box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 60px rgba(56, 189, 248, .12);
-    }
-    .demo-inner { background: #070c14; border-radius: 17px; overflow: hidden; }
-    .demo-bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); font: 500 .74rem var(--mono); color: var(--dim); }
-    .demo-bar .dots { display: flex; gap: 6px; }
-    .demo-bar .dots i { width: 10px; height: 10px; border-radius: 50%; background: #1e293b; }
-    .demo-bar .dots i:nth-child(1) { background: #f8717188; } .demo-bar .dots i:nth-child(2) { background: #fbbf2488; } .demo-bar .dots i:nth-child(3) { background: #34d39988; }
-    .demo-bar .path { margin-left: 8px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .demo-bar .live { color: var(--red); display: flex; align-items: center; gap: 6px; }
-    .demo-bar .live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--red); animation: blink 1.2s infinite; }
-
-    .tabs { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
-    .tab {
-      position: relative; background: none; border: 0; color: var(--dim); cursor: pointer;
-      padding: 11px 8px 13px; font: 600 .74rem var(--mono); letter-spacing: .04em; text-align: left;
-      border-right: 1px solid var(--line); transition: color .25s, background .25s;
-    }
-    .tab:last-child { border-right: 0; }
-    .tab b { color: var(--dim); font-weight: 600; margin-right: 6px; }
-    .tab:hover { color: var(--muted); }
-    .tab.active { color: var(--text); background: rgba(34, 211, 238, .05); }
-    .tab.active b { color: var(--cyan); }
-    .tab .bar { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--grad); }
-    .tab.active .bar { animation: progress var(--dur, 7s) linear forwards; }
-    .demo:hover .tab.active .bar, .demo.paused .tab.active .bar { animation-play-state: paused; }
-
-    .screen { position: relative; aspect-ratio: 16 / 10.5; container-type: inline-size; overflow: hidden; background:
-      radial-gradient(circle at 50% 120%, rgba(34,211,238,.08), transparent 60%), #060a11; }
-    .scene {
-      position: absolute; inset: 0; opacity: 0; pointer-events: none;
-      transform: translateX(6%) scale(.97); filter: blur(6px);
-      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1), filter .7s ease;
-    }
-    .scene.active { opacity: 1; transform: none; filter: none; pointer-events: auto; }
-    .scene.leaving { opacity: 0; transform: translateX(-6%) scale(.97); filter: blur(6px); }
-    .scene > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .hud { position: absolute; font: 500 2.3cqw/1.5 var(--mono); color: var(--muted); }
-    .hud .k { color: var(--dim); }
-    .hud .v { color: var(--text); }
-    .panel {
-      background: rgba(6, 10, 17, .78); border: 1px solid var(--line-strong); border-radius: 1.6cqw;
-      padding: 1.8cqw 2.2cqw; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-    }
-    .meter { height: .9cqw; border-radius: 1cqw; background: rgba(148,163,184,.15); overflow: hidden; margin: .5cqw 0 1.2cqw; width: 22cqw; }
-    .meter i { display: block; height: 100%; width: var(--w, 50%); background: var(--grad); transition: width .8s ease; }
-    .caption { position: absolute; left: 3cqw; bottom: 2.6cqw; font: 600 2.4cqw var(--mono); color: var(--text); display: flex; align-items: center; gap: 1.4cqw; }
-    .caption .chip-sm { color: var(--cyan); border: 1px solid rgba(34,211,238,.4); border-radius: 1cqw; padding: .3cqw 1.2cqw; font-size: 2cqw; }
-
-    /* Vision scene */
-    .dz-move { animation: dozer 9s ease-in-out infinite; }
-    .scan { animation: scan 3.2s linear infinite; }
-    .rec { animation: blink 1.2s infinite; }
-    .bbox { animation: bboxPulse 1.6s ease-in-out infinite; }
-    .track-dash { animation: treads .5s linear infinite; }
-    @keyframes dozer { 0%, 6% { transform: translateX(30px); } 46%, 56% { transform: translateX(255px); } 96%, 100% { transform: translateX(30px); } }
-    @keyframes scan { from { transform: translateY(-20px); } to { transform: translateY(320px); } }
-    @keyframes bboxPulse { 50% { opacity: .55; } }
-    @keyframes treads { to { stroke-dashoffset: -16; } }
-
-    /* Network scene */
-    .ssid { position: absolute; inset: 0; display: grid; grid-template-columns: 44% 1fr; align-items: center; gap: 3cqw; padding: 4cqw 4cqw 9cqw; }
-    .radar { position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%;
-      background:
-        radial-gradient(circle, transparent 0 24%, rgba(34,211,238,.25) 24.3% 24.8%, transparent 25% 49%, rgba(34,211,238,.22) 49.3% 49.8%, transparent 50% 74%, rgba(34,211,238,.2) 74.3% 74.8%, transparent 75%),
-        radial-gradient(circle, rgba(34,211,238,.08), rgba(6,10,17,.2) 70%);
-      border: 1px solid rgba(34,211,238,.4); overflow: hidden; }
-    .radar::before, .radar::after { content: ""; position: absolute; background: rgba(34,211,238,.18); }
-    .radar::before { left: 50%; top: 0; bottom: 0; width: 1px; }
-    .radar::after { top: 50%; left: 0; right: 0; height: 1px; }
-    .sweep { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, rgba(34,211,238,.55), rgba(34,211,238,.12) 14%, transparent 30%); animation: spin 3s linear infinite; }
-    .blip { position: absolute; left: var(--x); top: var(--y); width: 2.2cqw; height: 2.2cqw; margin: -1.1cqw; border-radius: 50%; background: var(--c, var(--cyan)); box-shadow: 0 0 2cqw var(--c, var(--cyan)); opacity: 0; animation: ping 3s ease-out infinite; animation-delay: var(--d); }
-    .ssid-list { font: 500 2.2cqw/1 var(--mono); }
-    .ssid-row { display: grid; grid-template-columns: 1fr auto auto; gap: 2cqw; align-items: center; padding: 1.5cqw 1.8cqw; border: 1px solid var(--line); border-radius: 1.2cqw; margin-bottom: 1.2cqw; background: rgba(15,23,36,.6); opacity: 0; transform: translateX(3cqw); }
-    .scene.active .ssid-row { animation: rowIn .5s ease forwards; }
-    .scene.active .ssid-row:nth-child(2) { animation-delay: .35s; } .scene.active .ssid-row:nth-child(3) { animation-delay: .7s; }
-    .scene.active .ssid-row:nth-child(4) { animation-delay: 1.05s; } .scene.active .ssid-row:nth-child(5) { animation-delay: 1.4s; }
-    .ssid-row .n { color: var(--text); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-    .ssid-row .n small { display: block; color: var(--dim); font-size: 1.7cqw; margin-top: .6cqw; }
-    .ssid-row.warn { border-color: rgba(245,158,11,.5); }
-    .ssid-row.warn .n { color: var(--amber); }
-    .sig { display: flex; gap: .4cqw; align-items: flex-end; height: 2.6cqw; }
-    .sig i { width: .7cqw; background: rgba(148,163,184,.25); border-radius: .2cqw; }
-    .sig i:nth-child(1) { height: 30%; } .sig i:nth-child(2) { height: 55%; } .sig i:nth-child(3) { height: 80%; } .sig i:nth-child(4) { height: 100%; }
-    .sig[data-l="4"] i, .sig[data-l="3"] i:nth-child(-n+3), .sig[data-l="2"] i:nth-child(-n+2), .sig[data-l="1"] i:nth-child(1) { background: var(--green); }
-    .warn .sig i:nth-child(1) { background: var(--amber); }
-    .rssi { color: var(--cyan); min-width: 6cqw; text-align: right; }
-    .warn .rssi { color: var(--amber); }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes ping { 0% { opacity: 0; transform: scale(.4); } 8% { opacity: 1; transform: scale(1.3); } 60% { opacity: .6; transform: scale(1); } 100% { opacity: 0; } }
-    @keyframes rowIn { to { opacity: 1; transform: none; } }
-
-    /* Rain scene */
-    .grow { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); }
-    .scene.active .grow { animation: grow .7s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: var(--d, 0s); }
-    .draw { stroke-dasharray: 700; stroke-dashoffset: 700; }
-    .scene.active .draw { animation: draw 2.2s ease forwards .9s; }
-    .band { opacity: 0; }
-    .scene.active .band { animation: fadeIn 1s ease forwards 1.6s; }
-    .drops { position: absolute; inset: 0 0 45% 0; overflow: hidden; pointer-events: none; }
-    .drops i { position: absolute; top: -10%; left: var(--x); width: 1px; height: 4cqw; background: linear-gradient(transparent, rgba(34,211,238,.7)); animation: fall var(--t, 1.2s) linear infinite; animation-delay: var(--d); }
-    @keyframes grow { to { transform: scaleY(1); } }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-    @keyframes fadeIn { to { opacity: 1; } }
-    @keyframes fall { to { transform: translateY(32cqw); opacity: 0; } }
-
-    @keyframes blink { 50% { opacity: .25; } }
-    @keyframes progress { from { width: 0; } to { width: 100%; } }
-
-    /* Marquee */
-    .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(8,13,21,.6); overflow: hidden; padding: 18px 0;
-      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
-    .marquee .track { display: flex; gap: 48px; width: max-content; animation: marquee 38s linear infinite; font: 500 .9rem var(--mono); color: var(--muted); }
-    .marquee .track span::before { content: "◆"; color: var(--cyan); font-size: .6rem; margin-right: 12px; vertical-align: 2px; }
-    @keyframes marquee { to { transform: translateX(-50%); } }
-
-    /* Cards with glowing border */
-    .cards { display: grid; gap: 22px; grid-template-columns: repeat(3, 1fr); }
-    @media (max-width: 960px) { .cards { grid-template-columns: 1fr; } }
-    .card {
-      position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 28px; display: flex; flex-direction: column; overflow: hidden;
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      transition: border-color .3s, transform .3s;
-    }
-    .card::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
-      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(56, 189, 248, .13), transparent 45%);
-    }
-    .card:hover { border-color: rgba(34, 211, 238, .35); transform: translateY(-3px); }
-    .card:hover::before { opacity: 1; }
-    .card p { color: var(--muted); }
-    .card ul { margin: 8px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: .95rem; }
-    .card ul li { margin: 7px 0; padding-left: 20px; position: relative; }
-    .card ul li::before { content: "›"; position: absolute; left: 4px; color: var(--cyan); font-weight: 700; }
-    .icon {
-      width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 18px;
-      color: var(--cyan); background: rgba(34, 211, 238, .08); border: 1px solid rgba(34, 211, 238, .25);
-      box-shadow: 0 0 24px rgba(34, 211, 238, .12);
-    }
-    .card .num { position: absolute; top: 22px; right: 24px; font: 600 .75rem var(--mono); color: var(--dim); }
-    .card.featured { border-color: rgba(129, 140, 248, .45); }
-    .card.featured .tag-top { position: absolute; top: 22px; right: 24px; font: 600 .68rem var(--mono); letter-spacing: .08em; color: #04121a; background: var(--grad); padding: 3px 8px; border-radius: 6px; }
-
-    /* Work */
-    .work .card { padding: 0; }
-    .work .viz { height: 170px; border-bottom: 1px solid var(--line); background: #060a11; position: relative; overflow: hidden; }
-    .work .viz svg { width: 100%; height: 100%; }
-    .work .body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
-    .work .sector { font: 600 .72rem var(--mono); color: var(--violet); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 16px; }
-    .tag { font: 500 .72rem var(--mono); padding: 4px 9px; border-radius: 6px; border: 1px solid var(--line-strong); color: var(--muted); }
-    .watch { margin-top: 16px; align-self: flex-start; background: none; border: 0; padding: 0; color: var(--cyan); font: 600 .85rem var(--mono); cursor: pointer; }
-    .watch:hover { text-decoration: underline; }
-    .note { color: var(--muted); font-size: .9rem; margin-top: 26px; }
-    .viz .sweep-line { animation: sweepX 4s ease-in-out infinite; }
-    @keyframes sweepX { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(260px); } }
-    .viz .pulse { transform-box: fill-box; transform-origin: center; animation: pulseRing 2.4s ease-out infinite; }
-    @keyframes pulseRing { from { transform: scale(.3); opacity: .9; } to { transform: scale(1.6); opacity: 0; } }
-
-    /* Pricing */
-    .price { font: 600 .82rem var(--mono); color: var(--cyan); margin: 0 0 12px; letter-spacing: .02em; }
-    .card .btn { margin-top: auto; align-self: flex-start; }
-    .card ul + .btn { margin-top: 24px; }
-
-    /* Process */
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; position: relative; }
-    @media (max-width: 960px) { .steps { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
-    .step { position: relative; padding-top: 26px; }
-    .step::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--line); }
-    .step::after { content: ""; position: absolute; top: 0; left: 0; height: 2px; width: 0; background: var(--grad); box-shadow: 0 0 12px rgba(34,211,238,.6); transition: width 1.1s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0s); }
-    .step.in::after { width: 100%; }
-    .step .k { font: 600 .78rem var(--mono); color: var(--cyan); display: block; margin-bottom: 8px; }
-    .step p { color: var(--muted); font-size: .95rem; }
-
-    /* Industries */
-    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
-    .chip { background: rgba(15,23,36,.6); border: 1px solid var(--line-strong); border-radius: 999px; padding: 9px 16px; font-size: .92rem; transition: border-color .2s, color .2s, box-shadow .2s; }
-    .chip:hover { border-color: var(--cyan); box-shadow: 0 0 18px rgba(34,211,238,.15); }
-
-    /* FAQ */
-    .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; }
-    @media (max-width: 860px) { .faq-grid { grid-template-columns: 1fr; gap: 0; } }
-    details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin-bottom: 12px; transition: border-color .2s; }
-    details[open] { border-color: rgba(34,211,238,.35); }
-    summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; font-family: var(--mono); color: var(--cyan); transition: transform .25s; }
-    details[open] summary::after { transform: rotate(45deg); }
-    details p { color: var(--muted); margin: 12px 0 0; }
-
-    /* Contact */
-    .contact .grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; }
-    @media (max-width: 860px) { .contact .grid { grid-template-columns: 1fr; } }
-    form { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; display: grid; gap: 16px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-    .form-head { font: 500 .78rem var(--mono); color: var(--dim); margin: -4px 0 4px; }
-    .form-head b { color: var(--green); font-weight: 500; }
-    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    @media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
-    label { display: grid; gap: 7px; font: 500 .78rem var(--mono); color: var(--muted); letter-spacing: .04em; }
-    input, select, textarea {
-      font: 400 .98rem "Inter", system-ui, sans-serif; color: var(--text); background: rgba(5, 8, 13, .7);
-      border: 1px solid var(--line-strong); border-radius: 10px; padding: 11px 13px; width: 100%; transition: border-color .2s, box-shadow .2s;
-    }
-    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(34, 211, 238, .15); }
-    textarea { min-height: 120px; resize: vertical; }
-    .contact-list { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; font-family: var(--mono); font-size: .9rem; }
-    .contact-list li { display: flex; gap: 12px; align-items: baseline; }
-    .contact-list .k { color: var(--dim); min-width: 110px; }
-
-    footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--dim); font: 500 .8rem var(--mono); }
-    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    footer a { color: var(--muted); }
-
-    /* Scroll reveal */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0s); }
-    .reveal.in { opacity: 1; transform: none; }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
-      .reveal { opacity: 1; transform: none; }
-      #net { display: none; }
-    }
-  </style>
 </head>
 <body>
-<div class="bg-grid" aria-hidden="true"></div>
-<canvas id="net" aria-hidden="true"></canvas>
+<!-- Company identifiers: add once confirmed. ACN xxx xxx xxx · ABN xx xxx xxx xxx -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-mark" viewBox="0 0 24 24"><path d="M5 4h6a8 8 0 0 1 0 16H5z" stroke="var(--accent)"/><path d="M5 15l3.4-3 2.6 2 3.4-4.4 4.4 3.3"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6L6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h3"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.6L20 9M20 4v5h-5M20 12a8 8 0 0 1-13.7 5.6L4 15M4 20v-5h5"/></symbol>
+  <symbol id="i-head" viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1.2-1.3 2-3 2h-3"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.5 7L3.5 12l5 5M15.5 7l5 5-5 5M13.5 4.5l-3 15"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5.5 9.5A1.7 1.7 0 0 0 6 21h12a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/></symbol>
+  <symbol id="i-plan" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 12h16M12 4v16"/></symbol>
+  <symbol id="i-cube" viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></symbol>
+  <symbol id="i-cont" viewBox="0 0 24 24"><path d="M3 17c3-1 4-5 8-5s5 3 10 2M3 12c3-1 5-6 9-6s5 2 9 1M3 21c4 0 6-2 9-2s5 1 9 0"/></symbol>
+  <symbol id="i-wire" viewBox="0 0 24 24"><path d="M3.5 18.5L7.5 5.5h9l4 13zM5.5 12h13M10.5 5.5l-1 13M13.5 5.5l1 13"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 4l9 4-9 4-9-4zM3 12l9 4 9-4M3 16l9 4 9-4"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3.5 3.5v17h17"/><path d="M6.5 15l4-4.5 3.5 2.5 5.5-6"/><path d="M16 7h3.5v3.5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M4.5 9.5a10.5 10.5 0 0 1 15 0M7.5 12.8a6.3 6.3 0 0 1 9 0M10.4 16a2.3 2.3 0 0 1 3.2 0M12 19.5h.01"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L4 20z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-seed" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v4h-4"/></symbol>
+</svg>
 
-<header class="nav">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar" id="top">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="DUMC home"><img src="favicon.svg" alt="" /> DUMC <span class="status">ALL SYSTEMS OPERATIONAL</span></a>
-    <nav aria-label="Main">
+    <a class="brand" href="#top" aria-label="DUMC, back to top"><svg class="i mark" aria-hidden="true"><use href="#i-mark"/></svg><span>DU<b>MC</b></span><small>PTY LTD</small></a>
+    <nav class="tabs" aria-label="Sections">
       <a href="#services">Services</a>
-      <a href="#work">Capabilities</a>
-      <a href="#products">Buy &amp; pricing</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#industries">Industries</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-primary btn-sm" href="#contact">Get in touch</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <div class="qa">
+      <button class="ib" id="theme-btn" type="button" aria-label="Switch theme" title="Light / dark"><svg class="i" aria-hidden="true"><use href="#i-sun"/></svg></button>
+      <a class="btn sm" href="#contact" data-interest="Not sure yet">Get in touch</a>
+    </div>
   </div>
 </header>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap grid">
-      <div class="reveal">
-        <span class="eyebrow">AI software &amp; technical support · Australia</span>
-        <h1>Practical AI for Australian business.
-          <span class="typer grad-text" aria-live="polite"><span id="typed">Technical support.</span><span class="cursor" aria-hidden="true"></span></span>
-        </h1>
-        <p class="lead">We support and integrate the AI tools you already use, build custom software when off-the-shelf won't do, and sell ready-made AI products you can deploy straight away.</p>
-        <div class="ctas">
-          <a class="btn btn-primary" href="#contact">Book a free 30-min consult →</a>
-          <a class="btn btn-ghost" href="#work">See what we build</a>
+<main id="main">
+  <!-- HERO: application window -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="win">
+      <div class="ribbon" role="navigation" aria-label="Quick actions">
+        <div class="rgroup">
+          <div class="rbtns">
+            <a class="rb" href="#contact" data-interest="Not sure yet"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg><span>Consult</span></a>
+            <a class="rb" href="#contact" data-interest="Custom software"><svg class="i" aria-hidden="true"><use href="#i-doc"/></svg><span>Quote</span></a>
+            <a class="rb" href="#pricing"><svg class="i" aria-hidden="true"><use href="#i-loop"/></svg><span>Retainer</span></a>
+          </div>
+          <div class="rlabel">Engage</div>
         </div>
-        <ul class="trust">
-          <li>Australian-based team</li>
-          <li>AUD quotes, GST included</li>
-          <li>Data hosted in AU on request</li>
-          <li>You own the code you pay for</li>
-        </ul>
+        <div class="rgroup">
+          <div class="rbtns">
+            <a class="rb" href="#svc-ai"><svg class="i" aria-hidden="true"><use href="#i-head"/></svg><span>AI support</span></a>
+            <a class="rb" href="#svc-sw"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg><span>Software</span></a>
+            <a class="rb" href="#svc-pr"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg><span>Products</span></a>
+          </div>
+          <div class="rlabel">Services</div>
+        </div>
+        <div class="rgroup">
+          <div class="rbtns">
+            <a class="rb" href="#capabilities"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><span>Capabilities</span></a>
+            <a class="rb" href="#process"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg><span>Process</span></a>
+          </div>
+          <div class="rlabel">Explore</div>
+        </div>
+        <div class="rgroup">
+          <div class="rbtns">
+            <a class="rb" href="tomato/"><svg class="i" aria-hidden="true"><use href="#i-flask"/></svg><span>Classifier</span></a>
+          </div>
+          <div class="rlabel">Lab</div>
+        </div>
+        <div class="rnote" aria-hidden="true">surface.demo · <span data-seed>seed —</span></div>
       </div>
 
-      <!-- Live demo window -->
-      <div class="demo reveal" id="demo" style="--d:.15s">
-        <div class="demo-inner">
-          <div class="demo-bar">
-            <span class="dots"><i></i><i></i><i></i></span>
-            <span class="path" id="demo-path">dumc://demo/computer-vision</span>
-            <span class="live">LIVE</span>
-          </div>
-          <div class="tabs" role="tablist" aria-label="Project demos">
-            <button class="tab active" role="tab" aria-selected="true" data-scene="0"><b>01</b>VISION<span class="bar"></span></button>
-            <button class="tab" role="tab" aria-selected="false" data-scene="1"><b>02</b>NETWORK<span class="bar"></span></button>
-            <button class="tab" role="tab" aria-selected="false" data-scene="2"><b>03</b>FORECAST<span class="bar"></span></button>
-          </div>
-          <div class="screen">
-
-            <!-- Scene 1: Computer vision -->
-            <div class="scene active" data-path="dumc://demo/computer-vision" role="tabpanel" aria-label="Computer vision demo">
-              <svg viewBox="0 0 480 315" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                  <pattern id="g1" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="rgba(148,163,184,.07)"/></pattern>
-                  <linearGradient id="scanG" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#22d3ee" stop-opacity="0"/><stop offset="1" stop-color="#22d3ee" stop-opacity=".35"/></linearGradient>
-                  <linearGradient id="earth" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1e293b"/><stop offset="1" stop-color="#0b1220"/></linearGradient>
-                </defs>
-                <rect width="480" height="315" fill="url(#g1)"/>
-                <path d="M0 238 L480 238 L480 315 L0 315 Z" fill="url(#earth)"/>
-                <path d="M330 238 Q365 196 405 206 Q440 214 470 238 Z" fill="#334155" opacity=".7"/>
-                <line x1="0" y1="238" x2="480" y2="238" stroke="rgba(34,211,238,.35)"/>
-                <g class="dz-move">
-                  <!-- tracks -->
-                  <rect x="0" y="208" width="112" height="28" rx="14" fill="#0f172a" stroke="#22d3ee" stroke-width="2.5"/>
-                  <rect x="4" y="212" width="104" height="20" rx="10" fill="none" stroke="#22d3ee" stroke-opacity=".5" stroke-width="2" stroke-dasharray="4 4" class="track-dash"/>
-                  <circle cx="14" cy="222" r="7" fill="#22d3ee"/><circle cx="98" cy="222" r="7" fill="#22d3ee"/><circle cx="56" cy="222" r="4" fill="#22d3ee" opacity=".7"/>
-                  <!-- body & cab -->
-                  <rect x="10" y="168" width="84" height="40" rx="4" fill="#22d3ee" opacity=".88"/>
-                  <rect x="22" y="128" width="44" height="42" rx="3" fill="#0b1220" stroke="#22d3ee" stroke-width="2.5"/>
-                  <rect x="28" y="134" width="32" height="18" rx="2" fill="#22d3ee" opacity=".25"/>
-                  <rect x="76" y="146" width="5" height="22" fill="#22d3ee" opacity=".7"/>
-                  <!-- arm + blade -->
-                  <path d="M94 196 L120 204" stroke="#818cf8" stroke-width="5" stroke-linecap="round"/>
-                  <path d="M114 156 Q136 194 118 236 L128 236 Q146 194 124 156 Z" fill="#818cf8"/>
-                  <path d="M130 236 Q144 212 158 218 Q170 223 178 236 Z" fill="#475569"/>
-                  <!-- detection box -->
-                  <g class="bbox" fill="none" stroke="#f59e0b" stroke-width="2">
-                    <path d="M-10 128 V114 H6"/><path d="M168 114 H184 V128"/><path d="M-10 228 V244 H6"/><path d="M168 244 H184 V228"/>
-                  </g>
-                  <rect x="-10" y="96" width="112" height="16" rx="3" fill="#f59e0b"/>
-                  <text x="-4" y="108" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#04121a">MACHINE · 0.97</text>
-                </g>
-                <rect class="scan" x="0" y="0" width="480" height="18" fill="url(#scanG)"/>
-                <g font-family="JetBrains Mono,monospace" font-size="10" fill="#8b98a9">
-                  <circle class="rec" cx="20" cy="22" r="4" fill="#f87171"/>
-                  <text x="30" y="26">CAM-02 · SITE FEED</text>
-                </g>
-              </svg>
-              <div class="hud" style="right:3cqw; top:3cqw; text-align:right"><span class="k">T+</span><span class="v" id="dz-clock">00:00:00</span></div>
-              <div class="hud panel" style="right:3cqw; top:9cqw">
-                <div><span class="k">STATE </span><span class="v" id="dz-state" style="color:var(--green)">PUSHING</span></div>
-                <div class="k" style="margin-top:.8cqw">LOAD</div><div class="meter"><i id="dz-load" style="--w:78%"></i></div>
-                <div class="k">UTILISATION</div><div class="meter"><i id="dz-util" style="--w:64%"></i></div>
-                <div><span class="k">CYCLES </span><span class="v" id="dz-cycles">41</span></div>
+      <div class="work">
+        <section class="side left" aria-label="Layers">
+          <div class="phead">Layers<span class="sp"></span><span class="pmeta">3</span></div>
+          <div class="pbody">
+            <ul class="layers" id="layers">
+              <li class="lyr active" data-l="0"><button class="tick" type="button" aria-pressed="true" aria-label="Show layer: AI technical support"><span><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button><i class="sw" style="--c:var(--sel)"></i><button class="nm" type="button" title="AI technical support" aria-current="true">AI technical support</button><span class="ct" data-ct>—</span></li>
+              <li class="lyr" data-l="1"><button class="tick" type="button" aria-pressed="true" aria-label="Show layer: Custom software"><span><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button><i class="sw" style="--c:var(--accent)"></i><button class="nm" type="button" title="Custom software">Custom software</button><span class="ct" data-ct>—</span></li>
+              <li class="lyr" data-l="2"><button class="tick" type="button" aria-pressed="true" aria-label="Show layer: Ready-made products"><span><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span></button><i class="sw" style="--c:var(--ok)"></i><button class="nm" type="button" title="Ready-made products">Ready-made products</button><span class="ct" data-ct>—</span></li>
+            </ul>
+            <div class="props">
+              <div class="sec surf">
+                <h4>Surface</h4>
+                <dl class="kv" id="surf-kv">
+                  <dt>Extent</dt><dd>1 200 × 900 m</dd>
+                  <dt>Mesh</dt><dd>161 × 121</dd>
+                  <dt>Contours</dt><dd>5 m · idx 25 m</dd>
+                  <dt>RL range</dt><dd data-k="rl">—</dd>
+                  <dt>Vert. exag.</dt><dd>1.5×</dd>
+                  <dt>Seed</dt><dd data-k="seed">—</dd>
+                </dl>
               </div>
-              <div class="caption">Computer vision <span class="chip-sm">object detection</span></div>
+              <div class="sec legend">
+                <h4>Legend</h4>
+                <ul class="lgd">
+                  <li><i class="ln"></i>Minor contour · 5 m</li>
+                  <li><i class="ln b"></i>Index contour · 25 m</li>
+                  <li><i class="hs"></i>Hillshade · 315° / 42°</li>
+                </ul>
+              </div>
+              <div class="sec regen">
+                <button class="btn ghost sm full" type="button" id="reseed"><svg class="i" aria-hidden="true"><use href="#i-seed"/></svg>Regenerate</button>
+              </div>
             </div>
-
-            <!-- Scene 2: Network intelligence -->
-            <div class="scene" data-path="dumc://demo/ssid-scan" role="tabpanel" aria-label="Wireless network scan demo">
-              <div class="ssid">
-                <div class="radar">
-                  <div class="sweep"></div>
-                  <span class="blip" style="--x:66%;--y:30%;--d:.25s"></span>
-                  <span class="blip" style="--x:72%;--y:64%;--d:.75s"></span>
-                  <span class="blip" style="--x:38%;--y:78%;--d:1.4s"></span>
-                  <span class="blip" style="--x:24%;--y:34%;--d:2.3s;--c:#f59e0b"></span>
-                  <span class="blip" style="--x:46%;--y:20%;--d:2.75s"></span>
-                </div>
-                <div class="ssid-list">
-                  <div class="ssid-row"><span class="n">Office-5G<small>5 GHz · ch 44</small></span><span class="sig" data-l="4"><i></i><i></i><i></i><i></i></span><span class="rssi" data-base="-48">-48</span></div>
-                  <div class="ssid-row"><span class="n">Office-2.4<small>2.4 GHz · ch 6</small></span><span class="sig" data-l="3"><i></i><i></i><i></i><i></i></span><span class="rssi" data-base="-57">-57</span></div>
-                  <div class="ssid-row"><span class="n">Warehouse<small>5 GHz · ch 149</small></span><span class="sig" data-l="2"><i></i><i></i><i></i><i></i></span><span class="rssi" data-base="-66">-66</span></div>
-                  <div class="ssid-row"><span class="n">Guest<small>2.4 GHz · ch 6 · overlap</small></span><span class="sig" data-l="2"><i></i><i></i><i></i><i></i></span><span class="rssi" data-base="-71">-71</span></div>
-                  <div class="ssid-row warn"><span class="n">⚠ Unknown AP<small>2.4 GHz · ch 11 · rogue?</small></span><span class="sig" data-l="1"><i></i><i></i><i></i><i></i></span><span class="rssi" data-base="-79">-79</span></div>
-                </div>
-              </div>
-              <div class="caption">Wireless network intelligence <span class="chip-sm">5 networks found</span></div>
-            </div>
-
-            <!-- Scene 3: Forecasting -->
-            <div class="scene" data-path="dumc://demo/rain-forecast" role="tabpanel" aria-label="Forecasting model demo">
-              <svg viewBox="0 0 480 315" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                <defs>
-                  <pattern id="g3" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="rgba(148,163,184,.06)"/></pattern>
-                  <linearGradient id="fc" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#818cf8" stop-opacity=".6"/></linearGradient>
-                </defs>
-                <rect width="480" height="315" fill="url(#g3)"/>
-                <g stroke="rgba(148,163,184,.12)"><line x1="30" y1="120" x2="456" y2="120"/><line x1="30" y1="170" x2="456" y2="170"/><line x1="30" y1="220" x2="456" y2="220"/></g>
-                <line x1="30" y1="262" x2="456" y2="262" stroke="rgba(148,163,184,.35)"/>
-                <!-- observed -->
-                <g fill="#334155">
-                  <rect class="grow" style="--d:.0s"  x="40"  y="222" width="20" height="40"/>
-                  <rect class="grow" style="--d:.06s" x="68"  y="182" width="20" height="80"/>
-                  <rect class="grow" style="--d:.12s" x="96"  y="238" width="20" height="24"/>
-                  <rect class="grow" style="--d:.18s" x="124" y="150" width="20" height="112"/>
-                  <rect class="grow" style="--d:.24s" x="152" y="204" width="20" height="58"/>
-                  <rect class="grow" style="--d:.30s" x="180" y="172" width="20" height="90"/>
-                  <rect class="grow" style="--d:.36s" x="208" y="230" width="20" height="32"/>
-                </g>
-                <!-- confidence band -->
-                <path class="band" d="M245 196 L273 150 L301 118 L329 176 L357 140 L385 200 L413 226 L441 236 L441 262 L413 252 L385 236 L357 196 L329 222 L301 182 L273 198 L245 226 Z" fill="#818cf8" fill-opacity=".16"/>
-                <!-- forecast -->
-                <g fill="url(#fc)">
-                  <rect class="grow" style="--d:.55s" x="236" y="200" width="20" height="62"/>
-                  <rect class="grow" style="--d:.62s" x="264" y="166" width="20" height="96"/>
-                  <rect class="grow" style="--d:.69s" x="292" y="138" width="20" height="124"/>
-                  <rect class="grow" style="--d:.76s" x="320" y="196" width="20" height="66"/>
-                  <rect class="grow" style="--d:.83s" x="348" y="164" width="20" height="98"/>
-                  <rect class="grow" style="--d:.90s" x="376" y="216" width="20" height="46"/>
-                  <rect class="grow" style="--d:.97s" x="404" y="236" width="20" height="26"/>
-                  <rect class="grow" style="--d:1.04s" x="432" y="246" width="20" height="16"/>
-                </g>
-                <path class="draw" d="M50 214 L78 176 L106 230 L134 144 L162 198 L190 166 L218 222 L246 194 L274 160 L302 132 L330 190 L358 158 L386 210 L414 230 L442 240" fill="none" stroke="#f59e0b" stroke-width="2.2" stroke-linejoin="round"/>
-                <line x1="232" y1="96" x2="232" y2="262" stroke="#8b98a9" stroke-dasharray="3 4"/>
-                <g font-family="JetBrains Mono,monospace" font-size="10" fill="#8b98a9">
-                  <text x="160" y="92">OBSERVED</text><text x="240" y="92" fill="#22d3ee">FORECAST →</text>
-                  <text x="34" y="278">-7d</text><text x="222" y="278">now</text><text x="430" y="278">+8d</text>
-                </g>
-              </svg>
-              <div class="drops" aria-hidden="true">
-                <i style="--x:8%;--d:.1s"></i><i style="--x:17%;--d:.7s;--t:1.4s"></i><i style="--x:28%;--d:.3s"></i><i style="--x:39%;--d:1s;--t:1.1s"></i>
-                <i style="--x:47%;--d:.5s"></i><i style="--x:58%;--d:.15s;--t:1.3s"></i><i style="--x:66%;--d:.85s"></i><i style="--x:79%;--d:.4s;--t:1.5s"></i>
-                <i style="--x:88%;--d:1.1s"></i><i style="--x:94%;--d:.6s;--t:1.2s"></i>
-              </div>
-              <div class="hud panel" style="left:3cqw; top:3cqw">
-                <div class="k">P(RAIN) · NEXT 24H</div>
-                <div style="font-size:5.4cqw; font-weight:600; line-height:1.2" class="grad-text" id="rain-p">0%</div>
-                <div><span class="k">EXPECTED </span><span class="v" id="rain-mm">0.0</span><span class="k"> mm</span></div>
-              </div>
-              <div class="caption">Forecasting <span class="chip-sm">ML time series</span></div>
-            </div>
-
           </div>
-        </div>
+        </section>
+
+        <section class="vpcol" aria-label="Viewport">
+          <div class="phead"><i class="live" aria-hidden="true"></i>SURFACE · LIVE<span class="sp"></span><span class="hint">drag to orbit · scroll to zoom</span></div>
+          <div class="vp" id="vp">
+            <canvas id="gl" aria-hidden="true"></canvas>
+            <p class="vh" id="vp-desc">Illustrative, slowly rotating 3D view of a synthetic terrain surface generated in the browser from seeded noise, drawn with hillshading and contour lines. It does not show a real site.</p>
+            <div class="vpbar" role="toolbar" aria-label="Viewport display">
+              <button class="vpb" type="button" data-v="plan" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-plan"/></svg>Plan</button>
+              <button class="vpb on" type="button" data-v="iso" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-cube"/></svg>3D</button>
+              <button class="vpb on" type="button" data-v="contours" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-cont"/></svg>Contours</button>
+              <button class="vpb" type="button" data-v="wire" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-wire"/></svg>Wire</button>
+            </div>
+            <div class="readout" aria-hidden="true">
+              <span class="tagw">DATA: ILLUSTRATIVE</span>
+              <span>MESH: PROCEDURAL</span>
+              <span>RENDER: WEBGL · IN-BROWSER</span>
+              <span id="ro-view">VIEW: ORBIT</span>
+              <span id="ro-layer">LAYER: CONTOURS</span>
+            </div>
+            <button class="compass" id="compass" type="button" aria-label="Reset view" title="Reset view">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" class="cring"/><path d="M32 6v5M32 53v5M6 32h5M53 32h5" class="ctick"/><g id="needle"><path d="M32 15l5.5 17h-11z" class="cn"/><path d="M26.5 32h11L32 49z" class="cs"/><text x="32" y="27" text-anchor="middle" class="ct">N</text></g></svg>
+            </button>
+            <div class="scale" aria-hidden="true"><i id="sc-bar"></i><span id="sc-lbl">— m</span></div>
+            <div class="hud" id="hud" aria-hidden="true"><span><em>X</em><b data-h="x">—</b><em>Y</em><b data-h="y">—</b><em>RL</em><b data-h="z">—</b></span><span class="hud2"><em>AZ</em><b data-h="az">—</b><em>EL</em><b data-h="el">—</b></span></div>
+            <div class="pill" id="pill" aria-hidden="true"></div>
+            <p class="nogl" id="nogl" hidden>This viewport needs WebGL, which isn't available in this browser.</p>
+          </div>
+        </section>
+
+        <section class="side right" aria-label="Properties">
+          <div class="phead">Properties<span class="sp"></span><span class="pmeta">DUMC</span></div>
+          <div class="pbody">
+            <div class="props hero-props">
+              <div>
+                <p class="eyebrow">DUMC PTY LTD · QUEENSLAND · AUSTRALIA-WIDE</p>
+                <h1 id="hero-title">Engineering-grade software and AI support for Australian industry.</h1>
+              </div>
+              <p class="sub">We set up and support AI tools, build fixed-price custom software, and license ready-made products for teams in mining, construction, agriculture and the field.</p>
+              <div class="ctas">
+                <a class="btn" href="#contact" data-interest="Not sure yet">Book a free 30-min consult</a>
+                <a class="btn ghost" href="#services">View services</a>
+              </div>
+              <ul class="chips" aria-label="Why DUMC">
+                <li class="chip"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Australian company</li>
+                <li class="chip"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Quotes in AUD incl. GST</li>
+                <li class="chip"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>You own the code</li>
+                <li class="chip"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Reply within 1 business day</li>
+              </ul>
+              <div class="sec" aria-live="polite">
+                <h4>Layer · <span id="sel-name">AI technical support</span></h4>
+                <dl class="kv"><dt>Engagement</dt><dd id="sel-eng">monthly retainer</dd></dl>
+                <p class="seldesc" id="sel-desc">We set up the AI tools your team uses and keep them working, safely and within policy.</p>
+                <a class="more" id="sel-link" href="#svc-ai">View service<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </section>
-
-  <!-- Tooling marquee -->
-  <div class="marquee" aria-label="Tools and platforms we work with">
-    <div class="track">
-      <span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>OpenCV</span><span>scikit-learn</span><span>FastAPI</span><span>React</span><span>PostgreSQL</span><span>Docker</span><span>AWS Sydney</span><span>Azure Australia East</span><span>Claude</span><span>ChatGPT</span><span>Edge devices</span>
-      <span aria-hidden="true">Python</span><span aria-hidden="true">PyTorch</span><span aria-hidden="true">TensorFlow</span><span aria-hidden="true">OpenCV</span><span aria-hidden="true">scikit-learn</span><span aria-hidden="true">FastAPI</span><span aria-hidden="true">React</span><span aria-hidden="true">PostgreSQL</span><span aria-hidden="true">Docker</span><span aria-hidden="true">AWS Sydney</span><span aria-hidden="true">Azure Australia East</span><span aria-hidden="true">Claude</span><span aria-hidden="true">ChatGPT</span><span aria-hidden="true">Edge devices</span>
-    </div>
-  </div>
 
   <!-- SERVICES -->
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">What we do</span>
-        <h2>Three ways we help</h2>
-        <p>Start small with support, commission something bespoke, or buy a proven product. Most clients use a mix.</p>
-      </div>
-      <div class="cards">
-        <article class="card featured reveal">
-          <span class="tag-top">CORE</span>
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 1 18 0v5a2 2 0 0 1-2 2h-2v-6h4"/><path d="M3 13h4v6H5a2 2 0 0 1-2-2z"/></svg>
-          </div>
-          <h3>AI technical support</h3>
-          <p>An on-call AI and software team without the hiring cost.</p>
-          <ul>
-            <li>Set up and integrate AI tools (ChatGPT, Claude, Copilot, custom models) into your workflow</li>
-            <li>Keep existing models, scripts and data pipelines running</li>
-            <li>Troubleshooting, monitoring and upgrades</li>
-            <li>Staff training and practical AI usage policies</li>
-          </ul>
-        </article>
-        <article class="card reveal" style="--d:.1s">
-          <span class="num">02</span>
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <h3>Custom AI software</h3>
-          <p>Software shaped around your data and the way your business actually runs.</p>
-          <ul>
-            <li>Prediction and forecasting models</li>
-            <li>Computer vision and sensor-data analytics</li>
-            <li>Internal tools, dashboards, web and mobile apps</li>
-            <li>AI assistants and document automation over your own data</li>
-          </ul>
-        </article>
-        <article class="card reveal" style="--d:.2s">
-          <span class="num">03</span>
-          <div class="icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-          </div>
-          <h3>Ready-made AI products</h3>
-          <p>Proven solutions from our recent projects, packaged so you can buy and deploy them quickly.</p>
-          <ul>
-            <li>Subscription, perpetual licence or full source-code purchase</li>
-            <li>Configured for your data and environment</li>
-            <li>Optional support plan</li>
-          </ul>
-        </article>
+  <section class="wrap" id="services" aria-labelledby="h-services">
+    <div class="dock">
+      <div class="phead"><span class="idx">01</span><h2 id="h-services">Services</h2><span class="meta">3 ways to engage</span></div>
+      <div class="dbody">
+        <p class="lead">DUMC builds and supports engineering-grade software and AI tools for Australian businesses, at a fixed price, and you own the code.</p>
+        <div class="grid3 svc">
+          <article class="card" id="svc-ai">
+            <p class="no">01</p>
+            <h3>AI technical support</h3>
+            <p class="eng"><em>Engagement</em><span>monthly retainer</span></p>
+            <p>We set up the AI tools your team uses and keep them working, safely and within policy.</p>
+            <ul class="ticks">
+              <li>Set-up and integration of ChatGPT, Claude, Copilot or custom models</li>
+              <li>Monitoring and maintenance of models, scripts and data pipelines</li>
+              <li>Troubleshooting when outputs, integrations or costs drift</li>
+              <li>Staff training and plain-English AI usage policies</li>
+            </ul>
+          </article>
+          <article class="card" id="svc-sw">
+            <p class="no">02</p>
+            <h3>Custom software</h3>
+            <p class="eng"><em>Engagement</em><span>fixed scope · fixed price</span></p>
+            <p>Software built to your specification, quoted up front, paid by milestone, and yours once paid.</p>
+            <ul class="ticks">
+              <li>Engineering, 3D and geospatial tools that run in the browser</li>
+              <li>Forecasting, simulation, computer vision and sensor-data systems</li>
+              <li>Internal tools, dashboards, web and mobile apps</li>
+              <li>AI assistants and document automation over your own data</li>
+            </ul>
+          </article>
+          <article class="card" id="svc-pr">
+            <p class="no">03</p>
+            <h3>Ready-made products</h3>
+            <p class="eng"><em>Engagement</em><span>subscription · licence · buy-out</span></p>
+            <p>Software we've already built, configured for your data, so you start sooner than with a fresh build.</p>
+            <ul class="ticks">
+              <li>Subscription, licence or full source-code buy-out</li>
+              <li>Configured and loaded with your data</li>
+              <li>Optional support on a retainer</li>
+              <li>Extra features quoted as fixed-price work</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- RECENT WORK -->
-  <section id="work" class="work">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">What we build</span>
-        <h2>Capabilities</h2>
-        <p>The kinds of systems we design and deliver. Client work is confidential; we're happy to walk through relevant examples on a call under NDA.</p>
-      </div>
-      <div class="cards">
-
-        <!-- Computer vision -->
-        <article class="card reveal">
-          <div class="viz" aria-hidden="true">
-            <svg viewBox="0 0 360 170" preserveAspectRatio="xMidYMid slice">
-              <defs><pattern id="w1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="rgba(148,163,184,.07)"/></pattern></defs>
-              <rect width="360" height="170" fill="url(#w1)"/>
-              <line x1="0" y1="132" x2="360" y2="132" stroke="rgba(34,211,238,.3)"/>
-              <g transform="translate(118 46) scale(.62)">
-                <rect x="0" y="108" width="112" height="28" rx="14" fill="none" stroke="#22d3ee" stroke-width="3"/>
-                <rect x="10" y="68" width="84" height="40" rx="4" fill="#22d3ee" opacity=".88"/>
-                <rect x="22" y="28" width="44" height="42" rx="3" fill="none" stroke="#22d3ee" stroke-width="3"/>
-                <path d="M114 56 Q136 94 118 136 L128 136 Q146 94 124 56 Z" fill="#818cf8"/>
-              </g>
-              <g fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 4"><rect x="108" y="36" width="114" height="104" rx="3"/></g>
-              <text x="110" y="30" font-size="10" font-family="JetBrains Mono,monospace" fill="#f59e0b">machine · 0.97</text>
-              <rect class="sweep-line" x="40" y="10" width="2" height="150" fill="#22d3ee" opacity=".55"/>
-            </svg>
-          </div>
-          <div class="body">
-            <div class="sector">// Industry &amp; field operations</div>
-            <h3>Computer vision &amp; equipment data</h3>
-            <p>Turning camera footage and machine data into clear operational insight: what equipment is doing, how efficiently, and where time is lost.</p>
-            <div class="tags"><span class="tag">Computer vision</span><span class="tag">Machine telemetry</span><span class="tag">Analytics</span></div>
-            <button class="watch" data-goto="0">▶ Watch demo</button>
-          </div>
-        </article>
-
-        <!-- Network intelligence -->
-        <article class="card reveal" style="--d:.1s">
-          <div class="viz" aria-hidden="true">
-            <svg viewBox="0 0 360 170" preserveAspectRatio="xMidYMid slice">
-              <rect width="360" height="170" fill="url(#w1)"/>
-              <g transform="translate(180 90)" fill="none" stroke="#22d3ee">
-                <circle r="22" stroke-opacity=".35"/><circle r="44" stroke-opacity=".25"/><circle r="66" stroke-opacity=".15"/>
-                <circle class="pulse" r="40" stroke-width="2"/>
-                <circle class="pulse" r="40" stroke-width="2" style="animation-delay:1.2s"/>
-              </g>
-              <circle cx="180" cy="90" r="6" fill="#22d3ee"/>
-              <g font-family="JetBrains Mono,monospace" font-size="9">
-                <circle cx="226" cy="58" r="4" fill="#34d399"/><text x="234" y="61" fill="#8b98a9">Office-5G −48</text>
-                <circle cx="120" cy="126" r="4" fill="#34d399"/><text x="40" y="129" fill="#8b98a9">Warehouse −66</text>
-                <circle cx="132" cy="48" r="4" fill="#f59e0b"/><text x="46" y="51" fill="#f59e0b">Unknown −79</text>
-              </g>
-            </svg>
-          </div>
-          <div class="body">
-            <div class="sector">// IT &amp; operations</div>
-            <h3>Wireless network intelligence</h3>
-            <p>A tool that discovers and analyses Wi-Fi networks (SSIDs) across a site, highlighting weak coverage, interference and unknown access points so IT teams can fix problems before users notice.</p>
-            <div class="tags"><span class="tag">Networking</span><span class="tag">Data pipeline</span><span class="tag">Dashboard</span></div>
-            <button class="watch" data-goto="1">▶ Watch demo</button>
-          </div>
-        </article>
-
-        <!-- Forecasting -->
-        <article class="card reveal" style="--d:.2s">
-          <div class="viz" aria-hidden="true">
-            <svg viewBox="0 0 360 170" preserveAspectRatio="xMidYMid slice">
-              <rect width="360" height="170" fill="url(#w1)"/>
-              <g fill="#334155"><rect x="30" y="104" width="16" height="30"/><rect x="54" y="80" width="16" height="54"/><rect x="78" y="114" width="16" height="20"/><rect x="102" y="62" width="16" height="72"/><rect x="126" y="94" width="16" height="40"/><rect x="150" y="74" width="16" height="60"/></g>
-              <g fill="#22d3ee" opacity=".85"><rect x="186" y="84" width="16" height="50"/><rect x="210" y="56" width="16" height="78"/><rect x="234" y="96" width="16" height="38"/><rect x="258" y="72" width="16" height="62"/><rect x="282" y="104" width="16" height="30"/><rect x="306" y="116" width="16" height="18"/></g>
-              <path d="M38 100 L62 76 L86 110 L110 58 L134 90 L158 70 L194 80 L218 52 L242 92 L266 68 L290 100 L314 112" fill="none" stroke="#f59e0b" stroke-width="2"/>
-              <line x1="176" y1="30" x2="176" y2="134" stroke="#8b98a9" stroke-dasharray="3 4"/>
-              <line x1="20" y1="134" x2="340" y2="134" stroke="rgba(148,163,184,.3)"/>
-              <g font-family="JetBrains Mono,monospace" font-size="9" fill="#8b98a9"><text x="112" y="26">observed</text><text x="182" y="26" fill="#22d3ee">forecast</text></g>
-            </svg>
-          </div>
-          <div class="body">
-            <div class="sector">// Planning &amp; operations</div>
+  <!-- CAPABILITIES -->
+  <section class="wrap" id="capabilities" aria-labelledby="h-cap">
+    <div class="dock">
+      <div class="phead"><span class="idx">02</span><h2 id="h-cap">Capabilities</h2><span class="meta">5 areas · 1 lab demo</span></div>
+      <div class="dbody">
+        <p class="lead"><b>Engineering precision.</b> Software for surfaces, sensors, forecasts and site data, built for how technical work is actually done.</p>
+        <div class="grid3 caps">
+          <article class="card cap">
+            <span class="cic"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg></span>
+            <h3>3D engineering &amp; geospatial</h3>
+            <p>Surfaces, volumes, cross-sections and design tools that run in a web browser, with no desktop install. Built for people who work from survey data and need answers on screen.</p>
+            <ul class="tags"><li class="chip">SURFACES</li><li class="chip">VOLUMES</li><li class="chip">SECTIONS</li></ul>
+          </article>
+          <article class="card cap">
+            <span class="cic"><svg class="i" aria-hidden="true"><use href="#i-chart"/></svg></span>
             <h3>Forecasting &amp; simulation</h3>
-            <p>Models that forecast and simulate what happens next, from weather and demand to site conditions, so weather- and resource-sensitive decisions are made on evidence.</p>
-            <div class="tags"><span class="tag">Time series</span><span class="tag">Machine learning</span><span class="tag">Forecasting</span></div>
-            <button class="watch" data-goto="2">▶ Watch demo</button>
-          </div>
-        </article>
-
-      </div>
-      <p class="note reveal">Want to see something relevant to your business? We'll walk through examples on a call, under NDA where needed. From our lab: a small <a href="tomato/">in-browser image classifier</a> demo.</p>
-    </div>
-  </section>
-
-  <!-- PRODUCTS & PRICING -->
-  <section id="products">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Buy &amp; pricing</span>
-        <h2>Engage us, or <span class="grad-text">buy the software outright</span></h2>
-        <p>Every quote is a fixed price in Australian dollars, GST included, with a tax invoice. No lock-in contracts.</p>
-      </div>
-      <div class="cards">
-        <article class="card reveal">
-          <h3>Support plan</h3>
-          <div class="price">&gt; monthly retainer</div>
-          <p>A set block of support hours each month for AI tools, integrations and existing systems.</p>
-          <ul>
-            <li>Email and video-call support</li>
-            <li>Monitoring and maintenance</li>
-            <li>Cancel with 30 days' notice</li>
-          </ul>
-          <a class="btn btn-ghost" href="#contact" data-interest="AI technical support">Ask about support</a>
-        </article>
-        <article class="card featured reveal" style="--d:.1s">
-          <span class="tag-top">POPULAR</span>
-          <h3>Custom project</h3>
-          <div class="price">&gt; fixed scope, fixed price</div>
-          <p>A free discovery call, then a written proposal with scope, timeline and price before any work starts.</p>
-          <ul>
-            <li>Working prototype early on</li>
-            <li>Milestone-based payments</li>
-            <li>Code and IP transferred to you</li>
-          </ul>
-          <a class="btn btn-primary" href="#contact" data-interest="Custom AI software">Start a project →</a>
-        </article>
-        <article class="card reveal" style="--d:.2s">
-          <h3>Ready-made products</h3>
-          <div class="price">&gt; subscription · licence · buy-out</div>
-          <p>Packaged, proven tools from our work, configured for your data and environment.</p>
-          <ul>
-            <li>Hosted for you, or installed on your own systems</li>
-            <li>Setup and configuration included</li>
-            <li>Source-code purchase available</li>
-          </ul>
-          <a class="btn btn-ghost" href="#contact" data-interest="Buy a ready-made product">Enquire to buy</a>
-        </article>
+            <p>Models that turn historical and live inputs into forward estimates, such as weather and storm exposure or changing site conditions. Results show their assumptions and uncertainty, not a single unexplained number.</p>
+            <ul class="tags"><li class="chip">WEATHER</li><li class="chip">SITE CONDITIONS</li><li class="chip">SCENARIOS</li></ul>
+          </article>
+          <article class="card cap">
+            <span class="cic"><svg class="i" aria-hidden="true"><use href="#i-eye"/></svg></span>
+            <h3>Computer vision &amp; equipment data</h3>
+            <p>Software that reads images, camera feeds and machine or sensor data and turns them into records you can search and act on. Designed for field conditions, not just the office.</p>
+            <ul class="tags"><li class="chip">CAMERAS</li><li class="chip">SENSORS</li><li class="chip">TELEMETRY</li></ul>
+          </article>
+          <article class="card cap">
+            <span class="cic"><svg class="i" aria-hidden="true"><use href="#i-wifi"/></svg></span>
+            <h3>Wireless &amp; network intelligence</h3>
+            <p>Tools that map, monitor and make sense of wireless and network data across a site or fleet. Useful wherever coverage, device health or traffic affects operations.</p>
+            <ul class="tags"><li class="chip">COVERAGE</li><li class="chip">DEVICES</li><li class="chip">MONITORING</li></ul>
+          </article>
+          <article class="card cap">
+            <span class="cic"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></span>
+            <h3>AI assistants &amp; automation</h3>
+            <p>Assistants and workflows that search, summarise and draft from your own documents and systems. Scoped to tasks where they can save time, with people reviewing the output.</p>
+            <ul class="tags"><li class="chip">DOCUMENTS</li><li class="chip">WORKFLOWS</li><li class="chip">INTEGRATIONS</li></ul>
+          </article>
+          <article class="card cap lab">
+            <span class="cic"><svg class="i" aria-hidden="true"><use href="#i-flask"/></svg></span>
+            <h3>From our lab</h3>
+            <p>A small in-browser image classifier demo: a working example of computer vision running in a web page.</p>
+            <a class="more" href="tomato/">Open the classifier demo<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section id="process">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">How we work</span>
-        <h2>From idea to working software</h2>
+  <section class="wrap" id="process" aria-labelledby="h-proc">
+    <div class="dock">
+      <div class="phead"><span class="idx">03</span><h2 id="h-proc">How we work</h2><span class="meta">4 steps</span></div>
+      <div class="dbody">
+        <p class="lead"><b>Australian and accountable.</b> Queensland company, Australian hosting on request, Australian Privacy Principles followed voluntarily, and honest advice about where AI fits.</p>
+        <ol class="ruler">
+          <li><span class="stn">01</span><h3>Consult</h3><p>A free 30-minute call to understand the problem and tell you plainly whether software or AI is the right fix.</p></li>
+          <li><span class="stn">02</span><h3>Scope</h3><p>A written scope, a fixed price in AUD incl. GST, and milestones you can check progress against.</p></li>
+          <li><span class="stn">03</span><h3>Build</h3><p>Working software delivered milestone by milestone, reviewed with you at each step.</p></li>
+          <li><span class="stn">04</span><h3>Support</h3><p>Handover of code and documentation, with optional ongoing support on a monthly retainer.</p></li>
+        </ol>
       </div>
-      <div class="steps">
-        <div class="step reveal" style="--d:0s"><span class="k">01 / DISCOVER</span><h3>Free consult</h3><p>Understand the problem, your data and what success looks like.</p></div>
-        <div class="step reveal" style="--d:.25s"><span class="k">02 / PROTOTYPE</span><h3>Proof of concept</h3><p>A quick prototype on your real data, so you see value before committing to a full build.</p></div>
-        <div class="step reveal" style="--d:.5s"><span class="k">03 / BUILD</span><h3>Build &amp; deploy</h3><p>Production-ready software, deployed to your cloud, our hosting, or on-premises.</p></div>
-        <div class="step reveal" style="--d:.75s"><span class="k">04 / SUPPORT</span><h3>Run &amp; improve</h3><p>Monitoring, improvements and help when you need it, on a plan that suits you.</p></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="wrap" id="pricing" aria-labelledby="h-price">
+    <div class="dock">
+      <div class="phead"><span class="idx">04</span><h2 id="h-price">Engagement models</h2><span class="meta">AUD incl. GST</span></div>
+      <div class="dbody">
+        <p class="lead"><b>Commercial certainty.</b> Fixed scope, fixed price in AUD incl. GST, milestone payments, and the code is yours once paid.</p>
+        <div class="grid3 price">
+          <article class="card">
+            <h3>Retainer</h3>
+            <p class="eng"><em>Model</em><span>monthly retainer · AI technical support</span></p>
+            <ul class="ticks">
+              <li>Agreed scope of support each month</li>
+              <li>Set-up, monitoring, troubleshooting and training</li>
+              <li>Scope reviewed as your needs change</li>
+            </ul>
+            <a class="btn ghost" href="#contact" data-interest="AI technical support">Discuss a retainer</a>
+          </article>
+          <article class="card feat">
+            <h3>Fixed-price project</h3>
+            <p class="eng"><em>Model</em><span>fixed scope · fixed price · milestone payments</span></p>
+            <ul class="ticks">
+              <li>Price agreed before work starts</li>
+              <li>Pay as each milestone is delivered</li>
+              <li>You own the code and IP once paid</li>
+            </ul>
+            <a class="btn" href="#contact" data-interest="Custom software">Request a quote</a>
+          </article>
+          <article class="card">
+            <h3>Product</h3>
+            <p class="eng"><em>Model</em><span>subscription, licence or source-code buy-out</span></p>
+            <ul class="ticks">
+              <li>Configured for your data</li>
+              <li>Choose a subscription, a licence, or own the source</li>
+              <li>Optional support</li>
+            </ul>
+            <a class="btn ghost" href="#contact" data-interest="Ready-made product">Ask about products</a>
+          </article>
+        </div>
+        <p class="note">All prices quoted in AUD, including GST.</p>
       </div>
     </div>
   </section>
 
   <!-- INDUSTRIES -->
-  <section id="industries">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Who we work with</span>
-        <h2>Built for Australian industry</h2>
-        <p>Small and medium businesses across Australia, working remotely Australia-wide.</p>
-      </div>
-      <div class="chips reveal">
-        <span class="chip">Construction &amp; civil</span>
-        <span class="chip">Mining &amp; resources</span>
-        <span class="chip">Agriculture</span>
-        <span class="chip">Trades &amp; field services</span>
-        <span class="chip">Logistics &amp; warehousing</span>
-        <span class="chip">Retail &amp; hospitality</span>
-        <span class="chip">Professional services</span>
+  <section class="wrap" id="industries" aria-labelledby="h-ind">
+    <div class="dock">
+      <div class="phead"><span class="idx">05</span><h2 id="h-ind-l">Industries</h2><span class="meta">6 sectors</span></div>
+      <div class="dbody split">
+        <h3 class="display" id="h-ind">Built for work that happens outside the office.</h3>
+        <ul class="inds">
+          <li class="tile"><b>01</b><span>Mining &amp; resources</span></li>
+          <li class="tile"><b>02</b><span>Construction &amp; civil</span></li>
+          <li class="tile"><b>03</b><span>Agriculture</span></li>
+          <li class="tile"><b>04</b><span>Trades &amp; field services</span></li>
+          <li class="tile"><b>05</b><span>Logistics</span></li>
+          <li class="tile"><b>06</b><span>Professional services</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq">
-    <div class="wrap faq-grid">
-      <div class="section-head reveal">
-        <span class="eyebrow">FAQ</span>
-        <h2>Common questions</h2>
-        <p>Anything else? Email <a href="mailto:info@dumc.com.au">info@dumc.com.au</a>.</p>
-      </div>
-      <div class="reveal">
-        <details>
-          <summary>Where is our data stored?</summary>
-          <p>Wherever suits you. We can deploy to Australian cloud regions (such as AWS Sydney or Azure Australia East), to your own cloud account, or on-premises. We handle personal information in line with the Australian Privacy Principles.</p>
-        </details>
-        <details>
-          <summary>Who owns the software?</summary>
-          <p>For custom projects, you own the code and IP once paid. For ready-made products you can subscribe, license, or purchase the source code outright.</p>
-        </details>
-        <details>
-          <summary>We're not sure AI is right for us. Can you help?</summary>
-          <p>Yes. The first consult is free, and we'll tell you honestly if a simpler, non-AI solution would serve you better.</p>
-        </details>
-        <details>
-          <summary>Do you only work remotely?</summary>
-          <p>We work remotely Australia-wide by default, with on-site visits available by arrangement.</p>
-        </details>
-        <details>
-          <summary>How do payments work?</summary>
-          <p>All prices are in AUD and include GST. Projects are invoiced by milestone; support plans and subscriptions are billed monthly.</p>
-        </details>
+  <section class="wrap" id="faq" aria-labelledby="h-faq">
+    <div class="dock">
+      <div class="phead"><span class="idx">06</span><h2 id="h-faq">FAQ</h2><span class="meta">6 answers</span></div>
+      <div class="dbody faq">
+        <div>
+          <details><summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>Where is our data stored?</summary><p>Where you choose. We can host in Australia on request, and we'll document where each part of the system stores and processes data, including any third-party AI services.</p></details>
+          <details><summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>Who owns the software you build?</summary><p>You do. Once a custom project is paid for, the code and IP are yours. Ready-made products are licensed to you, unless you choose a source-code buy-out.</p></details>
+          <details><summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>Is AI right for our business?</summary><p>Sometimes. AI suits some tasks, like searching documents, drafting and classifying, and is a poor fit for others. In the free consult we'll give you a straight answer, including when conventional software or no change is the better option.</p></details>
+        </div>
+        <div>
+          <details><summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>Do you work remotely or on-site?</summary><p>We work remotely across Australia, Monday to Friday AEST. If you think an on-site visit would help, raise it in the consult and we'll discuss whether it's practical.</p></details>
+          <details><summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>How do payments and GST work?</summary><p>All quotes are in AUD and include GST. Custom projects are paid by milestone; retainers are billed monthly. Accounts questions go to <a href="mailto:account@dumc.com.au">account@dumc.com.au</a>.</p></details>
+          <details><summary><svg class="i" aria-hidden="true"><use href="#i-chev"/></svg>Will you keep our information confidential?</summary><p>Yes. We can sign an NDA before you share anything sensitive, we follow the Australian Privacy Principles voluntarily, and we use your data only for your project.</p></details>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <div class="wrap grid">
-      <div class="reveal">
-        <span class="eyebrow">Contact</span>
-        <h2>Tell us what you're <span class="grad-text">working on</span></h2>
-        <p class="lead">Send a few lines about your problem or the product you're interested in. We reply within one business day.</p>
-        <ul class="contact-list">
-          <li><span class="k">enquiries</span><a href="mailto:info@dumc.com.au">info@dumc.com.au</a></li>
-          <li><span class="k">accounts</span><a href="mailto:account@dumc.com.au">account@dumc.com.au</a></li>
-          <li><span class="k">hours</span><span>Mon–Fri, 9am–5pm AEST</span></li>
-          <li><span class="k">service_area</span><span>Australia-wide</span></li>
-        </ul>
+  <section class="wrap" id="contact" aria-labelledby="h-contact">
+    <div class="dock">
+      <div class="phead"><span class="idx">07</span><h2 id="h-contact-l">Contact</h2><span class="meta">Mon–Fri AEST</span></div>
+      <div class="dbody contact">
+        <div class="cinfo">
+          <h3 class="display" id="h-contact">Start with a free 30-minute consult.</h3>
+          <p class="sub">Tell us what you're trying to fix. We reply within one business day, Monday to Friday AEST. No cost, no obligation.</p>
+          <dl class="kv big">
+            <dt>Enquiries</dt><dd><a href="mailto:info@dumc.com.au">info@dumc.com.au</a></dd>
+            <dt>Accounts</dt><dd><a href="mailto:account@dumc.com.au">account@dumc.com.au</a></dd>
+            <dt>Hours</dt><dd>Mon–Fri · AEST</dd>
+            <dt>Region</dt><dd>Australia-wide</dd>
+          </dl>
+        </div>
+        <form class="form" id="contact-form" novalidate>
+          <div class="fhead"><span>NEW ENQUIRY</span><span class="sp"></span><span class="fto">to: info@dumc.com.au</span></div>
+          <div class="fgrid">
+            <div class="f"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required /></div>
+            <div class="f"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required /></div>
+            <div class="f"><label for="f-company">Company <span class="opt">(optional)</span></label><input id="f-company" name="company" autocomplete="organization" /></div>
+            <div class="f"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" /></div>
+            <div class="f wide"><label for="f-interest">What do you need?</label>
+              <div class="sel"><select id="f-interest" name="interest">
+                <option>AI technical support</option>
+                <option>Custom software</option>
+                <option>Ready-made product</option>
+                <option selected>Not sure yet</option>
+              </select><svg class="i" aria-hidden="true"><use href="#i-down"/></svg></div>
+            </div>
+            <div class="f wide"><label for="f-message">Tell us about the problem</label><textarea id="f-message" name="message" rows="5" required></textarea></div>
+          </div>
+          <div class="fact">
+            <button class="btn" type="submit">Send enquiry</button>
+            <p class="fmsg" id="form-msg" role="status"></p>
+          </div>
+          <p class="small">We use your details only to respond to your enquiry. See our <a href="privacy.html">Privacy Policy</a>. Prefer email? <a href="mailto:info@dumc.com.au">info@dumc.com.au</a></p>
+        </form>
       </div>
-      <form id="contact-form" class="reveal" style="--d:.1s" novalidate>
-        <div class="form-head">$ dumc enquiry --new <b>● ready</b></div>
-        <div class="two">
-          <label>NAME<input name="name" autocomplete="name" required /></label>
-          <label>COMPANY<input name="company" autocomplete="organization" /></label>
-        </div>
-        <div class="two">
-          <label>EMAIL<input name="email" type="email" autocomplete="email" required /></label>
-          <label>PHONE<input name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" /></label>
-        </div>
-        <label>INTERESTED IN
-          <select name="interest" id="interest">
-            <option>AI technical support</option>
-            <option>Custom AI software</option>
-            <option>Buy a ready-made product</option>
-            <option>Not sure yet</option>
-          </select>
-        </label>
-        <label>MESSAGE<textarea name="message" required placeholder="What would you like to solve?"></textarea></label>
-        <button class="btn btn-primary" type="submit">Send enquiry →</button>
-        <p style="color:var(--dim);font-size:.8rem;margin:0" class="mono">Opens your email app with the details filled in.</p>
-      </form>
     </div>
   </section>
-
 </main>
 
-<footer>
+<footer class="foot">
   <div class="wrap">
-    <span>© <span id="year">2026</span> DUMC Pty Ltd · AI software &amp; technical support · Australia</span>
-    <!-- Add once registered: <span>ABN xx xxx xxx xxx</span> -->
-    <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:info@dumc.com.au">info@dumc.com.au</a></span>
+    <a class="brand sm" href="#top" aria-label="DUMC, back to top"><svg class="i mark" aria-hidden="true"><use href="#i-mark"/></svg><span>DU<b>MC</b></span></a>
+    <p>© <span id="year">2026</span> DUMC Pty Ltd · Queensland, Australia · <a href="mailto:info@dumc.com.au">info@dumc.com.au</a> · <a href="mailto:account@dumc.com.au">account@dumc.com.au</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+    <!-- Add once registered: ACN xxx xxx xxx · ABN xx xxx xxx xxx -->
   </div>
 </footer>
 
-<script>
-(() => {
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+<div class="bbar" id="bbar">
+  <div class="wrap">
+    <div class="cmdout" id="cmdout" hidden>
+      <div class="phead">Command output<span class="sp"></span><button class="ib sm" type="button" id="cmdout-x" aria-label="Close output"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+      <div class="cbody" id="cmdout-body"></div>
+    </div>
+    <form class="cmdrow" id="cmdrow" role="search" aria-label="Command line">
+      <label for="cmd">Command</label>
+      <span class="pfx" aria-hidden="true">dumc:~$</span>
+      <input id="cmd" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go" placeholder='Type a command, or try "help"' aria-describedby="cmdmsg" />
+      <kbd class="kbd" aria-hidden="true">/</kbd>
+      <output id="cmdmsg" class="cmdmsg" aria-live="polite"></output>
+    </form>
+    <div class="status" id="status" aria-label="Status">
+      <span class="st"><em>AEST</em><b id="clock">--:--:--</b><em>MON–FRI</em></span>
+      <span class="st"><em>Region:</em><b>AU</b></span>
+      <span class="st"><em>Status:</em><i class="dot" aria-hidden="true"></i><b>ACCEPTING PROJECTS</b></span>
+      <span class="st"><em>Reply:</em><b>≤ 1 BUSINESS DAY</b></span>
+      <span class="st"><em>Quotes:</em><b>AUD INCL. GST</b></span>
+      <span class="st cur" aria-hidden="true"><em>X</em><b data-s="x">—</b><em>Y</em><b data-s="y">—</b><em>RL</em><b data-s="z">—</b></span>
+    </div>
+  </div>
+</div>
 
-  // Remove the old root-scope service worker left over from the previous app.
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.getRegistrations().then((regs) => {
-      regs.forEach((r) => { if (new URL(r.scope).pathname === new URL(".", location).pathname) r.unregister(); });
-    });
-  }
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  /* ---------- Particle network background ---------- */
-  const canvas = document.getElementById("net");
-  if (!reduce && canvas.getContext) {
-    const ctx = canvas.getContext("2d");
-    let w, h, dpr, pts = [], mouse = { x: -1e4, y: -1e4 }, raf;
-    const resize = () => {
-      dpr = Math.min(devicePixelRatio || 1, 2);
-      w = innerWidth; h = innerHeight;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.min(80, Math.round((w * h) / 18000));
-      pts = Array.from({ length: n }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25,
-      }));
-    };
-    const tick = () => {
-      ctx.clearRect(0, 0, w, h);
-      for (const p of pts) {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > w) p.vx *= -1;
-        if (p.y < 0 || p.y > h) p.vy *= -1;
-      }
-      for (let i = 0; i < pts.length; i++) {
-        const a = pts[i];
-        for (let j = i + 1; j < pts.length; j++) {
-          const b = pts[j], dx = a.x - b.x, dy = a.y - b.y, d = dx * dx + dy * dy;
-          if (d < 18000) {
-            ctx.strokeStyle = `rgba(56,189,248,${(1 - d / 18000) * .22})`;
-            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
-          }
-        }
-        const mx = a.x - mouse.x, my = a.y - mouse.y, md = mx * mx + my * my;
-        if (md < 30000) {
-          ctx.strokeStyle = `rgba(167,139,250,${(1 - md / 30000) * .5})`;
-          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
-        }
-        ctx.fillStyle = "rgba(125,211,252,.7)";
-        ctx.fillRect(a.x - 1, a.y - 1, 2, 2);
-      }
-      raf = requestAnimationFrame(tick);
-    };
-    resize(); tick();
-    addEventListener("resize", resize);
-    addEventListener("pointermove", (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
-    document.addEventListener("visibilitychange", () => { if (document.hidden) cancelAnimationFrame(raf); else tick(); });
-  }
-
-  /* ---------- Typewriter ---------- */
-  const typed = document.getElementById("typed");
-  const words = ["Technical support.", "Custom software.", "Ready-made products.", "Built in Australia."];
-  if (!reduce) {
-    let wi = 0, ci = words[0].length, del = true;
-    const step = () => {
-      if (del) { ci--; if (ci === 0) { del = false; wi = (wi + 1) % words.length; } }
-      else { ci++; }
-      typed.textContent = words[wi].slice(0, ci) || " ";
-      let t = del ? 35 : 75;
-      if (!del && ci === words[wi].length) { del = true; t = 2200; }
-      setTimeout(step, t);
-    };
-    setTimeout(step, 2200);
-  }
-
-  /* ---------- Demo window: scene switching ---------- */
-  const demo = document.getElementById("demo");
-  const tabs = [...demo.querySelectorAll(".tab")];
-  const scenes = [...demo.querySelectorAll(".scene")];
-  const pathEl = document.getElementById("demo-path");
-  let current = 0;
-  const show = (i) => {
-    if (i === current) return;
-    const prev = scenes[current];
-    prev.classList.remove("active"); prev.classList.add("leaving");
-    setTimeout(() => prev.classList.remove("leaving"), 700);
-    scenes[i].classList.add("active");
-    tabs.forEach((t, k) => { t.classList.toggle("active", k === i); t.setAttribute("aria-selected", k === i); });
-    pathEl.textContent = scenes[i].dataset.path;
-    current = i;
-    sceneStart[i]?.();
-  };
-  tabs.forEach((t, i) => {
-    t.addEventListener("click", () => show(i));
-    // Auto-advance when the progress bar finishes (pauses on hover via CSS).
-    t.querySelector(".bar").addEventListener("animationend", () => { if (!reduce) show((i + 1) % scenes.length); });
-  });
-  document.querySelectorAll("[data-goto]").forEach((b) => b.addEventListener("click", () => {
-    show(+b.dataset.goto);
-    demo.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
-  }));
-  // Pause auto-advance while the demo is off screen.
-  new IntersectionObserver(([e]) => demo.classList.toggle("paused", !e.isIntersecting)).observe(demo);
-
-  // Live-looking values inside each scene.
-  const $ = (id) => document.getElementById(id);
-  const rand = (a, b) => a + Math.random() * (b - a);
-  const t0 = Date.now();
-  const states = [["PUSHING", "var(--green)"], ["PUSHING", "var(--green)"], ["RETURNING", "var(--cyan)"], ["IDLE", "var(--amber)"]];
-  let cycles = 41, si = 0;
-  setInterval(() => {
-    const s = Math.floor((Date.now() - t0) / 1000) + 8 * 3600 + 12 * 60;
-    $("dz-clock").textContent = [s / 3600, (s / 60) % 60, s % 60].map((v) => String(Math.floor(v)).padStart(2, "0")).join(":");
-    if (current !== 0) return;
-    $("dz-load").style.setProperty("--w", rand(55, 92).toFixed(0) + "%");
-    $("dz-util").style.setProperty("--w", rand(58, 74).toFixed(0) + "%");
-  }, 1000);
-  setInterval(() => {
-    if (current !== 0) return;
-    si = (si + 1) % states.length;
-    $("dz-state").textContent = states[si][0]; $("dz-state").style.color = states[si][1];
-    if (si === 0) $("dz-cycles").textContent = ++cycles;
-  }, 2250);
-  setInterval(() => {
-    if (current !== 1) return;
-    demo.querySelectorAll(".rssi").forEach((r) => { r.textContent = Math.round(+r.dataset.base + rand(-3, 3)); });
-  }, 900);
-  const countTo = (el, to, dec, suffix = "") => {
-    const start = performance.now(), dur = 1600;
-    const f = (now) => {
-      const k = Math.min(1, (now - start) / dur), e = 1 - Math.pow(1 - k, 3);
-      el.textContent = (to * e).toFixed(dec) + suffix;
-      if (k < 1) requestAnimationFrame(f);
-    };
-    requestAnimationFrame(f);
-  };
-  const sceneStart = { 2: () => { countTo($("rain-p"), 68, 0, "%"); countTo($("rain-mm"), 12.4, 1); } };
-
-  /* ---------- Scroll reveal ---------- */
-  const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-  }), { threshold: .12 });
-  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-  /* ---------- Card spotlight follows cursor ---------- */
-  document.querySelectorAll(".card").forEach((c) => c.addEventListener("pointermove", (e) => {
-    const r = c.getBoundingClientRect();
-    c.style.setProperty("--mx", e.clientX - r.left + "px");
-    c.style.setProperty("--my", e.clientY - r.top + "px");
-  }));
-
-  /* ---------- Contact form -> email ---------- */
-  document.querySelectorAll("[data-interest]").forEach((a) =>
-    a.addEventListener("click", () => { $("interest").value = a.dataset.interest; })
-  );
-  $("contact-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const f = e.target;
-    if (!f.reportValidity()) return;
-    const d = Object.fromEntries(new FormData(f));
-    const subject = `Enquiry: ${d.interest}${d.company ? " — " + d.company : ""}`;
-    const body = [
-      `Name: ${d.name}`,
-      d.company ? `Company: ${d.company}` : null,
-      `Email: ${d.email}`,
-      d.phone ? `Phone: ${d.phone}` : null,
-      `Interested in: ${d.interest}`,
-      "",
-      d.message,
-    ].filter((x) => x !== null).join("\n");
-    location.href = `mailto:info@dumc.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-})();
-</script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
