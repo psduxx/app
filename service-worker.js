@@ -1,27 +1,17 @@
-const CACHE_NAME = "tomatoe-app-cache-v1";
-const urlsToCache = [
-  "./",
-  "./index.html",
-  "./manifest.json",
-  "./icon-192.png",
-  "./icon-512.png"
-  // 可根据需要加入模型等文件路径
-];
+// Retired service worker.
+// The site root used to host a cache-first PWA. Browsers that installed it
+// would keep serving the old cached page, so this version clears every cache,
+// unregisters itself and reloads open tabs onto the live site.
+self.addEventListener("install", () => self.skipWaiting());
 
-// 安装阶段缓存文件
-self.addEventListener("install", function(event) {
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(urlsToCache);
-    })
-  );
-});
-
-// 响应请求
-self.addEventListener("fetch", function(event) {
-  event.respondWith(
-    caches.match(event.request).then(function(response) {
-      return response || fetch(event.request);
-    })
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((k) => caches.delete(k)));
+      await self.registration.unregister();
+      const clients = await self.clients.matchAll({ type: "window" });
+      clients.forEach((c) => c.navigate(c.url));
+    })()
   );
 });
