@@ -40,7 +40,7 @@ We may update the Site and these terms at any time. Changes apply from the time 
 
 ## 9. Governing law
 
-These terms are governed by the laws of [State], Australia. You and we submit to the non-exclusive jurisdiction of the courts of [State] and the courts that can hear appeals from them.
+These terms are governed by the laws of Queensland, Australia. You and we submit to the non-exclusive jurisdiction of the courts of Queensland and the courts that can hear appeals from them.
 
 ## 10. Contact
 
