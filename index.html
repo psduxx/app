@@ -22,7 +22,7 @@
     "@type": "ProfessionalService",
     "name": "DUMC",
     "description": "AI software development, AI products and technical support for Australian businesses.",
-    "email": "hello@dumc.com.au",
+    "email": "info@dumc.com.au",
     "areaServed": { "@type": "Country", "name": "Australia" },
     "currenciesAccepted": "AUD",
     "knowsAbout": ["Artificial intelligence", "Machine learning", "Computer vision", "Forecasting", "Custom software", "Technical support"]
@@ -196,7 +196,7 @@
     .caption { position: absolute; left: 3cqw; bottom: 2.6cqw; font: 600 2.4cqw var(--mono); color: var(--text); display: flex; align-items: center; gap: 1.4cqw; }
     .caption .chip-sm { color: var(--cyan); border: 1px solid rgba(34,211,238,.4); border-radius: 1cqw; padding: .3cqw 1.2cqw; font-size: 2cqw; }
 
-    /* Dozer scene */
+    /* Vision scene */
     .dz-move { animation: dozer 9s ease-in-out infinite; }
     .scan { animation: scan 3.2s linear infinite; }
     .rec { animation: blink 1.2s infinite; }
@@ -207,7 +207,7 @@
     @keyframes bboxPulse { 50% { opacity: .55; } }
     @keyframes treads { to { stroke-dashoffset: -16; } }
 
-    /* SSID scene */
+    /* Network scene */
     .ssid { position: absolute; inset: 0; display: grid; grid-template-columns: 44% 1fr; align-items: center; gap: 3cqw; padding: 4cqw 4cqw 9cqw; }
     .radar { position: relative; width: 100%; aspect-ratio: 1; border-radius: 50%;
       background:
@@ -382,7 +382,7 @@
     <a class="brand" href="#top" aria-label="DUMC home"><img src="favicon.svg" alt="" /> DUMC <span class="status">ALL SYSTEMS OPERATIONAL</span></a>
     <nav aria-label="Main">
       <a href="#services">Services</a>
-      <a href="#work">Recent work</a>
+      <a href="#work">Capabilities</a>
       <a href="#products">Buy &amp; pricing</a>
       <a href="#faq">FAQ</a>
       <a class="btn btn-primary btn-sm" href="#contact">Get in touch</a>
@@ -403,7 +403,7 @@
         <p class="lead">We support and integrate the AI tools you already use, build custom software when off-the-shelf won't do, and sell ready-made AI products you can deploy straight away.</p>
         <div class="ctas">
           <a class="btn btn-primary" href="#contact">Book a free 30-min consult →</a>
-          <a class="btn btn-ghost" href="#work">See recent work</a>
+          <a class="btn btn-ghost" href="#work">See what we build</a>
         </div>
         <ul class="trust">
           <li>Australian-based team</li>
@@ -418,18 +418,18 @@
         <div class="demo-inner">
           <div class="demo-bar">
             <span class="dots"><i></i><i></i><i></i></span>
-            <span class="path" id="demo-path">dumc://demo/dozer-vision</span>
+            <span class="path" id="demo-path">dumc://demo/computer-vision</span>
             <span class="live">LIVE</span>
           </div>
           <div class="tabs" role="tablist" aria-label="Project demos">
-            <button class="tab active" role="tab" aria-selected="true" data-scene="0"><b>01</b>DOZER<span class="bar"></span></button>
-            <button class="tab" role="tab" aria-selected="false" data-scene="1"><b>02</b>SSID<span class="bar"></span></button>
-            <button class="tab" role="tab" aria-selected="false" data-scene="2"><b>03</b>RAIN<span class="bar"></span></button>
+            <button class="tab active" role="tab" aria-selected="true" data-scene="0"><b>01</b>VISION<span class="bar"></span></button>
+            <button class="tab" role="tab" aria-selected="false" data-scene="1"><b>02</b>NETWORK<span class="bar"></span></button>
+            <button class="tab" role="tab" aria-selected="false" data-scene="2"><b>03</b>FORECAST<span class="bar"></span></button>
           </div>
           <div class="screen">
 
-            <!-- Scene 1: Dozer vision -->
-            <div class="scene active" data-path="dumc://demo/dozer-vision" role="tabpanel" aria-label="Dozer equipment vision demo">
+            <!-- Scene 1: Computer vision -->
+            <div class="scene active" data-path="dumc://demo/computer-vision" role="tabpanel" aria-label="Computer vision demo">
               <svg viewBox="0 0 480 315" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <defs>
                   <pattern id="g1" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="rgba(148,163,184,.07)"/></pattern>
@@ -459,7 +459,7 @@
                     <path d="M-10 128 V114 H6"/><path d="M168 114 H184 V128"/><path d="M-10 228 V244 H6"/><path d="M168 244 H184 V228"/>
                   </g>
                   <rect x="-10" y="96" width="112" height="16" rx="3" fill="#f59e0b"/>
-                  <text x="-4" y="108" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#04121a">DOZER · 0.97</text>
+                  <text x="-4" y="108" font-family="JetBrains Mono,monospace" font-size="10" font-weight="600" fill="#04121a">MACHINE · 0.97</text>
                 </g>
                 <rect class="scan" x="0" y="0" width="480" height="18" fill="url(#scanG)"/>
                 <g font-family="JetBrains Mono,monospace" font-size="10" fill="#8b98a9">
@@ -474,11 +474,11 @@
                 <div class="k">UTILISATION</div><div class="meter"><i id="dz-util" style="--w:64%"></i></div>
                 <div><span class="k">CYCLES </span><span class="v" id="dz-cycles">41</span></div>
               </div>
-              <div class="caption">Equipment vision <span class="chip-sm">object detection</span></div>
+              <div class="caption">Computer vision <span class="chip-sm">object detection</span></div>
             </div>
 
-            <!-- Scene 2: SSID network intelligence -->
-            <div class="scene" data-path="dumc://demo/ssid-scan" role="tabpanel" aria-label="SSID wireless network scan demo">
+            <!-- Scene 2: Network intelligence -->
+            <div class="scene" data-path="dumc://demo/ssid-scan" role="tabpanel" aria-label="Wireless network scan demo">
               <div class="ssid">
                 <div class="radar">
                   <div class="sweep"></div>
@@ -499,8 +499,8 @@
               <div class="caption">Wireless network intelligence <span class="chip-sm">5 networks found</span></div>
             </div>
 
-            <!-- Scene 3: Rain model -->
-            <div class="scene" data-path="dumc://demo/rain-forecast" role="tabpanel" aria-label="Rainfall forecasting demo">
+            <!-- Scene 3: Forecasting -->
+            <div class="scene" data-path="dumc://demo/rain-forecast" role="tabpanel" aria-label="Forecasting model demo">
               <svg viewBox="0 0 480 315" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <defs>
                   <pattern id="g3" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="rgba(148,163,184,.06)"/></pattern>
@@ -549,7 +549,7 @@
                 <div style="font-size:5.4cqw; font-weight:600; line-height:1.2" class="grad-text" id="rain-p">0%</div>
                 <div><span class="k">EXPECTED </span><span class="v" id="rain-mm">0.0</span><span class="k"> mm</span></div>
               </div>
-              <div class="caption">Rainfall forecasting <span class="chip-sm">ML time series</span></div>
+              <div class="caption">Forecasting <span class="chip-sm">ML time series</span></div>
             </div>
 
           </div>
@@ -624,13 +624,13 @@
   <section id="work" class="work">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Recent work</span>
-        <h2>Selected projects</h2>
-        <p>A short look at what we've delivered recently. Client names are withheld under confidentiality.</p>
+        <span class="eyebrow">What we build</span>
+        <h2>Capabilities</h2>
+        <p>The kinds of systems we design and deliver. Client work is confidential; we're happy to walk through relevant examples on a call under NDA.</p>
       </div>
       <div class="cards">
 
-        <!-- Dozer -->
+        <!-- Computer vision -->
         <article class="card reveal">
           <div class="viz" aria-hidden="true">
             <svg viewBox="0 0 360 170" preserveAspectRatio="xMidYMid slice">
@@ -644,20 +644,20 @@
                 <path d="M114 56 Q136 94 118 136 L128 136 Q146 94 124 56 Z" fill="#818cf8"/>
               </g>
               <g fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 4"><rect x="108" y="36" width="114" height="104" rx="3"/></g>
-              <text x="110" y="30" font-size="10" font-family="JetBrains Mono,monospace" fill="#f59e0b">dozer · 0.97</text>
+              <text x="110" y="30" font-size="10" font-family="JetBrains Mono,monospace" fill="#f59e0b">machine · 0.97</text>
               <rect class="sweep-line" x="40" y="10" width="2" height="150" fill="#22d3ee" opacity=".55"/>
             </svg>
           </div>
           <div class="body">
-            <div class="sector">// Construction &amp; mining</div>
-            <h3>Dozer — heavy-equipment AI</h3>
-            <p>AI tooling for earthmoving equipment that turns machine data and site footage into clear operational insight: what the machine is doing, how efficiently, and where time is lost.</p>
+            <div class="sector">// Industry &amp; field operations</div>
+            <h3>Computer vision &amp; equipment data</h3>
+            <p>Turning camera footage and machine data into clear operational insight: what equipment is doing, how efficiently, and where time is lost.</p>
             <div class="tags"><span class="tag">Computer vision</span><span class="tag">Machine telemetry</span><span class="tag">Analytics</span></div>
             <button class="watch" data-goto="0">▶ Watch demo</button>
           </div>
         </article>
 
-        <!-- SSID -->
+        <!-- Network intelligence -->
         <article class="card reveal" style="--d:.1s">
           <div class="viz" aria-hidden="true">
             <svg viewBox="0 0 360 170" preserveAspectRatio="xMidYMid slice">
@@ -677,14 +677,14 @@
           </div>
           <div class="body">
             <div class="sector">// IT &amp; operations</div>
-            <h3>SSID — wireless network intelligence</h3>
+            <h3>Wireless network intelligence</h3>
             <p>A tool that discovers and analyses Wi-Fi networks (SSIDs) across a site, highlighting weak coverage, interference and unknown access points so IT teams can fix problems before users notice.</p>
             <div class="tags"><span class="tag">Networking</span><span class="tag">Data pipeline</span><span class="tag">Dashboard</span></div>
             <button class="watch" data-goto="1">▶ Watch demo</button>
           </div>
         </article>
 
-        <!-- Rain model -->
+        <!-- Forecasting -->
         <article class="card reveal" style="--d:.2s">
           <div class="viz" aria-hidden="true">
             <svg viewBox="0 0 360 170" preserveAspectRatio="xMidYMid slice">
@@ -698,16 +698,16 @@
             </svg>
           </div>
           <div class="body">
-            <div class="sector">// Agriculture &amp; planning</div>
-            <h3>Rain model — rainfall forecasting</h3>
-            <p>A machine-learning model that forecasts rainfall from weather-station and historical climate data, built to support weather-sensitive decisions such as scheduling, irrigation and site works.</p>
+            <div class="sector">// Planning &amp; operations</div>
+            <h3>Forecasting &amp; simulation</h3>
+            <p>Models that forecast and simulate what happens next, from weather and demand to site conditions, so weather- and resource-sensitive decisions are made on evidence.</p>
             <div class="tags"><span class="tag">Time series</span><span class="tag">Machine learning</span><span class="tag">Forecasting</span></div>
             <button class="watch" data-goto="2">▶ Watch demo</button>
           </div>
         </article>
 
       </div>
-      <p class="note reveal">Want more detail on any of these? We're happy to walk through a demo on a call, within confidentiality limits. From our lab: a small <a href="tomato/">in-browser image classifier</a> demo.</p>
+      <p class="note reveal">Want to see something relevant to your business? We'll walk through examples on a call, under NDA where needed. From our lab: a small <a href="tomato/">in-browser image classifier</a> demo.</p>
     </div>
   </section>
 
@@ -746,7 +746,7 @@
         <article class="card reveal" style="--d:.2s">
           <h3>Ready-made products</h3>
           <div class="price">&gt; subscription · licence · buy-out</div>
-          <p>Packaged versions of our equipment analytics, Wi-Fi network analysis and rainfall forecasting software.</p>
+          <p>Packaged, proven tools from our work, configured for your data and environment.</p>
           <ul>
             <li>Hosted for you, or installed on your own systems</li>
             <li>Setup and configuration included</li>
@@ -800,7 +800,7 @@
       <div class="section-head reveal">
         <span class="eyebrow">FAQ</span>
         <h2>Common questions</h2>
-        <p>Anything else? Email <a href="mailto:hello@dumc.com.au">hello@dumc.com.au</a>.</p>
+        <p>Anything else? Email <a href="mailto:info@dumc.com.au">info@dumc.com.au</a>.</p>
       </div>
       <div class="reveal">
         <details>
@@ -835,8 +835,8 @@
         <h2>Tell us what you're <span class="grad-text">working on</span></h2>
         <p class="lead">Send a few lines about your problem or the product you're interested in. We reply within one business day.</p>
         <ul class="contact-list">
-          <li><span class="k">email</span><a href="mailto:hello@dumc.com.au">hello@dumc.com.au</a></li>
-          <li><span class="k">support</span><a href="mailto:support@dumc.com.au">support@dumc.com.au</a></li>
+          <li><span class="k">enquiries</span><a href="mailto:info@dumc.com.au">info@dumc.com.au</a></li>
+          <li><span class="k">accounts</span><a href="mailto:account@dumc.com.au">account@dumc.com.au</a></li>
           <li><span class="k">hours</span><span>Mon–Fri, 9am–5pm AEST</span></li>
           <li><span class="k">service_area</span><span>Australia-wide</span></li>
         </ul>
@@ -872,7 +872,7 @@
   <div class="wrap">
     <span>© <span id="year">2026</span> DUMC · AI software &amp; technical support · Australia</span>
     <!-- Add once registered: <span>ABN xx xxx xxx xxx</span> -->
-    <a href="mailto:hello@dumc.com.au">hello@dumc.com.au</a>
+    <a href="mailto:info@dumc.com.au">info@dumc.com.au</a>
   </div>
 </footer>
 
@@ -1047,7 +1047,7 @@
       "",
       d.message,
     ].filter((x) => x !== null).join("\n");
-    location.href = `mailto:hello@dumc.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    location.href = `mailto:info@dumc.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 })();
 </script>

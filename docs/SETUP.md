@@ -36,13 +36,13 @@
 
 网站上用到两个地址：
 
-- `hello@dumc.com.au`：对外主邮箱（询价、联系表单）
-- `support@dumc.com.au`：技术支持（可以只是 hello 的别名，不必单独付费）
+- `info@dumc.com.au`（显示名 “DUMC”）：对外主邮箱，询价、网站联系表单都发到这里
+- `account@dumc.com.au`（显示名 “DUMC Accounts”）：财务专用，发票、账单、ATO/ASIC、银行、软件订阅都用这个
 
 ### 方案 A（推荐，专业）：Google Workspace
 
 - Business Starter，约 A$10+/用户/月（以官网报价为准），Gmail 界面，可以用自己域名收发。
-- 只需开 **1 个用户**（如 `tony@dumc.com.au`），把 `hello@`、`support@` 设为该用户的**别名**，不额外收费。
+- 两个都要能独立收发：开 **2 个用户**（`account@`、`info@`）；想省钱也可以只开 `account@` 一个用户，把 `info@` 设为别名或 Google Group（免费，但回信时要手动选发件地址）。
 - DNS 记录：
 
 | 类型 | 名称 | 值 |
@@ -50,7 +50,7 @@
 | MX   | @    | `smtp.google.com`（优先级 1） |
 | TXT  | @    | `v=spf1 include:_spf.google.com ~all` |
 | TXT  | `google._domainkey` | 在 Admin 控制台 → Apps → Gmail → Authenticate email 生成后粘贴 |
-| TXT  | `_dmarc` | `v=DMARC1; p=none; rua=mailto:hello@dumc.com.au` |
+| TXT  | `_dmarc` | `v=DMARC1; p=none; rua=mailto:account@dumc.com.au` |
 
 ### 方案 B（免费起步）：Zoho Mail（澳洲数据中心）
 
@@ -64,23 +64,23 @@
 | MX   | @    | `mx3.zoho.com.au`（50） |
 | TXT  | @    | `v=spf1 include:zoho.com.au ~all` |
 | TXT  | `zmail._domainkey` | 在 Zoho 控制台生成的 DKIM 值 |
-| TXT  | `_dmarc` | `v=DMARC1; p=none; rua=mailto:hello@dumc.com.au` |
+| TXT  | `_dmarc` | `v=DMARC1; p=none; rua=mailto:account@dumc.com.au` |
 
 > 具体 MX/SPF 值以 Zoho 控制台“域名验证”页面显示的为准。
 
 ### 方案 C（只收不发，零成本）：Cloudflare Email Routing
 
-把 `hello@` / `support@` 转发到个人 Gmail。缺点：回信会显示个人 Gmail 地址，不够专业，只适合过渡期。
+把 `info@` / `account@` 转发到个人 Gmail。缺点：回信会显示个人 Gmail 地址，不够专业，只适合过渡期。
 
 ### 上线后检查
 
-- 从外部邮箱给 `hello@dumc.com.au` 发信，确认能收到。
+- 从外部邮箱给 `info@dumc.com.au` 发信，确认能收到。
 - 从企业邮箱发信到 Gmail，打开“显示原始邮件”，确认 SPF / DKIM / DMARC 都是 **PASS**。
 - 运行 2–4 周没有问题后，把 DMARC 从 `p=none` 改成 `p=quarantine`，防止别人冒用你的域名发信。
 
 ## 4. 上线前待办
 
-- [ ] 确认三个项目（Dozer / SSID / Rain model）的描述准确，修改 `index.html` 里 “Recent work” 部分
+- [ ] 网站目前只展示能力方向，不展示具体客户或矿山项目；律师确认后再加案例
 - [ ] 拿到 ABN 后，取消页脚 `<!-- ABN -->` 注释并填上
 - [ ] 如果有固定报价（如支持计划月费），填进 “Buy & pricing” 部分
 - [ ] 联系表单目前是打开访客的邮件 App；如果想要网页直接提交，可以接 Formspree 或 Web3Forms（免费额度足够起步）
