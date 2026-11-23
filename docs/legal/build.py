@@ -70,7 +70,7 @@ TPL = """<!DOCTYPE html>
 <footer class="foot">
   <div class="wrap">
     <a class="brand sm" href="./" aria-label="DUMC home"><svg class="i mark" aria-hidden="true"><use href="#i-mark"/></svg><span>DU<b>MC</b></span></a>
-    <p>© 2026 DUMC Pty Ltd · Queensland, Australia · <a href="mailto:info@dumc.com.au">info@dumc.com.au</a> · <a href="mailto:account@dumc.com.au">account@dumc.com.au</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+    <p>© 2026 DUMC Pty Ltd · Queensland, Australia · <a href="mailto:account@dumc.com.au">account@dumc.com.au</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
   </div>
 </footer>
 <script>

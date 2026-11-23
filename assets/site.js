@@ -103,12 +103,12 @@
       d.message,
     ].filter((x) => x !== null).join("\n");
     try {
-      location.href = `mailto:info@dumc.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      location.href = `mailto:account@dumc.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       formMsg.classList.remove("err");
       formMsg.textContent = "Your email app should open with this enquiry filled in. Send it from there.";
     } catch (err) {
       formMsg.classList.add("err");
-      formMsg.textContent = "That didn't send. Please email info@dumc.com.au instead.";
+      formMsg.textContent = "That didn't send. Please email account@dumc.com.au instead.";
     }
   });
 

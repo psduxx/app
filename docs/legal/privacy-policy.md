@@ -30,7 +30,7 @@ You may contact us without giving your name (anonymously or under a pseudonym), 
 - **Hosting.** Our website is a static site hosted on GitHub Pages, which is run by GitHub, Inc. (USA). GitHub may log visitors' IP addresses and technical request data for security and operational purposes. GitHub's own privacy statement applies to that data.
 - **No cookies or analytics.** We do not currently set cookies or use analytics or advertising trackers. If that changes, we will update this policy first.
 - **Fonts.** Our pages load fonts from Google Fonts. When they load, your browser connects to Google's servers, which receive your IP address and browser details. Google's privacy policy applies to that data.
-- **Contact form.** Our contact form does not send or store anything on our website. It opens your own email app with a message addressed to info@dumc.com.au. You can review the message before you send it, and we receive it only if you send it.
+- **Contact form.** Our contact form does not send or store anything on our website. It opens your own email app with a message addressed to account@dumc.com.au. You can review the message before you send it, and we receive it only if you send it.
 
 ## 4. How we use personal information
 
@@ -81,11 +81,11 @@ If a data breach is likely to cause serious harm, we will notify affected people
 
 ## 9. Access and correction
 
-You can ask for access to the personal information we hold about you, or ask us to correct it, by emailing info@dumc.com.au. We will respond within 30 days. We may need to verify your identity first. If we refuse a request, we will tell you why (as the law allows) and how to complain. Access is free, although we may charge a reasonable fee for large requests, and we will tell you about any fee in advance.
+You can ask for access to the personal information we hold about you, or ask us to correct it, by emailing account@dumc.com.au. We will respond within 30 days. We may need to verify your identity first. If we refuse a request, we will tell you why (as the law allows) and how to complain. Access is free, although we may charge a reasonable fee for large requests, and we will tell you about any fee in advance.
 
 ## 10. Complaints
 
-If you have a privacy concern, please email info@dumc.com.au with the details. We will acknowledge your complaint within 5 business days and aim to resolve it within 30 days.
+If you have a privacy concern, please email account@dumc.com.au with the details. We will acknowledge your complaint within 5 business days and aim to resolve it within 30 days.
 
 If you are not satisfied with our response, you may be able to complain to the OAIC:
 
@@ -100,5 +100,4 @@ We may update this policy from time to time. The current version will always be 
 
 DUMC Pty Ltd
 [Registered office address]
-General and privacy enquiries: info@dumc.com.au
-Billing enquiries: account@dumc.com.au
+Enquiries (general, privacy and billing): account@dumc.com.au

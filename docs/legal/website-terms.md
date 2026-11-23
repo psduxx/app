@@ -44,6 +44,6 @@ These terms are governed by the laws of Queensland, Australia. You and we submit
 
 ## 10. Contact
 
-Questions about these terms: info@dumc.com.au
+Questions about these terms: account@dumc.com.au
 
 Last updated: 9 November 2026
