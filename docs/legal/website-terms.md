@@ -2,7 +2,7 @@
 
 # Website Terms of Use
 
-These terms apply to your use of https://dumc.com.au (the **Site**), which is operated by DUMC Pty Ltd (ACN [ACN], ABN [ABN]) ("**DUMC**", "**we**", "**us**"). By using the Site, you agree to these terms.
+These terms apply to your use of https://dumc.com.au (the **Site**), which is operated by DUMC Pty Ltd (ACN 695 871 482) ("**DUMC**", "**we**", "**us**"). By using the Site, you agree to these terms.
 
 ## 1. Information only
 

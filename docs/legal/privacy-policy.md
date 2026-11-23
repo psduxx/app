@@ -2,7 +2,7 @@
 
 # Privacy Policy
 
-**DUMC Pty Ltd** (ACN [ACN], ABN [ABN]) ("**DUMC**", "**we**", "**us**")
+**DUMC Pty Ltd** (ACN 695 871 482) ("**DUMC**", "**we**", "**us**")
 Website: https://dumc.com.au
 
 Last updated: 9 November 2026
@@ -99,5 +99,5 @@ We may update this policy from time to time. The current version will always be 
 ## 12. Contact us
 
 DUMC Pty Ltd
-[Registered office address]
+Queensland, Australia
 Enquiries (general, privacy and billing): account@dumc.com.au
