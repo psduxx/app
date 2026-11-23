@@ -149,6 +149,52 @@ footer{padding:26px 0 34px;color:var(--faint);font-size:.88rem}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between}
 footer a{color:var(--muted)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* animated readout under hero figure */
+.readout{display:grid;grid-template-columns:repeat(3,auto) 1fr;gap:6px 20px;align-items:center;padding:10px 14px;border-top:1px solid var(--rule);font-size:.8rem}
+.readout span{display:block;font:600 .7rem var(--f-cond);letter-spacing:1px;text-transform:uppercase;color:var(--faint)}
+.readout b{font:500 .95rem var(--f-num);font-variant-numeric:tabular-nums}
+.meter{height:6px;background:var(--panel2);border-radius:3px;overflow:hidden;align-self:end;margin-bottom:5px}
+.meter i{display:block;height:100%;width:100%;background:var(--accent)}
+@media (max-width:480px){.readout{grid-template-columns:repeat(3,1fr)}.meter{grid-column:1/-1}}
+
+/* software viewport */
+.sw{grid-template-columns:1.35fr .65fr;margin-bottom:28px}
+.vp{background:var(--panel);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.vp-bar{display:flex;justify-content:space-between;align-items:center;padding:6px 8px;border-bottom:1px solid var(--rule)}
+.vp-tabs{display:flex;gap:4px}
+.vp-tabs button{background:none;border:1px solid var(--rule);border-radius:4px;padding:3px 10px;font:600 .78rem var(--f-cond);letter-spacing:.8px;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.vp-tabs button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.vp-live{font:500 .72rem var(--f-num);color:var(--ok)}
+.vp-stage{position:relative;aspect-ratio:16/10;background:#0d1014}
+@media (prefers-color-scheme: light){.vp-stage{background:#f3f5f7}}
+.vp-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.vp-hud{position:absolute;font:500 .75rem var(--f-num);color:var(--muted);pointer-events:none}
+.vp-hud.tl{left:12px;top:10px;display:grid;gap:2px}
+.vp-hud.tl b{font:600 .85rem var(--f-cond);letter-spacing:1.2px;color:var(--accent)}
+.vp-hud.br{right:12px;bottom:10px}
+.vp-hud.bl{left:12px;bottom:10px;color:var(--faint)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* pipeline */
+.pipe{position:relative;margin:8px 0 28px}
+.pipe ol{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;list-style:none;margin:0;padding:0}
+.pipe li{background:var(--panel);border:1px solid var(--rule);border-radius:6px;padding:12px 14px;display:grid;gap:3px}
+.pipe li b{font:600 1rem var(--f-cond);letter-spacing:.3px}
+.pipe li span{font:400 .75rem var(--f-num);color:var(--faint)}
+.pipe-line{position:absolute;left:10%;right:10%;top:50%;height:2px;background:var(--rule2);overflow:hidden}
+.pipe-line i{position:absolute;top:-2px;width:40px;height:6px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:flow 3.6s linear infinite}
+.pipe-line i:nth-child(2){animation-delay:1.2s}.pipe-line i:nth-child(3){animation-delay:2.4s}
+@keyframes flow{from{left:-40px}to{left:100%}}
+@media (max-width:900px){.pipe ol{grid-template-columns:1fr 1fr}.pipe-line{display:none}}
+@media (max-width:520px){.pipe ol{grid-template-columns:1fr}}
+.modules{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.modules{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.modules{grid-template-columns:1fr}}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.pipe-line i{animation:none;display:none}}
 </style>
 </head>
 <body>
@@ -171,8 +217,8 @@ footer a{color:var(--muted)}
   <div class="hero">
     <div class="wrap grid">
       <div>
-        <span class="label">Mining engineering consulting · Queensland</span>
-        <h1>Mine design and engineering studies, backed by our own software.</h1>
+        <span class="label">Mining engineering · 3D software · AI</span>
+        <h1>Mine design studies, engineered in our own 3D software.</h1>
         <p class="lead">DUMC helps open-cut operations with mine design, dozer push design and pit water studies. We also set up practical AI tools for your team, so engineers spend less time on reports and more on the work.</p>
         <div class="ctas">
           <a class="btn" href="#contact">Discuss a project</a>
@@ -186,51 +232,56 @@ footer a{color:var(--muted)}
       </div>
 
       <figure class="figure" aria-labelledby="fig-cap">
-        <div class="bar"><span id="fig-cap">Dozer push design · section</span><span>illustrative</span></div>
-        <svg viewBox="0 0 640 330" role="img" aria-label="Illustrative cross-section of a dozer push design: natural surface, cut, push face into the void and spoil batter.">
+        <div class="bar"><span id="fig-cap">Dozer push design · section</span><span>illustrative · animated</span></div>
+        <svg id="push" viewBox="0 0 640 330" role="img" aria-label="Animated cross-section of a dozer push design: the dozer pushes material from the cut over the push face into the spoil, pass by pass, until cut and placed volumes balance.">
           <defs>
             <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" stroke-width="1" opacity=".35"/></pattern>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="currentColor" opacity=".08"/></pattern>
             <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker>
           </defs>
           <g style="color:var(--ink)"><rect width="640" height="330" fill="url(#grid)"/></g>
-          <!-- cut (material moved) -->
-          <path d="M40 120 C120 112 190 110 250 112 L250 112 L282 236 L40 236 Z" fill="url(#hatch)" style="color:var(--muted)"/>
-          <!-- spoil landform -->
-          <path d="M250 112 L292 112 L470 152 L560 246 L282 246 Z" fill="var(--accent)" fill-opacity=".22" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>
-          <!-- pit floor / coal -->
+          <polygon id="cutPoly" points="40,120 120,113 190,110 250,112 282,236 40,236" fill="url(#hatch)" style="color:var(--muted)"/>
+          <polygon id="spoilPoly" points="250,112 292,112 470,152 560,246 282,246" fill="var(--accent)" fill-opacity=".22" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/>
           <path d="M40 236 L282 236 L282 246 L600 246 L600 262 L40 262 Z" fill="var(--faint)" fill-opacity=".45"/>
-          <!-- natural surface -->
           <path d="M20 121 C120 112 200 108 300 114 C420 121 520 128 620 134" fill="none" stroke="var(--ink)" stroke-width="1.6" stroke-dasharray="6 5" opacity=".7"/>
-          <!-- push arrow -->
+          <g id="dozer" transform="translate(-100 -100)">
+            <rect x="-14" y="-13" width="22" height="9" rx="2" fill="var(--sel)"/>
+            <rect x="-10" y="-21" width="10" height="8" rx="1.5" fill="none" stroke="var(--sel)" stroke-width="1.6"/>
+            <rect x="-15" y="-4" width="24" height="5" rx="2.5" fill="var(--ink)" opacity=".8"/>
+            <path d="M10 -14 L14 -14 L16 1 L10 1 Z" fill="var(--accent)"/>
+          </g>
           <path d="M150 92 H330" stroke="var(--accent)" stroke-width="2" fill="none" marker-end="url(#arr)"/>
           <g font-family="JetBrains Mono, monospace" font-size="15" fill="var(--muted)">
             <text x="150" y="80">dozer push</text>
             <text x="24" y="104">natural surface</text>
-            <text x="104" y="192" fill="var(--ink)" font-weight="500">CUT</text>
-            <text x="352" y="222" fill="var(--ink)" font-weight="500">SPOIL</text>
-            <text x="312" y="140" transform="rotate(12.7 312 140)">push face</text>
+            <text x="104" y="200" fill="var(--ink)" font-weight="500">CUT</text>
+            <text x="352" y="232" fill="var(--ink)" font-weight="500">SPOIL</text>
             <text x="524" y="196">spoil</text>
             <text x="524" y="214">batter</text>
             <text x="44" y="286">pit floor / seam</text>
-            <text x="300" y="286" fill="var(--faint)">cut ≈ placed volume</text>
           </g>
           <g font-family="JetBrains Mono, monospace" font-size="13" fill="var(--faint)">
             <text x="20" y="318">0 m</text><text x="296" y="318">100 m</text><text x="572" y="318">200 m</text>
           </g>
         </svg>
+        <div class="readout">
+          <div><span>Pass</span><b id="rPass">12 / 12</b></div>
+          <div><span>Cut remaining</span><b id="rCut">0%</b></div>
+          <div><span>Placed</span><b id="rPlaced">100%</b></div>
+          <div class="meter" aria-hidden="true"><i id="rBar"></i></div>
+        </div>
       </figure>
     </div>
   </div>
 
   <section id="consulting">
     <div class="wrap">
-      <div class="head">
+      <div class="head rv">
         <span class="label">Consulting</span>
         <h2>Engineering studies for open-cut operations</h2>
         <p>Practical, checkable work: design surfaces, sections, volumes and reports your team can review and use.</p>
       </div>
-      <div class="cards">
+      <div class="cards rv">
         <article class="card">
           <span class="tag">01 · design</span>
           <h3>Mine design &amp; planning</h3>
@@ -270,31 +321,61 @@ footer a{color:var(--muted)}
 
   <section id="software">
     <div class="wrap">
-      <div class="head">
+      <div class="head rv">
         <span class="label">Our software</span>
-        <h2>An in-house mine design platform that runs in the browser</h2>
-        <p>We built our own 3D mine design tool so studies are faster and repeatable. It works with the files your site already uses, and every result can be checked in section and exported.</p>
+        <h2>An in-house 3D mine design platform that runs in the browser</h2>
+        <p>We built our own design engine so studies are faster, repeatable and checkable. It reads the files your site already uses, solves designs on a grid, and every result can be checked in section and exported.</p>
       </div>
-      <div class="sw">
-        <div class="modules">
-          <div class="module"><h3>Surfaces &amp; volumes</h3><p>Triangulated surfaces, contours, clipping and merging, cut/fill and volume-to-RL reports.</p></div>
-          <div class="module"><h3>Design tools</h3><p>Ramp design from a centreline, batter to surface, bench and pad design, string editing.</p></div>
-          <div class="module"><h3>Dozer push</h3><p>Profile generator, push sections and cost estimate, with reach solved to balance volumes.</p></div>
-          <div class="module"><h3>Water model</h3><p>Design storms over the ground: ponds fill, spill and run off; pumps draw them down.</p></div>
-          <div class="module"><h3>Solids &amp; scheduling</h3><p>Solids between surfaces, block grids, block volumes and sequencing support.</p></div>
-          <div class="module"><h3>Sections &amp; reports</h3><p>Section lines and slices, toes and crests, strip ratio and tabled outputs.</p></div>
+
+      <div class="sw rv">
+        <div class="vp">
+          <div class="vp-bar">
+            <div class="vp-tabs" role="tablist" aria-label="Viewport mode">
+              <button class="on" data-mode="0" role="tab" aria-selected="true">Surface</button>
+              <button data-mode="1" role="tab" aria-selected="false">Design</button>
+              <button data-mode="2" role="tab" aria-selected="false">Water</button>
+            </div>
+            <span class="vp-live">● live render</span>
+          </div>
+          <div class="vp-stage">
+            <canvas id="terrain" aria-hidden="true"></canvas>
+            <p class="sr-only">A procedurally generated terrain rotates in 3D. Surface mode shows hillshade and contour bands; Design mode cuts a flat pit floor into the surface; Water mode fills the pit during a storm.</p>
+            <div class="vp-hud tl"><b id="vpMode">SURFACE</b><span id="vpDesc">hillshade · contour bands 5 m</span></div>
+            <div class="vp-hud br mono"><span id="vpRead">AZ 000° · VE 1.6×</span></div>
+            <div class="vp-hud bl mono">data: illustrative</div>
+          </div>
         </div>
         <div class="spec">
           <dl class="kv">
             <dt>Imports</dt><dd>DXF strings &amp; 3D faces, Vulcan 00t, Surpac STR, CSV points</dd>
             <dt>Exports</dt><dd>DXF polylines &amp; 3D faces, Vulcan 00t</dd>
-            <dt>Runs on</dt><dd>Any modern browser, 3D in WebGL, no install</dd>
-            <dt>Data</dt><dd>Your files stay with your project; nothing is shared</dd>
-            <dt>Storms</dt><dd>Bureau of Meteorology IFD 2016 design rainfall, ARR temporal patterns</dd>
+            <dt>Engine</dt><dd>Delaunay TIN surfaces, grid solvers for design and volumes, WebGL 3D</dd>
+            <dt>Hydrology</dt><dd>BoM IFD 2016 design rainfall, ARR temporal patterns, fill–spill–merge ponding</dd>
+            <dt>Runs on</dt><dd>Any modern browser, no install; your files stay with your project</dd>
           </dl>
           <p class="note">Used on our consulting projects. Ask us about access for your team.</p>
-          <a class="btn ghost" href="#contact" style="margin-top:6px">Ask about the software</a>
+          <a class="btn ghost" href="#contact">Ask about the software</a>
         </div>
+      </div>
+
+      <div class="pipe rv" aria-label="How a study flows through the software">
+        <div class="pipe-line" aria-hidden="true"><i></i><i></i><i></i></div>
+        <ol>
+          <li><b>Survey &amp; design files</b><span>DXF · 00t · STR · CSV</span></li>
+          <li><b>Surfaces</b><span>TIN · grid · contours</span></li>
+          <li><b>Design</b><span>ramps · batters · dozer push</span></li>
+          <li><b>Analysis</b><span>volumes · sections · water</span></li>
+          <li><b>Deliverables</b><span>report · DXF · 00t</span></li>
+        </ol>
+      </div>
+
+      <div class="modules rv">
+        <div class="module"><h3>Surfaces &amp; volumes</h3><p>Triangulated surfaces, contours, clipping and merging, cut/fill and volume-to-RL reports.</p></div>
+        <div class="module"><h3>Design tools</h3><p>Ramp design from a centreline, batter to surface, bench and pad design, string editing.</p></div>
+        <div class="module"><h3>Dozer push</h3><p>Profile generator, push sections and cost estimate, with reach solved to balance volumes.</p></div>
+        <div class="module"><h3>Water model</h3><p>Design storms over the ground: ponds fill, spill and run off; pumps draw them down.</p></div>
+        <div class="module"><h3>Solids &amp; scheduling</h3><p>Solids between surfaces, block grids, block volumes and sequencing support.</p></div>
+        <div class="module"><h3>Sections &amp; reports</h3><p>Section lines and slices, toes and crests, strip ratio and tabled outputs.</p></div>
       </div>
     </div>
   </section>
@@ -307,7 +388,7 @@ footer a{color:var(--muted)}
         <p>We set up AI tools properly: connected to your documents, with sensible policies, and with people who know how to use them. Then we keep them working.</p>
         <a class="btn ghost" href="#contact" style="margin-top:8px">Talk about AI set-up</a>
       </div>
-      <div class="tiles">
+      <div class="tiles rv">
         <div class="tile"><b>Copilot, ChatGPT &amp; Claude</b><span>Choose, configure and roll out the right tools for your team.</span></div>
         <div class="tile"><b>Reports &amp; documents</b><span>Automate routine reporting, summaries and document drafting from your own data.</span></div>
         <div class="tile"><b>Policy &amp; training</b><span>A clear AI usage policy and hands-on training, so it's used safely.</span></div>
@@ -319,7 +400,7 @@ footer a{color:var(--muted)}
   <section id="process">
     <div class="wrap">
       <div class="head"><span class="label">How we work</span><h2>Simple, fixed-price engagements</h2></div>
-      <ol class="steps">
+      <ol class="steps rv">
         <li><b>Free call</b><p>Talk through the problem, the data you have and the decision it supports.</p></li>
         <li><b>Fixed quote</b><p>A written scope, timeline and price in AUD before any work starts.</p></li>
         <li><b>Deliver &amp; review</b><p>Surfaces, sections and reports you can check, with a walkthrough.</p></li>
@@ -385,6 +466,133 @@ footer a{color:var(--muted)}
     });
   }
   document.getElementById('yr').textContent = new Date().getFullYear();
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (id) { return document.getElementById(id); };
+  var onScreen = function (el, cb) { new IntersectionObserver(function (e) { cb(e[0].isIntersecting); }).observe(el); };
+
+  /* ---- scroll reveal ---- */
+  var rvo = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rvo.unobserve(e.target); } }); }, { threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(function (el) { reduce ? el.classList.add('in') : rvo.observe(el); });
+
+  /* ---- hero: dozer push, pass by pass ---- */
+  (function () {
+    var svg = $('push'); if (!svg) return;
+    var cut0 = [[40,120],[120,113],[190,110],[250,112],[282,236],[40,236]];
+    var sp0 = [[250,112],[292,112],[470,152],[560,246],[282,246]];
+    var PASSES = 12, PASS_MS = 1100, HOLD_MS = 2400, CYCLE = PASSES * PASS_MS + HOLD_MS;
+    var pts = function (a) { return a.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' '); };
+    var lerpY = function (line, x) { for (var i = 1; i < line.length; i++) { var a = line[i-1], b = line[i]; if (x <= b[0]) return a[1] + (b[1]-a[1]) * (x-a[0]) / (b[0]-a[0]); } return line[line.length-1][1]; };
+    function draw(t, u, pass) {
+      var cut = cut0.map(function (p, k) { return k < 4 ? [p[0], p[1] + (236 - p[1]) * t] : p; });
+      var sp = sp0.map(function (p) { return [p[0], 246 - (246 - p[1]) * t]; });
+      $('cutPoly').setAttribute('points', pts(cut));
+      $('spoilPoly').setAttribute('points', pts(sp));
+      var dz = $('dozer');
+      if (u == null) { dz.setAttribute('transform', 'translate(-100 -100)'); }
+      else {
+        var x = 70 + u * 360;
+        var y = x < 250 ? lerpY(cut.slice(0, 4), x) : Math.min(lerpY(sp.slice(0, 3), x), 246);
+        var ang = x < 250 ? -1.5 : Math.atan2(sp[2][1] - sp[1][1], sp[2][0] - sp[1][0]) * 180 / Math.PI * (x > 292 ? 1 : 0);
+        dz.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + (y - 1).toFixed(1) + ') rotate(' + ang.toFixed(1) + ')');
+      }
+      $('rPass').textContent = String(pass).padStart(2, '0') + ' / ' + PASSES;
+      $('rCut').textContent = Math.round((1 - t) * 100) + '%';
+      $('rPlaced').textContent = Math.round(t * 100) + '%';
+      $('rBar').style.width = (t * 100).toFixed(1) + '%';
+    }
+    if (reduce) { draw(1, null, PASSES); return; }
+    var run = false, t0 = performance.now(), raf;
+    function frame(now) {
+      var e = (now - t0) % CYCLE;
+      if (e < PASSES * PASS_MS) {
+        var k = Math.floor(e / PASS_MS), u = (e % PASS_MS) / PASS_MS;
+        draw(Math.min(1, (k + Math.max(0, (u - 0.35) / 0.65)) / PASSES), u < 0.92 ? u / 0.92 : null, k + 1);
+      } else draw(1, null, PASSES);
+      if (run) raf = requestAnimationFrame(frame);
+    }
+    onScreen(svg, function (v) { if (v && !run) { run = true; raf = requestAnimationFrame(frame); } else if (!v) { run = false; cancelAnimationFrame(raf); } });
+  })();
+
+  /* ---- software: procedural terrain viewport ---- */
+  (function () {
+    var cv = $('terrain'); if (!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d'), N = 54, light = matchMedia('(prefers-color-scheme: light)').matches;
+    var seed = 0x2f7a, rnd = function () { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+    var L = 8, lat = []; for (var q = 0; q < L * L; q++) lat.push(rnd());
+    var sm = function (t) { return t * t * (3 - 2 * t); };
+    var g = function (a, b) { return lat[((a % L) + L) % L + (((b % L) + L) % L) * L]; };
+    var vn = function (x, y) { var xi = Math.floor(x), yi = Math.floor(y), u = sm(x - xi), v = sm(y - yi), a = g(xi, yi), b = g(xi+1, yi), c = g(xi, yi+1), d = g(xi+1, yi+1); return a + (b-a)*u + (c-a)*v + (a-b-c+d)*u*v; };
+    var W = N + 1, H0 = new Float32Array(W * W), lo = 9, hi = -9;
+    for (var j = 0; j <= N; j++) for (var i = 0; i <= N; i++) {
+      var x = i / N * 3.2, y = j / N * 3.2, h = vn(x, y) * 0.62 + vn(x*2.1+5, y*2.1) * 0.26 + vn(x*4.3, y*4.3+3) * 0.12;
+      H0[j*W+i] = h; if (h < lo) lo = h; if (h > hi) hi = h;
+    }
+    for (var k = 0; k < H0.length; k++) H0[k] = (H0[k] - lo) / (hi - lo);
+    // pit footprint (ellipse) used by Design and Water modes
+    var pit = new Float32Array(W * W);
+    for (j = 0; j <= N; j++) for (i = 0; i <= N; i++) { var dx = (i/N - 0.56) / 0.2, dy = (j/N - 0.48) / 0.14, r = Math.sqrt(dx*dx + dy*dy); pit[j*W+i] = r; }
+    var FLOOR = 0.2, BATTER = 0.55;
+    var MODES = [
+      { name: 'SURFACE', desc: 'hillshade · contour bands 5 m' },
+      { name: 'DESIGN', desc: 'pit floor + batters cut to surface' },
+      { name: 'WATER', desc: 'design storm · ponding in pit' }
+    ];
+    var mode = 0, modeT = performance.now(), MODE_MS = 6500;
+    var tabs = document.querySelectorAll('.vp-tabs button');
+    function setMode(m) { mode = m; modeT = performance.now(); tabs.forEach(function (b, n) { b.classList.toggle('on', n === m); b.setAttribute('aria-selected', n === m); }); $('vpMode').textContent = MODES[m].name; $('vpDesc').textContent = MODES[m].desc; }
+    tabs.forEach(function (b, n) { b.addEventListener('click', function () { setMode(n); if (!run) render(performance.now()); }); });
+
+    var Hd = new Float32Array(W * W), cells = [];
+    for (j = 0; j < N; j++) for (i = 0; i < N; i++) cells.push(j * W + i);
+    var w = 0, h2 = 0;
+    function size() { var r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); w = cv.width = Math.round(r.width * d); h2 = cv.height = Math.round(r.height * d); }
+    function ramp(hh) { // terrain colour by elevation
+      return light ? [196 - hh*40, 186 - hh*36, 160 - hh*46] : [70 + hh*86, 76 + hh*70, 76 + hh*40];
+    }
+    function render(now) {
+      if (!w) size();
+      var p = Math.min(1, (now - modeT) / 3200), yaw = reduce ? 0.6 : now / 9000, c = Math.cos(yaw), s = Math.sin(yaw);
+      var floorNow = mode === 0 ? 2 : (mode === 1 ? 1 - (1 - FLOOR) * p : FLOOR);
+      for (var n = 0; n < H0.length; n++) { var base = H0[n]; Hd[n] = mode === 0 ? base : Math.min(base, floorNow + Math.max(0, pit[n] - 1) * BATTER + (pit[n] < 1 ? 0 : 0)); }
+      var water = mode === 2 ? FLOOR + 0.13 * (reduce ? 1 : sm(p)) : -1;
+      var S = Math.min(w, h2 * 1.6) * 0.5, Z = h2 * 0.2, cx = w / 2, cy = h2 * 0.47;
+      var px = new Float32Array(W * W), py = new Float32Array(W * W), dep = new Float32Array(N * N);
+      for (j = 0; j <= N; j++) for (i = 0; i <= N; i++) {
+        var id = j*W+i, wx = i/N - 0.5, wy = j/N - 0.5, rx = wx*c - wy*s, ry = wx*s + wy*c;
+        px[id] = cx + (rx - ry) * S * 0.866; py[id] = cy + (rx + ry) * S * 0.5 - Hd[id] * Z + Z * 0.35;
+      }
+      for (var q2 = 0; q2 < cells.length; q2++) { var id2 = cells[q2], ii = id2 % W, jj = (id2 / W) | 0, wx2 = (ii+0.5)/N - 0.5, wy2 = (jj+0.5)/N - 0.5; dep[jj*N+ii] = (wx2*c - wy2*s) + (wx2*s + wy2*c); }
+      cells.sort(function (a, b) { return dep[((a/W)|0)*N + a%W] - dep[((b/W)|0)*N + b%W]; });
+      ctx.clearRect(0, 0, w, h2);
+      for (var z = 0; z < cells.length; z++) {
+        var a = cells[z], b = a + 1, cc = a + W + 1, d = a + W;
+        var ha = (Hd[a] + Hd[b] + Hd[cc] + Hd[d]) / 4;
+        var gx = (Hd[b] + Hd[cc]) - (Hd[a] + Hd[d]), gy = (Hd[d] + Hd[cc]) - (Hd[a] + Hd[b]);
+        var shade = Math.max(0.35, Math.min(1.25, 0.9 - gx * 6 + gy * 4));
+        var col = ramp(ha), r = col[0]*shade, gg = col[1]*shade, bb = col[2]*shade;
+        if (mode === 0) { // contour line where a 5 m level crosses this cell; every 5th is an index contour
+          var cmin = Math.min(Hd[a], Hd[b], Hd[cc], Hd[d]) * 9, cmax = Math.max(Hd[a], Hd[b], Hd[cc], Hd[d]) * 9, lv = Math.floor(cmax);
+          if (lv > cmin) { var f2 = lv % 3 === 0 ? 0.55 : 0.78; r *= f2; gg *= f2; bb *= f2; }
+        }
+        if (mode > 0 && H0[a] - Hd[a] > 0.004) { r = r*0.55 + 242*0.45*shade; gg = gg*0.55 + 165*0.45*shade; bb = bb*0.55 + 22*0.45*shade; }
+        if (water > 0 && ha < water && pit[a] < 1.25) { r = light ? 40 : 30; gg = light ? 140 : 150; bb = light ? 190 : 200; }
+        ctx.fillStyle = 'rgb(' + (r|0) + ',' + (gg|0) + ',' + (bb|0) + ')';
+        ctx.beginPath(); ctx.moveTo(px[a], py[a]); ctx.lineTo(px[b], py[b]); ctx.lineTo(px[cc], py[cc]); ctx.lineTo(px[d], py[d]); ctx.closePath(); ctx.fill();
+      }
+      var az = ((yaw * 180 / Math.PI) % 360 + 360) % 360;
+      $('vpRead').textContent = mode === 2 ? 'STORM HOUR ' + String(Math.round(sm(p) * 72)).padStart(2, '0') + ' / 72 · AZ ' + az.toFixed(0).padStart(3, '0') + '°' : 'AZ ' + az.toFixed(0).padStart(3, '0') + '° · VE 1.6×';
+    }
+    var run = false, raf, last = 0;
+    function frame(now) {
+      if (now - last > 33) { if (now - modeT > MODE_MS) setMode((mode + 1) % 3); render(now); last = now; }
+      if (run) raf = requestAnimationFrame(frame);
+    }
+    addEventListener('resize', function () { w = 0; if (!run) render(performance.now()); });
+    setMode(0);
+    if (reduce) { render(performance.now() + 4000); return; }
+    onScreen(cv, function (v) { if (v && !run && !document.hidden) { run = true; raf = requestAnimationFrame(frame); } else if (!v) { run = false; cancelAnimationFrame(raf); } });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) { run = false; cancelAnimationFrame(raf); } });
+  })();
 
   var form = document.getElementById('enquiry');
   form.addEventListener('submit', function (e) {
