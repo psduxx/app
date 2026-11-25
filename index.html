@@ -250,6 +250,20 @@ footer a{color:var(--muted)}
 .tiles2 li{border-left:2px solid var(--accent);padding:2px 0 2px 12px}
 .tiles2 b{display:block;font:600 1.02rem var(--f-cond)}
 .tiles2 span{font-size:.9rem;color:var(--muted)}
+.dl{display:grid;grid-template-columns:1.45fr .55fr;gap:24px;align-items:center;margin-top:28px}
+@media (max-width:980px){.dl{grid-template-columns:1fr}}
+.dl-media{background:var(--panel);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.dl-bar{display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--rule);font:600 .75rem var(--f-cond);letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.dl-live{font:500 .72rem var(--f-num);letter-spacing:0;text-transform:none;color:var(--ok)}
+.dl-stage{aspect-ratio:1280/530;background:#0d1014}
+.dl-stage video{display:block;width:100%;height:100%;object-fit:cover}
+.dl-ctl{display:grid;grid-template-columns:auto 1fr 3.5em;gap:12px;align-items:center;padding:10px 12px;border-top:1px solid var(--rule)}
+.dl-ctl button{width:34px;height:30px;border-radius:4px;border:1px solid var(--rule2);background:var(--panel2);color:var(--ink);cursor:pointer;font-size:.8rem}
+.dl-ctl input[type=range]{width:100%;accent-color:var(--accent)}
+.dl-ctl span{font-size:.85rem;color:var(--muted);text-align:right}
+.dl-text h3{font-size:1.6rem}
+@media (max-width:520px){.dl-live{display:none}}
+.dl-text .kv{margin-top:12px}
 </style>
 </head>
 <body>
@@ -358,6 +372,31 @@ footer a{color:var(--muted)}
         </article>
       </div>
 
+      <div class="dl rv" id="dragline">
+        <div class="dl-media">
+          <div class="dl-bar"><span>Dragline · strip schedule</span><span class="dl-live">● captured in our software</span></div>
+          <div class="dl-stage">
+            <video id="dlVid" src="assets/work/dragline-schedule.mp4" poster="assets/work/dragline-poster.jpg" muted loop playsinline preload="metadata" aria-label="A strip cut into 34 blocks, mined block by block by a dragline over 38 days."></video>
+          </div>
+          <div class="dl-ctl">
+            <button type="button" id="dlPlay" aria-label="Pause">❚❚</button>
+            <input type="range" id="dlScrub" min="0" max="1000" value="0" aria-label="Scrub through the dragline schedule" />
+            <span class="mono" id="dlPct">0%</span>
+          </div>
+        </div>
+        <div class="dl-text">
+          <span class="label">Dragline</span>
+          <h3>Strip by strip, block by block</h3>
+          <p class="muted">A strip is cut into blocks along the working azimuth, each block's volume is taken between the working topo and the cut target, and the dragline is sequenced through them. Drag the slider to step through the schedule.</p>
+          <dl class="kv">
+            <dt>Blocks</dt><dd>34 · 80 × 60 m</dd>
+            <dt>Volume</dt><dd>1.47M BCM</dd>
+            <dt>Fleet</dt><dd>1 dragline · 38 days</dd>
+          </dl>
+          <p class="note">Example project; rates are illustrative.</p>
+        </div>
+      </div>
+
       <div class="onsite rv" id="onsite">
         <div>
           <span class="label">On-site support</span>
@@ -420,6 +459,7 @@ footer a{color:var(--muted)}
           <button role="tab" aria-selected="false" data-i="1"><i>02</i>Sections<b class="bar"></b></button>
           <button role="tab" aria-selected="false" data-i="2"><i>03</i>Water model<b class="bar"></b></button>
           <button role="tab" aria-selected="false" data-i="3"><i>04</i>Storm results<b class="bar"></b></button>
+          <button role="tab" aria-selected="false" data-i="4"><i>05</i>Dragline schedule<b class="bar"></b></button>
         </div>
         <div class="show-win">
           <div class="stage">
@@ -434,6 +474,9 @@ footer a{color:var(--muted)}
             </figure>
             <figure class="shot" data-dur="7" data-cap="Storm results hour by hour: rainfall, runoff, peak standing water, volume leaving the site, and the ponds that form." style="--ox:0%;--oy:68%;--z:1.35">
               <div class="kb"><img src="assets/work/water-results.jpg" alt="Water model results panel with rainfall, runoff, peak storage and ponds" loading="lazy" /><span class="callout" style="left:1.8%;top:65.4%;width:55.8%;height:5.4%"><em>159 mm storm · 69,049 m³ peak · 18 ponds</em></span></div>
+            </figure>
+            <figure class="shot" data-dur="7" data-cap="Block grid along the working azimuth, block volumes between topo and cut target, and an automatic dragline sequence with a Gantt chart." style="--ox:0%;--oy:100%;--z:1.2">
+              <div class="kb"><img src="assets/work/dragline-gantt.jpg" alt="Dragline block schedule with Gantt chart" loading="lazy" /><span class="callout" style="left:1%;top:76%;width:97.8%;height:18.4%"><em>34 blocks · 1.47M BCM · dragline · 38 days</em></span></div>
             </figure>
           </div>
           <p class="show-cap" id="showCap" aria-live="polite">Orbiting a working topography with design surfaces, cut target and reference strings.</p>
@@ -457,7 +500,7 @@ footer a{color:var(--muted)}
           <div class="module"><h3>Design tools</h3><p>Ramp design from a centreline, batter to surface, bench and pad design, string editing.</p></div>
           <div class="module"><h3>Pumps &amp; dewatering</h3><p>Place and size pumps, model draw-down after the storm, and save ponds to layers.</p></div>
           <div class="module"><h3>Water model</h3><p>Design storms over the ground: ponds fill, spill and run off; pumps draw them down.</p></div>
-          <div class="module"><h3>Solids &amp; scheduling</h3><p>Solids between surfaces, block grids, block volumes and sequencing support.</p></div>
+          <div class="module"><h3>Block scheduling</h3><p>Block grids along the working azimuth, block volumes, and dragline or truck &amp; shovel sequences with a Gantt chart.</p></div>
           <div class="module"><h3>Sections &amp; reports</h3><p>Section lines and slices, toes and crests, strip ratio and tabled outputs.</p></div>
         </div>
         <div class="spec">
@@ -618,6 +661,20 @@ footer a{color:var(--muted)}
       })(performance.now());
     }, { threshold: .5 });
     ob.observe(cmp);
+  })();
+
+  /* ---- dragline video with scrubber ---- */
+  (function () {
+    var v = $('dlVid'), r = $('dlScrub'), btn = $('dlPlay'), pct = $('dlPct'); if (!v) return;
+    var dragging = false, wantPlay = !reduce;
+    var sync = function () { if (!v.duration || dragging) return; var f = v.currentTime / v.duration; r.value = Math.round(f * 1000); pct.textContent = Math.round(f * 100) + '%'; };
+    var setBtn = function () { btn.textContent = v.paused ? '\u25B6' : '\u275A\u275A'; btn.setAttribute('aria-label', v.paused ? 'Play' : 'Pause'); };
+    v.addEventListener('timeupdate', sync); v.addEventListener('play', setBtn); v.addEventListener('pause', setBtn);
+    r.addEventListener('input', function () { dragging = true; v.pause(); wantPlay = false; if (v.duration) v.currentTime = (r.value / 1000) * v.duration; pct.textContent = Math.round(r.value / 10) + '%'; });
+    r.addEventListener('change', function () { dragging = false; });
+    btn.addEventListener('click', function () { if (v.paused) { wantPlay = true; v.play().catch(function () {}); } else { wantPlay = false; v.pause(); } });
+    setBtn();
+    onScreen(v, function (on) { if (on && wantPlay) v.play().catch(function () {}); else if (!on) v.pause(); });
   })();
 
   /* ---- hero video: pause when off-screen ---- */
