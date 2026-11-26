@@ -255,7 +255,7 @@ footer a{color:var(--muted)}
 .dl-media{background:var(--panel);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
 .dl-bar{display:flex;justify-content:space-between;padding:8px 12px;border-bottom:1px solid var(--rule);font:600 .75rem var(--f-cond);letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
 .dl-live{font:500 .72rem var(--f-num);letter-spacing:0;text-transform:none;color:var(--ok)}
-.dl-stage{aspect-ratio:1280/530;background:#0d1014}
+.dl-stage{aspect-ratio:1100/640;background:#e6ebef}
 .dl-stage video{display:block;width:100%;height:100%;object-fit:cover}
 .dl-ctl{display:grid;grid-template-columns:auto 1fr 3.5em;gap:12px;align-items:center;padding:10px 12px;border-top:1px solid var(--rule)}
 .dl-ctl button{width:34px;height:30px;border-radius:4px;border:1px solid var(--rule2);background:var(--panel2);color:var(--ink);cursor:pointer;font-size:.8rem}
@@ -374,26 +374,28 @@ footer a{color:var(--muted)}
 
       <div class="dl rv" id="dragline">
         <div class="dl-media">
-          <div class="dl-bar"><span>Dragline · strip schedule</span><span class="dl-live">● captured in our software</span></div>
+          <div class="dl-bar"><span>Dragline · machine model</span><span class="dl-live">● captured in our software</span></div>
           <div class="dl-stage">
-            <video id="dlVid" src="assets/work/dragline-schedule.mp4" poster="assets/work/dragline-poster.jpg" muted loop playsinline preload="metadata" aria-label="A strip cut into 34 blocks, mined block by block by a dragline over 38 days."></video>
+            <video id="dlVid" src="assets/work/dragline-machine.mp4" poster="assets/work/dragline-machine.jpg" muted loop playsinline preload="metadata" aria-label="A 3D walking dragline that takes itself apart into labelled parts (tub, revolving frame, machinery house, A-frame, mast, boom, ropes and bucket) and puts itself back together."></video>
           </div>
           <div class="dl-ctl">
             <button type="button" id="dlPlay" aria-label="Pause">❚❚</button>
-            <input type="range" id="dlScrub" min="0" max="1000" value="0" aria-label="Scrub through the dragline schedule" />
+            <input type="range" id="dlScrub" min="0" max="1000" value="0" aria-label="Scrub through the dragline model" />
             <span class="mono" id="dlPct">0%</span>
           </div>
         </div>
         <div class="dl-text">
           <span class="label">Dragline</span>
-          <h3>Strip by strip, block by block</h3>
-          <p class="muted">A strip is cut into blocks along the working azimuth, each block's volume is taken between the working topo and the cut target, and the dragline is sequenced through them. Drag the slider to step through the schedule.</p>
+          <h3>We model the machine, not just the pit</h3>
+          <p class="muted">Our dragline module carries the machine itself: boom length and angle, operating radius, dump height and dig depth. Every pass is checked against what the dragline can actually reach — dig and dump polygons, prime and rehandle, spoil room and pad levels. Drag the slider to step through the model.</p>
           <dl class="kv">
-            <dt>Blocks</dt><dd>34 · 80 × 60 m</dd>
-            <dt>Volume</dt><dd>1.47M BCM</dd>
-            <dt>Fleet</dt><dd>1 dragline · 38 days</dd>
+            <dt>Boom</dt><dd>99 m</dd>
+            <dt>Radius</dt><dd>90 m</dd>
+            <dt>Dump height</dt><dd>38 m</dd>
+            <dt>Dig depth</dt><dd>49 m</dd>
+            <dt>Bucket</dt><dd>47 m³</dd>
           </dl>
-          <p class="note">Example project; rates are illustrative.</p>
+          <p class="note">Example machine; set to your fleet on each job.</p>
         </div>
       </div>
 
