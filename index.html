@@ -11,7 +11,7 @@
 <meta property="og:title" content="DUMC — Mine design that knows the machine" />
 <meta property="og:description" content="Dragline, drill &amp; blast, truck &amp; shovel and mid-term design consulting, with on-site support and our own 3D design software." />
 <meta property="og:url" content="https://dumc.com.au/" />
-<meta property="og:image" content="https://dumc.com.au/assets/work/design-orbit.jpg" />
+<meta property="og:image" content="https://dumc.com.au/assets/work/hero-realistic.jpg" />
 <meta name="theme-color" content="#0d1014" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -100,7 +100,7 @@ header:not(.solid) .btn{background:#f2a516;border-color:#f2a516;color:#1b1405}
 .chips a{font:600 .85rem var(--f-cond);letter-spacing:1px;text-transform:uppercase;color:#c4ccd4;text-decoration:none;border:1px solid #3b4550;border-radius:999px;padding:7px 14px;background:rgba(11,14,18,.5);transition:border-color .2s,color .2s}
 .chips a:hover{border-color:#f2a516;color:#fff}
 .scroll-cue{position:absolute;right:24px;bottom:28px;z-index:1;font:500 .75rem var(--f-num);color:#8e9aa6;writing-mode:vertical-rl;letter-spacing:2px}
-@media (max-width:640px){.hero::after{background:linear-gradient(0deg,rgba(11,14,18,.96) 0%,rgba(11,14,18,.75) 60%,rgba(11,14,18,.35) 100%)}.scroll-cue{display:none}}
+@media (max-width:640px){.hero video,.hero .poster{height:52%;object-position:86% 50%}.hero::after{background:linear-gradient(0deg,rgb(11,14,18) 0%,rgb(11,14,18) 55%,rgba(11,14,18,0) 71%,rgba(11,14,18,0) 84%,rgba(11,14,18,.5) 100%)}.scroll-cue{display:none}}
 
 /* consulting tiles */
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
@@ -132,8 +132,9 @@ header:not(.solid) .btn{background:#f2a516;border-color:#f2a516;color:#1b1405}
 @media (max-width:900px){.app{grid-template-columns:1fr}}
 .stage{position:relative;background:var(--vp);aspect-ratio:16/9;overflow:hidden;user-select:none}
 .stage>img,.stage>video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.stage .hud{position:absolute;left:14px;top:12px;font:500 .78rem var(--f-num);color:#8e9aa6;pointer-events:none}
-.stage .hud b{display:block;font:500 clamp(1.4rem,3vw,2.2rem) var(--f-num);color:#e8ecef}
+.stage .hud{position:absolute;left:14px;top:12px;font:500 .78rem/1.3 var(--f-num);color:#8e9aa6;pointer-events:none}
+#sunStage .hud{color:#e8ecef;text-shadow:0 1px 6px rgba(0,0,0,.75)}
+.stage .hud b{display:block;font:500 clamp(1.4rem,3vw,2.2rem)/1.15 var(--f-num);color:#e8ecef}
 .stage .hint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font:500 .76rem var(--f-num);color:#c4ccd4;background:rgba(11,14,18,.75);border:1px solid #2f3741;border-radius:999px;padding:6px 14px;pointer-events:none;white-space:nowrap;transition:opacity .4s}
 .side{padding:24px;display:flex;flex-direction:column;gap:16px;border-left:1px solid var(--rule)}
 @media (max-width:900px){.side{border-left:0;border-top:1px solid var(--rule)}}
@@ -147,7 +148,7 @@ header:not(.solid) .btn{background:#f2a516;border-color:#f2a516;color:#1b1405}
 .kpi span{font:500 1.15rem var(--f-num);font-variant-numeric:tabular-nums}
 .kpi.a{border-color:#d9822b}.kpi.b{border-color:var(--blue)}.kpi.l{border-color:var(--pink)}
 .side .note{font-size:.8rem;color:var(--faint);margin-top:auto}
-.pane[hidden]{display:none}
+[hidden]{display:none!important}
 /* live level bar */
 .lvl-track{position:absolute;right:22px;top:16%;bottom:16%;width:6px;border-radius:3px;background:#2a323b;cursor:ns-resize;touch-action:none}
 .lvl-track::before{content:"";position:absolute;inset:-14px -18px}
@@ -155,6 +156,11 @@ header:not(.solid) .btn{background:#f2a516;border-color:#f2a516;color:#1b1405}
 .lvl-knob{position:absolute;left:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:#e8ecef;border:3px solid var(--blue);box-shadow:0 0 0 6px rgba(61,134,198,.25)}
 .lvl-track:focus-visible{outline:2px solid var(--accent);outline-offset:8px}
 .stage.drag{cursor:ns-resize}
+/* sun slider */
+.sun{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:14px 16px 12px;background:linear-gradient(0deg,rgba(11,14,18,.88),rgba(11,14,18,0));color:#e8ecef}
+.sun svg{width:22px;height:22px;stroke:#f2a516;fill:none;stroke-width:1.6;stroke-linecap:round}
+.sun input{width:100%;accent-color:#f2a516;height:28px}
+.sun b{font:500 1.05rem var(--f-num);min-width:3.4em;text-align:right}
 /* segmented switch */
 .seg{display:inline-flex;border:1px solid var(--rule2);border-radius:4px;overflow:hidden;align-self:flex-start}
 .seg button{font:600 .82rem var(--f-cond);letter-spacing:1px;text-transform:uppercase;background:none;border:0;color:var(--muted);padding:7px 12px;cursor:pointer}
@@ -229,7 +235,7 @@ footer a{color:var(--muted)}
 
 <main>
   <div class="hero">
-    <video src="assets/work/design-orbit.mp4" poster="assets/work/design-orbit.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+    <video src="assets/work/hero-realistic.mp4" poster="assets/work/hero-realistic.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
     <div class="wrap">
       <span class="label">Open-cut mining engineering · Queensland</span>
       <h1>Mine design that <em>knows the machine.</em></h1>
@@ -297,14 +303,39 @@ footer a{color:var(--muted)}
       </div>
 
       <div class="tabs rv" role="tablist" aria-label="Software tools">
-        <button role="tab" id="t-level" aria-controls="p-level" aria-selected="true">Live level <span class="new">NEW</span></button>
-        <button role="tab" id="t-drag" aria-controls="p-drag" aria-selected="false" tabindex="-1">Dragline</button>
+        <button role="tab" id="t-real" aria-controls="p-real" aria-selected="true">Realistic view <span class="new">NEW</span></button>
+        <button role="tab" id="t-drag" aria-controls="p-drag" aria-selected="false" tabindex="-1">Dragline <span class="new">NEW</span></button>
+        <button role="tab" id="t-level" aria-controls="p-level" aria-selected="false" tabindex="-1">Live level</button>
         <button role="tab" id="t-design" aria-controls="p-design" aria-selected="false" tabindex="-1">3D design</button>
         <button role="tab" id="t-water" aria-controls="p-water" aria-selected="false" tabindex="-1">Pit water</button>
       </div>
 
+      <!-- Realistic view -->
+      <div class="app pane rv" role="tabpanel" id="p-real" aria-labelledby="t-real">
+        <div class="stage" id="sunStage">
+          <img id="sunImg" src="assets/work/sun/sun-15.jpg" alt="A dragline in an open-cut pit drawn in our software's realistic view, with sun, shadows, soil, rock and spoil." />
+          <div class="hud">TIME OF DAY<b id="sunHud">15:00</b></div>
+          <div class="sun" id="sunCtl">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+            <input type="range" id="sunRange" min="7" max="17" step="1" value="15" aria-label="Time of day" />
+            <b id="sunTime">15:00</b>
+          </div>
+        </div>
+        <div class="side">
+          <div class="seg own" id="sunSeg" role="group" aria-label="View"><button type="button" aria-pressed="true">Realistic</button><button type="button" aria-pressed="false">Standard</button></div>
+          <h3>Realistic view</h3>
+          <p>The same design, drawn the way the ground looks. Drag the sun and watch the shadows move.</p>
+          <div class="kpis">
+            <div class="kpi"><small>Light</small><span>sun · sky · shadows</span></div>
+            <div class="kpi"><small>Ground</small><span>soil · rock · spoil</span></div>
+            <div class="kpi"><small>Quality</small><span>fits your graphics card</span></div>
+          </div>
+          <p class="note">Real output from our software on an example pit.</p>
+        </div>
+      </div>
+
       <!-- Live level -->
-      <div class="app pane rv" role="tabpanel" id="p-level" aria-labelledby="t-level">
+      <div class="app pane" role="tabpanel" id="p-level" aria-labelledby="t-level" hidden>
         <div class="stage" id="lvStage">
           <img id="lvImg" src="assets/work/level/07.jpg" alt="3D surface of an open-cut pit with a level plane cutting through it; the flooded part is shown in blue with the intersection line in pink." />
           <div class="hud">LEVEL · RL<b id="lvRl">317.2</b></div>
@@ -327,21 +358,22 @@ footer a{color:var(--muted)}
 
       <!-- Dragline -->
       <div class="app pane" role="tabpanel" id="p-drag" aria-labelledby="t-drag" hidden>
-        <div class="stage" id="dgStage">
-          <video id="dgVid" src="assets/work/dragline-machine.mp4" poster="assets/work/dragline-machine.jpg" muted loop playsinline preload="none" aria-label="A 3D walking dragline that takes itself apart into labelled parts and puts itself back together."></video>
-          <img id="dgGantt" src="assets/work/dragline-gantt.jpg" alt="Dragline block schedule with a Gantt chart." loading="lazy" hidden />
-          <div class="scrub" id="dgScrub"><button type="button" id="dgPlay" aria-label="Pause">❚❚</button><input type="range" id="dgRange" min="0" max="1000" value="0" aria-label="Scrub through the dragline model" /></div>
+        <div class="stage">
+          <video src="assets/work/dragline-pass.mp4" poster="assets/work/dragline-pass.jpg" muted loop playsinline preload="none" aria-label="A dragline digs a block, swings the loaded bucket across and dumps the spoil, which builds into a pile."></video>
+          <video src="assets/work/dragline-machine.mp4" poster="assets/work/dragline-machine.jpg" muted loop playsinline preload="none" aria-label="A detailed 3D walking dragline that takes itself apart into labelled parts and puts itself back together." hidden></video>
+          <img src="assets/work/dragline-gantt.jpg" alt="Dragline block schedule with a Gantt chart." loading="lazy" hidden />
+          <div class="scrub"><button type="button" aria-label="Pause">❚❚</button><input type="range" min="0" max="1000" value="0" aria-label="Scrub through the video" /></div>
         </div>
         <div class="side">
-          <div class="seg" role="group" aria-label="View"><button type="button" aria-pressed="true" data-v="m">Machine</button><button type="button" aria-pressed="false" data-v="s">Schedule</button></div>
+          <div class="seg" role="group" aria-label="View"><button type="button" aria-pressed="true">Pass</button><button type="button" aria-pressed="false">Machine</button><button type="button" aria-pressed="false">Schedule</button></div>
           <h3>Dragline</h3>
-          <p>The machine is part of the design. Every pass is checked against its reach, and spoil builds up to the real dump height.</p>
+          <p>Place the machine, draw the dig and the dump. It digs until the dump is full, within its real reach.</p>
           <div class="kpis">
-            <div class="kpi"><small>Boom</small><span>99 m</span></div>
-            <div class="kpi"><small>Radius</small><span>90 m</span></div>
-            <div class="kpi"><small>Dump height</small><span>38 m</span></div>
+            <div class="kpi"><small>This pass · prime</small><span>84,606 BCM</span></div>
+            <div class="kpi"><small>Spoil placed</small><span>105,758 m³</span></div>
+            <div class="kpi"><small>Boom · radius</small><span>99 m · 90 m</span></div>
           </div>
-          <p class="note">Example machine; set to your fleet on each job.</p>
+          <p class="note">Real output on an example pit. Example machine; set to your fleet on each job.</p>
         </div>
       </div>
 
@@ -390,10 +422,10 @@ footer a{color:var(--muted)}
         <p>Our software moves fast. Every improvement goes straight into client work.</p>
       </div>
       <div class="log">
-        <article class="rv"><time datetime="2026-11-25">25 Nov 2026</time><h3>Live level</h3><p>Drag a level or a second surface up and down. Volumes, solids and the intersection line, live.</p></article>
-        <article class="rv"><time datetime="2026-11-25">25 Nov 2026</time><h3>Reserves by stage</h3><p>Every stage cut on its own layer, with solids whose edges sit where they really are.</p></article>
-        <article class="rv"><time datetime="2026-11-25">25 Nov 2026</time><h3>Dragline: dig to limit</h3><p>Reach circles, the cut projected to the topo within reach, and dig until the dump is full.</p></article>
-        <article class="rv"><time datetime="2026-11-25">25 Nov 2026</time><h3>Spoil run-out</h3><p>Spoil runs out past the dump polygon and builds up to the real dump height.</p></article>
+        <article class="rv"><time datetime="2026-11-27">27 Nov 2026</time><h3>Realistic view</h3><p>Sun and shadows, sky, ground materials and loose rocks. Quality adapts to your graphics card.</p></article>
+        <article class="rv"><time datetime="2026-11-27">27 Nov 2026</time><h3>Dragline in detail</h3><p>Cladding, decks, handrails, walking gear, boom walkway, bucket teeth and chains.</p></article>
+        <article class="rv"><time datetime="2026-11-27">27 Nov 2026</time><h3>Aerial photo on the topo</h3><p>Drop an aerial photo onto the topo and see the design on the real ground.</p></article>
+        <article class="rv"><time datetime="2026-11-26">26 Nov 2026</time><h3>Dump within reach</h3><p>The dump limit follows the pad level anywhere within reach, and clearance is kept below the boom.</p></article>
       </div>
     </div>
   </section>
@@ -545,26 +577,47 @@ footer a{color:var(--muted)}
     onScreen(stage, function (on) { visible = on; if (on) preload(); if (on && !reduce && !timer) timer = setInterval(tick, 650); if (!on && timer) { clearInterval(timer); timer = null; } });
   })();
 
-  /* dragline: video with scrubber, machine / schedule switch */
+  /* realistic view: one real frame per hour of the day; drag the sun */
   (function () {
-    var v = $('dgVid'), r = $('dgRange'), btn = $('dgPlay'), dragging = false;
-    var setBtn = function () { btn.textContent = v.paused ? '▶' : '❚❚'; btn.setAttribute('aria-label', v.paused ? 'Play' : 'Pause'); };
-    v.addEventListener('timeupdate', function () { if (v.duration && !dragging) r.value = Math.round(v.currentTime / v.duration * 1000); });
-    v.addEventListener('play', setBtn); v.addEventListener('pause', setBtn);
-    r.addEventListener('input', function () { dragging = true; v.dataset.user = 1; v.pause(); if (v.duration) v.currentTime = r.value / 1000 * v.duration; });
-    r.addEventListener('change', function () { dragging = false; });
-    btn.addEventListener('click', function () { if (v.paused) { delete v.dataset.user; v.play().catch(function () {}); } else { v.dataset.user = 1; v.pause(); } });
-    setBtn();
+    var img = $('sunImg'), r = $('sunRange'), stage = $('sunStage'), seg = $('sunSeg'), std = false, user = false, dir = -1, timer = null, visible = false;
+    var src = function (h) { return 'assets/work/sun/sun-' + (h < 10 ? '0' : '') + h + '.jpg'; };
+    var preloaded = false, preload = function () { if (preloaded) return; preloaded = true; for (var h = 7; h <= 17; h++) { new Image().src = src(h); } new Image().src = 'assets/work/sun/standard.jpg'; };
+    var show = function () { var h = +r.value, t = (h < 10 ? '0' : '') + h + ':00'; $('sunTime').textContent = t; $('sunHud').textContent = std ? 'standard' : t; img.src = std ? 'assets/work/sun/standard.jpg' : src(h); r.setAttribute('aria-valuetext', t); };
+    r.addEventListener('input', function () { user = true; preload(); if (std) setStd(false); show(); });
+    var setStd = function (v) { std = v; seg.querySelectorAll('button').forEach(function (b, i) { b.setAttribute('aria-pressed', (i === 1) === std); }); $('sunCtl').style.opacity = std ? .45 : 1; };
+    seg.querySelectorAll('button').forEach(function (b, i) { b.addEventListener('click', function () { user = true; preload(); setStd(i === 1); show(); }); });
+    show();
+    // until someone touches it, the sun moves through the day by itself
+    var tick = function () { if (user || !visible || $('p-real').hidden) return; var h = +r.value + dir; if (h < 7 || h > 17) { dir = -dir; h = +r.value + dir; } r.value = h; show(); };
+    onScreen(stage, function (on) { visible = on; if (on) preload(); if (on && !reduce && !timer) timer = setInterval(tick, 900); if (!on && timer) { clearInterval(timer); timer = null; } });
   })();
-  document.querySelectorAll('.seg').forEach(function (seg) {
-    var pane = seg.closest('.pane'), vid = pane.querySelector('video'), alt = pane.querySelector('.stage img'), scrub = pane.querySelector('.scrub');
+
+  /* panes with several pictures or videos: a switch picks one; videos get a scrubber */
+  document.querySelectorAll('.pane').forEach(function (pane) {
+    var seg = pane.querySelector('.seg:not(.own)'); if (!seg) return;
+    var media = [].slice.call(pane.querySelectorAll('.stage > video, .stage > img')), cur = media[0], scrub = pane.querySelector('.scrub');
+    var range = scrub && scrub.querySelector('input'), btn = scrub && scrub.querySelector('button'), dragging = false;
+    var isV = function (m) { return m.tagName === 'VIDEO'; };
+    var setBtn = function () { if (!btn || !isV(cur)) return; btn.textContent = cur.paused ? '\u25B6' : '\u275A\u275A'; btn.setAttribute('aria-label', cur.paused ? 'Play' : 'Pause'); };
+    media.filter(isV).forEach(function (v) {
+      v.addEventListener('timeupdate', function () { if (v === cur && range && v.duration && !dragging) range.value = Math.round(v.currentTime / v.duration * 1000); });
+      v.addEventListener('play', setBtn); v.addEventListener('pause', setBtn);
+    });
+    if (range) {
+      range.addEventListener('input', function () { dragging = true; cur.dataset.user = 1; cur.pause(); if (cur.duration) cur.currentTime = range.value / 1000 * cur.duration; });
+      range.addEventListener('change', function () { dragging = false; });
+      btn.addEventListener('click', function () { if (cur.paused) { delete cur.dataset.user; cur.play().catch(function () {}); } else { cur.dataset.user = 1; cur.pause(); } });
+    }
     seg.querySelectorAll('button').forEach(function (b, i) {
       b.addEventListener('click', function () {
         seg.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-        vid.hidden = i === 1; alt.hidden = i !== 1; if (scrub) scrub.hidden = i === 1;
-        if (i === 1) vid.pause(); else if (!reduce && !vid.dataset.user) vid.play().catch(function () {});
+        media.forEach(function (m, j) { m.hidden = j !== i; if (isV(m) && j !== i) m.pause(); });
+        cur = media[i]; if (scrub) scrub.hidden = !isV(cur);
+        if (isV(cur)) { if (range) range.value = cur.duration ? Math.round(cur.currentTime / cur.duration * 1000) : 0; if (!reduce && !cur.dataset.user) cur.play().catch(function () {}); }
+        setBtn();
       });
     });
+    setBtn();
   });
 
   /* process line fills when seen */
