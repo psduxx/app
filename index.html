@@ -165,6 +165,8 @@ header:not(.solid) .btn{background:#f2a516;border-color:#f2a516;color:#1b1405}
 .seg{display:inline-flex;border:1px solid var(--rule2);border-radius:4px;overflow:hidden;align-self:flex-start}
 .seg button{font:600 .82rem var(--f-cond);letter-spacing:1px;text-transform:uppercase;background:none;border:0;color:var(--muted);padding:7px 12px;cursor:pointer}
 .seg button[aria-pressed=true]{background:var(--panel2);color:var(--ink)}
+.seg.many{flex-wrap:wrap}
+.kpis.one{grid-template-columns:1fr}
 /* video scrubber */
 .scrub{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:10px 14px;background:linear-gradient(0deg,rgba(11,14,18,.85),rgba(11,14,18,0))}
 .scrub button{width:32px;height:32px;border-radius:50%;border:1px solid #5b6672;background:rgba(11,14,18,.6);color:#e8ecef;cursor:pointer;font-size:.75rem}
@@ -380,36 +382,40 @@ footer a{color:var(--muted)}
       <!-- 3D design -->
       <div class="app pane" role="tabpanel" id="p-design" aria-labelledby="t-design" hidden>
         <div class="stage">
-          <img src="assets/work/design-sections.jpg" alt="3D mine design workspace with a pit surface and a cross-section through the design." loading="lazy" />
+          <img src="assets/work/design/cutfill.jpg" alt="A flat pad designed across an old highwall, with the cut batters in red and the fill batters in blue." loading="lazy" />
+          <img src="assets/work/design/ramp.jpg" alt="An access ramp running from the upper bench down to the pit floor, with grade labels along it." loading="lazy" hidden />
+          <img src="assets/work/design/project.jpg" alt="A flat grid of blocks above the pit and the same grid projected down onto the ground." loading="lazy" hidden />
+          <img src="assets/work/design/surface.jpg" alt="The corner of a pit drawn as a triangulated surface with contour lines." loading="lazy" hidden />
+          <img src="assets/work/design/solid.jpg" alt="A closed solid of one block of the cut, lifted above the hole it came from." loading="lazy" hidden />
+          <img src="assets/work/design/bench.jpg" alt="A three-bench pit built up from a toe string." loading="lazy" hidden />
         </div>
         <div class="side">
+          <div class="seg many" role="group" aria-label="Design tool"><button type="button" aria-pressed="true" data-text="A pad at a set level, battered to the ground: cut in red, fill in blue." data-k="Cut · fill" data-v="67,335 BCM · 28,031 m³">Cut &amp; fill</button><button type="button" aria-pressed="false" data-text="An access ramp from a centreline: 20 m wide at 10%, battered to the ground." data-k="Length · grade" data-v="246 m · 10.0%">Ramp</button><button type="button" aria-pressed="false" data-text="A flat block grid projected onto the ground, with a wall down to the surface." data-k="Blocks" data-v="16 · 40 × 60 m">Project</button><button type="button" aria-pressed="false" data-text="The ground as a surface: triangles, 1 m contours, every fifth one marked." data-k="Contours" data-v="5,267 strings">Surface</button><button type="button" aria-pressed="false" data-text="A closed solid between the ground and the floor of the cut, lifted out to show it." data-k="Volume" data-v="418,074 m³">Solid</button><button type="button" aria-pressed="false" data-text="Benches up from a toe string: 10 m high at 65°, with 8 m berms." data-k="Excavation" data-v="363,388 BCM">Bench</button></div>
           <h3>3D design</h3>
-          <p>Pits, ramps, benches and strips in 3D, with live sections through every design.</p>
-          <div class="kpis">
-            <div class="kpi"><small>Surfaces</small><span>topo · target</span></div>
-            <div class="kpi"><small>Sections</small><span>live</span></div>
-            <div class="kpi"><small>Output</small><span>CAD-ready</span></div>
+          <p data-cap>A pad at a set level, battered to the ground: cut in red, fill in blue.</p>
+          <div class="kpis one">
+            <div class="kpi"><small data-capk>Cut · fill</small><span data-capv>67,335 BCM · 28,031 m³</span></div>
           </div>
-          <p class="note">Example project.</p>
+          <p class="note">Real output from each tool on an example pit.</p>
         </div>
       </div>
 
       <!-- Pit water -->
       <div class="app pane" role="tabpanel" id="p-water" aria-labelledby="t-water" hidden>
         <div class="stage">
-          <video id="wVid" src="assets/work/water-model.mp4" poster="assets/work/water-model.jpg" muted loop playsinline preload="none" aria-label="Rain falling on a pit design; water flows downhill and ponds in the low points."></video>
-          <img id="wRes" src="assets/work/water-results.jpg" alt="Storm results: pond volumes, peak depths and pump sizing." loading="lazy" hidden />
+          <video id="wVid" src="assets/work/water-model.mp4" poster="assets/work/water-model.jpg" muted loop playsinline preload="none" aria-label="Close view of a pit floor through a 72 hour storm: water collects along the toe of the wall and in the sump, and the two ponds grow until they join."></video>
+          <img id="wRes" src="assets/work/water-flow.jpg" alt="The same pit at the peak of the storm with the paths the water runs along, each with arrows pointing downhill into the ponds." loading="lazy" hidden />
         </div>
         <div class="side">
-          <div class="seg" role="group" aria-label="View"><button type="button" aria-pressed="true" data-v="m">Storm</button><button type="button" aria-pressed="false" data-v="r">Results</button></div>
+          <div class="seg" role="group" aria-label="View"><button type="button" aria-pressed="true" data-v="m">Storm</button><button type="button" aria-pressed="false" data-v="r">Flow paths</button></div>
           <h3>Pit water</h3>
-          <p>Rain on the design: where water runs, where it ponds, and what it takes to pump out.</p>
+          <p>Rain on the design: where water runs and where it ponds, hour by hour through the storm.</p>
           <div class="kpis">
-            <div class="kpi"><small>Storm</small><span>IFD design</span></div>
-            <div class="kpi"><small>Ponds</small><span>volume · depth</span></div>
-            <div class="kpi"><small>Pumps</small><span>sized</span></div>
+            <div class="kpi"><small>Storm · 1 in 10 yr</small><span>159 mm · 72 h</span></div>
+            <div class="kpi"><small>Standing at peak</small><span>69,791 m³</span></div>
+            <div class="kpi"><small>Biggest pond</small><span>24,008 m³ · 4.6 m</span></div>
           </div>
-          <p class="note">Example project.</p>
+          <p class="note">Real output on an example pit. No pumps in this run.</p>
         </div>
       </div>
     </div>
@@ -617,6 +623,7 @@ footer a{color:var(--muted)}
         cur = media[i]; if (scrub) scrub.hidden = !isV(cur);
         if (isV(cur)) { if (range) range.value = cur.duration ? Math.round(cur.currentTime / cur.duration * 1000) : 0; if (!reduce && !cur.dataset.user) cur.play().catch(function () {}); }
         setBtn();
+        var cap = pane.querySelector('[data-cap]'); if (cap && b.dataset.text) { cap.textContent = b.dataset.text; pane.querySelector('[data-capk]').textContent = b.dataset.k; pane.querySelector('[data-capv]').textContent = b.dataset.v; }
       });
     });
     setBtn();
