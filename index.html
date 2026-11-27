@@ -313,12 +313,12 @@ footer a{color:var(--muted)}
       <!-- Realistic view -->
       <div class="app pane rv" role="tabpanel" id="p-real" aria-labelledby="t-real">
         <div class="stage" id="sunStage">
-          <img id="sunImg" src="assets/work/sun/sun-15.jpg" alt="A dragline in an open-cut pit drawn in our software's realistic view, with sun, shadows, soil, rock and spoil." />
-          <div class="hud">TIME OF DAY<b id="sunHud">15:00</b></div>
+          <img id="sunImg" src="assets/work/sun/sun-16.jpg" alt="A dragline in an open-cut pit drawn in our software's realistic view, with sun, shadows, soil, rock and spoil." />
+          <div class="hud">TIME OF DAY<b id="sunHud">16:00</b></div>
           <div class="sun" id="sunCtl">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
-            <input type="range" id="sunRange" min="7" max="17" step="1" value="15" aria-label="Time of day" />
-            <b id="sunTime">15:00</b>
+            <input type="range" id="sunRange" min="7" max="17" step="1" value="16" aria-label="Time of day" />
+            <b id="sunTime">16:00</b>
           </div>
         </div>
         <div class="side">
@@ -359,7 +359,7 @@ footer a{color:var(--muted)}
       <!-- Dragline -->
       <div class="app pane" role="tabpanel" id="p-drag" aria-labelledby="t-drag" hidden>
         <div class="stage">
-          <video src="assets/work/dragline-pass.mp4" poster="assets/work/dragline-pass.jpg" muted loop playsinline preload="none" aria-label="A dragline digs a block, swings the loaded bucket across and dumps the spoil, which builds into a pile."></video>
+          <video src="assets/work/dragline-pass.mp4" poster="assets/work/dragline-pass.jpg" muted loop playsinline preload="none" aria-label="A dragline on its bench digs a block bucket by bucket: it drags the bucket full, swings across and dumps, and the spoil heap grows."></video>
           <video src="assets/work/dragline-machine.mp4" poster="assets/work/dragline-machine.jpg" style="background:linear-gradient(#dfe9f2,#e9edee 50%,#f4f1ea)" muted loop playsinline preload="none" aria-label="A detailed 3D walking dragline that takes itself apart into labelled parts and puts itself back together." hidden></video>
           <img src="assets/work/dragline-gantt.jpg" alt="Dragline block schedule with a Gantt chart." loading="lazy" hidden />
           <div class="scrub"><button type="button" aria-label="Pause">❚❚</button><input type="range" min="0" max="1000" value="0" aria-label="Scrub through the video" /></div>
@@ -369,11 +369,11 @@ footer a{color:var(--muted)}
           <h3>Dragline</h3>
           <p>Place the machine, draw the dig and the dump. It digs until the dump is full, within its real reach.</p>
           <div class="kpis">
-            <div class="kpi"><small>This pass · prime</small><span>84,606 BCM</span></div>
-            <div class="kpi"><small>Spoil placed</small><span>105,758 m³</span></div>
+            <div class="kpi"><small>This pass · prime</small><span>63,524 BCM</span></div>
+            <div class="kpi"><small>Spoil placed</small><span>79,405 m³</span></div>
             <div class="kpi"><small>Boom · radius</small><span>99 m · 90 m</span></div>
           </div>
-          <p class="note">Real output on an example pit. Example machine; set to your fleet on each job.</p>
+          <p class="note">Real output on an example pit, sped up: each bucket shown stands for about 300. Example machine; set to your fleet on each job.</p>
         </div>
       </div>
 
@@ -587,9 +587,11 @@ footer a{color:var(--muted)}
     var setStd = function (v) { std = v; seg.querySelectorAll('button').forEach(function (b, i) { b.setAttribute('aria-pressed', (i === 1) === std); }); $('sunCtl').style.opacity = std ? .45 : 1; };
     seg.querySelectorAll('button').forEach(function (b, i) { b.addEventListener('click', function () { user = true; preload(); setStd(i === 1); show(); }); });
     show();
-    // until someone touches it, the sun moves through the day by itself
-    var tick = function () { if (user || !visible || $('p-real').hidden) return; var h = +r.value + dir; if (h < 7 || h > 17) { dir = -dir; h = +r.value + dir; } r.value = h; show(); };
-    onScreen(stage, function (on) { visible = on; if (on) preload(); if (on && !reduce && !timer) timer = setInterval(tick, 900); if (!on && timer) { clearInterval(timer); timer = null; } });
+    // the first time it is seen, the sun runs once through the afternoon and rests at 16:00
+    var seq = [10, 11, 12, 13, 14, 15, 16], si = 0, played = false;
+    var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
+    var tick = function () { if (user || si >= seq.length) { stop(); return; } if (!visible || $('p-real').hidden) return; r.value = seq[si++]; show(); };
+    onScreen(stage, function (on) { visible = on; if (on) preload(); if (on && !reduce && !played) { played = true; timer = setInterval(tick, 650); } });
   })();
 
   /* panes with several pictures or videos: a switch picks one; videos get a scrubber */
